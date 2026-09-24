@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<MedievalPrincipality.label>Княжество</MedievalPrincipality.label>
+	<MedievalPrincipality.description>Тихое средневековое княжество нов. Не такое воинственное, как их сородичи из Королевства: здешние князья предпочитают торговые караваны военным знамёнам — хотя их алебардщики не менее опасны, если их разозлить.</MedievalPrincipality.description>
+	<MedievalPrincipality.pawnSingular>княжество</MedievalPrincipality.pawnSingular>
+	<MedievalPrincipality.pawnsPlural>княжество</MedievalPrincipality.pawnsPlural>
+	<MedievalPrincipality.leaderTitle>князь</MedievalPrincipality.leaderTitle>
+</LanguageData>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef ParentName="RoofThing">
+		<defName>AncientStoneRoofFraming</defName>
+		<label>ancient stone roofing</label>
+		<description>A crude but effective thick stone roof built using ancient techniques. Requires significantly more stone than modern methods, but can be researched earlier.</description>
+		<designationCategory>Zone</designationCategory>
+		<statBases>
+			<MaxHitPoints>500</MaxHitPoints>
+			<WorkToBuild>300</WorkToBuild>
+		</statBases>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>90</costStuffCount>
+		<comps>
+			<li Class="ExpandedRoofing.CompProperties_CustomRoof">
+				<compClass>ExpandedRoofing.CompMaintainableRoof</compClass>
+				<roofDef>ThickStoneRoof</roofDef>
+			</li>
+		</comps>
+		<researchPrerequisites>
+			<li>AncientStoneRoof</li>
+		</researchPrerequisites>
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+	</ThingDef>
+</Defs>

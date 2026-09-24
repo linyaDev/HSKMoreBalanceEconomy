@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Племенной военный торговец (Caravan_Neolithic_WarMerchant): вернуть
+	     добавки CE — FSX, прометеум и скупку патронов. CE добавляет их своим
+	     патчем, но CE грузится раньше Core_SK_CoreModule, а тот целиком заменяет
+	     stockGenerators — добавки стираются. У прочих оружейных торговцев сток
+	     не переписывается, у них всё на месте. Наш мод грузится последним.
+	     Генератор Ammo с нулевым количеством ничего не продаёт, но включает
+	     скупку патронов у игрока. -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TraderKindDef[defName="Caravan_Neolithic_WarMerchant"]/stockGenerators</xpath>
+		<value>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>FSX</thingDef>
+				<countRange>5~20</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Prometheum</thingDef>
+				<countRange>5~20</countRange>
+			</li>
+			<li Class="StockGenerator_Category">
+				<categoryDef>Ammo</categoryDef>
+				<thingDefCountRange>0~0</thingDefCountRange>
+			</li>
+			<!-- Скупка всех луков: у луков HSK нет tradeTag WeaponRanged (в отличие
+			     от огнестрела), поэтому штатный генератор торговца их не берёт.
+			     Категория BowRanged, ноль видов на продажу — только скупка. -->
+			<li Class="StockGenerator_Category">
+				<categoryDef>BowRanged</categoryDef>
+				<thingDefCountRange>0~0</thingDefCountRange>
+			</li>
+		</value>
+	</Operation>
+
+	<!-- Племенной оптовик: тоже возит FSX -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TraderKindDef[defName="Caravan_Neolithic_BulkGoods"]/stockGenerators</xpath>
+		<value>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>FSX</thingDef>
+				<countRange>5~20</countRange>
+			</li>
+		</value>
+	</Operation>
+
+	<!-- Шаман: нейротренажёры навыков и пситренажёры (псионика). Скромнее
+	     имперского торговца (у того псайтрейнеры 2 вида по 0-2). Без Royalty
+	     категория пситренажёров пуста — генератор просто ничего не даст. -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TraderKindDef[defName="Caravan_Neolithic_ShamanMerchant"]/stockGenerators</xpath>
+		<value>
+			<li Class="StockGenerator_Category">
+				<categoryDef>NeurotrainersSkill</categoryDef>
+				<thingDefCountRange>1~2</thingDefCountRange>
+				<countRange>1~1</countRange>
+			</li>
+			<li Class="StockGenerator_Category">
+				<categoryDef>NeurotrainersPsycast</categoryDef>
+				<thingDefCountRange>1~2</thingDefCountRange>
+				<countRange>0~1</countRange>
+			</li>
+		</value>
+	</Operation>
+</Patch>

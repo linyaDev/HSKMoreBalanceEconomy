@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Никто не носит индустриальную медицину в инвентаре: меняем её на травы прямо в
+	     inventoryOptions пешкокайндов (рейдеры, беженцы, гости и т.п.). Источник, а не Harmony.
+	     Торговцев не задевает: они получают медицину через торговый сток (TraderKindDef), а не
+	     через inventoryOptions. //li — на случай вложенных subOptions. -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/PawnKindDef/inventoryOptions//li[thingDef="MedicineIndustrial"]/thingDef</xpath>
+		<value>
+			<thingDef>HerbMedicine</thingDef>
+		</value>
+	</Operation>
+</Patch>

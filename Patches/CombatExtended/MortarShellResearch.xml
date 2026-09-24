@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- HE миномётные снаряды: исследование Mortars -> Machining (Огнестрельное оружие I) -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/RecipeDef[defName="MakeShell_HighExplosive"]/researchPrerequisite</xpath>
+		<value><researchPrerequisite>Machining</researchPrerequisite></value>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<AllowRepairableApparel.label>пригодное к починке</AllowRepairableApparel.label>
+	<AllowRepairableApparel.description>Одежда, которую ещё можно чинить обычной починкой (лимит починок не исчерпан). Сними галочку, чтобы склад принимал только одежду с исчерпанной починкой — кандидатов на полное восстановление.</AllowRepairableApparel.description>
+	<AllowRepairableWeapons.label>пригодное к починке</AllowRepairableWeapons.label>
+	<AllowRepairableWeapons.description>Оружие, которое ещё можно чинить обычной починкой (лимит починок не исчерпан). Сними галочку, чтобы склад принимал только оружие с исчерпанной починкой — кандидатов на полное восстановление.</AllowRepairableWeapons.description>
+	<AllowMendExhaustedApparel.label>больше нельзя чинить</AllowMendExhaustedApparel.label>
+	<AllowMendExhaustedApparel.description>Одежда, у которой исчерпан лимит обычной починки (чинится только полным восстановлением). Сними галочку, чтобы склад принимал только одежду, пригодную к обычной починке.</AllowMendExhaustedApparel.description>
+	<AllowMendExhaustedWeapons.label>больше нельзя чинить</AllowMendExhaustedWeapons.label>
+	<AllowMendExhaustedWeapons.description>Оружие, у которого исчерпан лимит обычной починки (чинится только полным восстановлением). Сними галочку, чтобы склад принимал только оружие, пригодное к обычной починке.</AllowMendExhaustedWeapons.description>
+</LanguageData>

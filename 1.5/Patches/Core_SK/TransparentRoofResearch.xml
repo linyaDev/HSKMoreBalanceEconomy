@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Transparent roof: Construction_B3 -> Autodoors (Construction V) -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="RoofTransparentFraming"]/researchPrerequisites/li[text()="Construction_B3"]</xpath>
+		<value><li>Autodoors</li></value>
+	</Operation>
+</Patch>

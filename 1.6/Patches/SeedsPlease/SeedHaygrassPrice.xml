@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Семена сенотравы в 8 раз дешевле. SeedsPlease вычисляет цену семян от
+	     растения (Seeds.dll, AssignMarketValueFromHarvest): для сенотравы HSK
+	     выходит ~5.27 серебра (сено 0.6 x (8/2.5 + 2.5/8) x 2.5). Явно заданный
+	     MarketValue > 0 код не трогает — задаём 5.27/8 = 0.66. -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/SeedsPlease.SeedDef[defName="Seed_Haygrass"]</xpath>
+		<value>
+			<statBases>
+				<MarketValue>0.66</MarketValue>
+			</statBases>
+		</value>
+	</Operation>
+</Patch>

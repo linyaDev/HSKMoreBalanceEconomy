@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!-- Плывун — результат терраформинга скалистой грязи. По статам — копия
+	     HSK-грязи (Mud в паке: pathCost 30, ~30% скорости), бесплодный,
+	     мостится, следы, грязь.
+	     Без driesTo: в отличие от грязи не высыхает в почву (иначе терраформ
+	     давал бы бесплатную плодородную землю). Текстура грязи с песчаным тоном. -->
+	<TerrainDef ParentName="NaturalTerrainBase">
+		<defName>HMH_Quicksand</defName>
+		<label>quicksand</label>
+		<description>Waterlogged shifting sand. Slow to cross and useless for growing, but it can be bridged over. Can be filled back into rocky dirt via terraforming.</description>
+		<texturePath>Terrain/Surfaces/Mud</texturePath>
+		<color>(0.95, 0.88, 0.7)</color>
+		<edgeType>FadeRough</edgeType>
+		<categoryType>Soil</categoryType>
+		<renderPrecedence>329</renderPrecedence>
+		<pathCost>30</pathCost>
+		<statBases>
+			<Beauty>-3</Beauty>
+			<BeautyOutdoors>0</BeautyOutdoors>
+			<Cleanliness>-2</Cleanliness>
+		</statBases>
+		<affordances>
+			<li>Bridgeable</li>
+			<li>WaterproofConduitable</li>
+			<li>Light</li>
+			<li>Diggable</li>
+		</affordances>
+		<generatedFilth>Filth_Dirt</generatedFilth>
+		<fertility>0</fertility>
+		<takeFootprints>True</takeFootprints>
+		<avoidWander>true</avoidWander>
+		<tools>
+			<li>
+				<label>quicksand</label>
+				<capacities>
+					<li>KickMaterialInEyes</li>
+				</capacities>
+				<hediff>MudInEyes</hediff>
+				<cooldownTime>1.5</cooldownTime>
+			</li>
+		</tools>
+	</TerrainDef>
+
+</Defs>

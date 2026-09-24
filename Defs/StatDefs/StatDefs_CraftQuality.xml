@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<StatDef>
+		<defName>HSK_CraftQualityFactor</defName>
+		<label>quality when crafted</label>
+		<description>Chance to keep each quality tier when an item is crafted from this material. Lower values make crafted items more likely to come out at poor quality. 100% means no effect.</description>
+		<category>BasicsNonPawn</category>
+		<defaultBaseValue>1</defaultBaseValue>
+		<minValue>0</minValue>
+		<maxValue>1</maxValue>
+		<toStringStyle>PercentZero</toStringStyle>
+		<displayPriorityInCategory>2000</displayPriorityInCategory>
+	</StatDef>
+
+</Defs>

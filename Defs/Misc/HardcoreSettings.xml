@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<HSKMoreHardcore.HardcoreSettingsDef>
+		<defName>HSK_HardcoreSettings</defName>
+		<label>HSK Hardcore Settings</label>
+
+		<!-- Множитель стоимости крафта патронов (ингредиенты) -->
+		<ammoCraftCostMultiplier>3</ammoCraftCostMultiplier>
+		<!-- Множитель стоимости крафта стрел (MakeAmmo_Arrow_*) -->
+		<arrowCraftCostMultiplier>1</arrowCraftCostMultiplier>
+		<!-- Множитель стоимости крафта болтов (MakeAmmo_Bolt_*) -->
+		<boltCraftCostMultiplier>2</boltCraftCostMultiplier>
+		<!-- Материалы-исключения: их количество в рецептах патронов не множится -->
+		<ammoCraftExcludedMaterials>
+			<li>ElectronicComponents</li>
+			<!-- Гильзы добавлены патчем AmmoCartridgeCases.xml, расход там задан
+			     по классу калибра и множиться не должен -->
+			<li>CartridgeCase_Pistol</li>
+			<li>CartridgeCase_Shotgun</li>
+			<li>CartridgeCase_Rifle</li>
+			<li>CartridgeCase_Sniper</li>
+			<li>CartridgeCase_Heavy</li>
+		</ammoCraftExcludedMaterials>
+		<!-- Рецепты патронов, исключённые из множителя стоимости -->
+		<ammoCraftExcludedRecipes>
+			<li>MakeAmmo_StoneBall</li>
+			<li>MakeAmmo_ExplosiveBall</li>
+			<!-- Пилумы — неолитный расходник, как стрелы (в CE 60% возврат после броска) -->
+			<li>MakeAmmo_Pilum</li>
+			<!-- Дротики духовой трубки — как стрелы, без множителя -->
+			<li>MakeAmmo_Dart</li>
+			<li>MakeAmmo_Dart_Stone</li>
+			<li>MakeAmmo_Dart_Metal</li>
+		</ammoCraftExcludedRecipes>
+		<!-- Множитель размера глубинных залежей (1/7 = ~0.143) -->
+		<deepResourceMultiplier>0.143</deepResourceMultiplier>
+		<!-- Минимум серебра у торговцев (0 = отключено, серебро как сгенерировалось) -->
+		<traderSilverMinimum>0</traderSilverMinimum>
+		<!-- Шанс отрастания дерева (0.03 = вырастет 3% деревьев; 1.0 — ваниль).
+		     Начальную генерацию карты не затрагивает — только отрастание по ходу игры. -->
+		<treeRegrowthChance>0.03</treeRegrowthChance>
+		<!-- Срок жизни деревьев: growDays * значение (ваниль 8 — дуб жил ~4.7 лет
+		     и лес вымирал сам при нашем нерфе отрастания; 48 — дуб ~28 лет) -->
+		<treeLifespanDaysPerGrowDays>48</treeLifespanDaysPerGrowDays>
+		<!-- Множители цены при продаже игроком. Правила проверяются сверху вниз,
+		     срабатывает первое подходящее. Отбор — по любому из признаков:
+		         categories    — категории вещи, с учётом вложенных
+		         thingDefs     — конкретные вещи по defName
+		         requireStat   — стат задан в дефе со значением больше нуля
+		     Плюс исключения: excludedCategories, excludedThingDefs.
+		     Точечные sellPriceOverrides ниже приоритетнее любого правила. -->
+		<sellPriceRules>
+			<li>
+				<label>топливо</label>
+				<!-- Всё со статом печного топлива: дрова, доски, бамбук, уголь,
+				     древесный уголь, торф, жир, растопка, химтопливо — включая
+				     топливо из других модов пака. -->
+				<multiplier>0.15</multiplier>
+				<requireStat>BurnDurationHours</requireStat>
+				<excludedCategories>
+					<li>HCM</li> <!-- руды: олово, алюминий -->
+					<li>SuperMaterialCat</li> <!-- антиматерия -->
+				</excludedCategories>
+			</li>
+			<li>
+				<label>медикаменты</label>
+				<!-- Категория Medicine: травяная, индустриальная, глиттер и
+				     аптечки модов пака. Идёт выше еды: травяная медицина лежит
+				     ещё и в PlantMatter, но под правило еды не попадает. -->
+				<multiplier>0.3</multiplier>
+				<categories>
+					<li>Medicine</li>
+				</categories>
+			</li>
+			<li>
+				<label>электроника</label>
+				<!-- Категория ElectronicsCat: электронные компоненты, интегральные
+				     схемы, микрочипы, биоэлектроника, детали робота, сонар.
+				     Крафт из них выгоднее сырья вдвое-втрое (компонент стоит 240
+				     при себестоимости ~120, схема 550 при ~214), а у пакового
+				     ComponentIndustrial, из которого они и делаются, стоит
+				     SellPriceFactor 0.5 — без этого правила переработка компонентов
+				     в электронику работала как денежный станок. Берём 0.3: у
+				     половины наценка крафта всё ещё отбивалась. -->
+				<multiplier>0.3</multiplier>
+				<categories>
+					<li>ElectronicsCat</li>
+				</categories>
+			</li>
+			<li>
+				<label>бетон</label>
+				<!-- Бетон стоит 6 при себестоимости 1.5: 45 песка и 30 щебня
+				     на 15 единиц, оба по 0.3 и копаются на карте бесконечно.
+				     Железобетон — 16 за блок, наполовину из того же бетона
+				     (10 бетона и 10 дешёвого металла на 8 блоков).
+				     Точечно: оба лежат в ConstructionParts вместе с прутками
+				     и прочей стройкой. -->
+				<multiplier>0.15</multiplier>
+				<thingDefs>
+					<li>ConcreteResource</li>
+					<li>ReinforcedConcrete</li>
+				</thingDefs>
+			</li>
+			<li>
+				<label>нефтехимия</label>
+				<!-- Категории Chemical (пластик, резина, синтетическое волокно,
+				     синтетический аммиак, парафины, сера, сульфаты) и
+				     Hydrocarbons (сырая нефть, полимеры, бочка нефти).
+				     Всё это тянется из нефти: полимеры гонит Rimefeller-овский
+				     PolymerRefiner из химтоплива, платим только электричеством,
+				     а дальше из полимеров делается пластик, резина и волокно.
+				     Номинальная цена сырья тут фикция, поэтому ставим 0.15 —
+				     столько же, сколько у топлива, источник-то один.
+				     Карбон сюда попадает сам (он в Hydrocarbons), а вот его
+				     сплав лежит в ConstructionParts вместе с прутками и прочей
+				     стройкой — категорию целиком брать нельзя, дописываем его
+				     отдельной строкой. Там же кевлар: 30 пластика и 15 волокна
+				     на 10 штук, то есть та же нефть, но лежит он в HTextiles
+				     рядом с велюром и хитиновыми пластинами. -->
+				<multiplier>0.15</multiplier>
+				<categories>
+					<li>Chemical</li>
+					<li>Hydrocarbons</li>
+				</categories>
+				<thingDefs>
+					<li>CarbonAlloy</li>
+					<li>Kevlar</li>
+				</thingDefs>
+			</li>
+			<li>
+				<label>еда</label>
+				<!-- Категория Foods целиком: готовые блюда (FoodMeals), сырьё
+				     (FoodRaw), продукты животноводства. Наркотики сюда не входят —
+				     они в Manufactured/Drugs. Продаём за 0.5, покупаем за 0.3:
+				     на еде можно зарабатывать, но закупаться ей всё равно
+				     дешевле, чем растить. -->
+				<multiplier>0.5</multiplier>
+				<categories>
+					<li>Foods</li>
+				</categories>
+			</li>
+		</sellPriceRules>
+		<!-- Животные, доставшиеся даром по событию (пришедшее стадо, боевые и
+		     караванные животные, самоприручившийся зверь) продаются за 30%.
+		     Метку ставит FreeAnimalMark, она видна в осмотре животного. -->
+		<freeAnimalSellMultiplier>0.3</freeAnimalSellMultiplier>
+		<!-- Прирученные вручную дикие животные — за полцены. Рождённые в колонии
+		     метки не получают и продаются по полной цене. -->
+		<tamedAnimalSellMultiplier>0.5</tamedAnimalSellMultiplier>
+		<!-- Стальной дождь: пауза между письмом и первыми осколками.
+		     1800 тиков = 30 секунд на обычной скорости, 10 на тройной.
+		     Длину самого дождя не меняет — он просто начинается позже. -->
+		<razorRainStartDelayTicks>1800</razorRainStartDelayTicks>
+		<!-- Время полёта метеорита Core_SK до удара. Паковое 220~300 (около
+		     четырёх секунд) зашито в коде SK.Events.MeteorIncoming, поэтому
+		     переписывается патчем MeteorFallDelay. Задержка общая для всех трёх
+		     событий с метеоритами: MeteoriteImpact (одиночный с ресурсом),
+		     EclipseMeteorImpact (во время затмения) и BoulderMassHit (дождь,
+		     сыплет метеориты волнами через Thing_MeteorSpawner). -->
+		<meteorTicksToImpact>450~750</meteorTicksToImpact>
+		<!-- Восстановление нефтяных залежей Rimefeller: множитель к его RegenRate
+		     поверх настроек самого мода. 0 — нефть не возвращается, качаем до дна. -->
+		<oilFieldRegenMultiplier>0</oilFieldRegenMultiplier>
+		<!-- Гейты событий по техуровню (события, формы жуткого присоединившегося,
+		     фракции гостей и внезапных рейдов) переехали в отдельный мод
+		     HSK More Balance: Quests and Events, файл Defs/Misc/EventSettings.xml -->
+		<!-- Серебро гостей Hospitality по техуровню их фракции: множитель к серебру,
+		     которое выдаёт сам Hospitality (снаряжение вида пешки не трогается).
+		     Нет строки — без изменений. -->
+		<guestSilverMultiplierByTech>
+			<li><key>Neolithic</key><value>3</value></li>
+			<li><key>Medieval</key><value>5</value></li>
+			<li><key>Industrial</key><value>7</value></li>
+			<li><key>Spacer</key><value>9</value></li>
+			<li><key>Ultra</key><value>9</value></li>
+			<li><key>Archotech</key><value>9</value></li>
+		</guestSilverMultiplierByTech>
+		<!-- Платный вызов торгового каравана с консоли связи. Ваниль пускает
+		     запрос только к союзникам; эта строка добавляется нейтральным
+		     фракциям и стоит серебра плюс репутации.
+		     Вместо таймера — заряды: их 2 на все фракции сразу, каждый
+		     восстанавливается за commsTraderCooldownTicks (3600000 = год).
+		     Лежат в том же трекере, что и заряды сигнального костра. -->
+		<commsTraderSilverCost>500</commsTraderSilverCost>
+		<commsTraderGoodwillCost>15</commsTraderGoodwillCost>
+		<commsTraderMaxCharges>2</commsTraderMaxCharges>
+		<commsTraderCooldownTicks>3600000</commsTraderCooldownTicks>
+		<commsTraderArrivalDelayTicks>120000</commsTraderArrivalDelayTicks>
+		<!-- Империя и прочие спейсеры своих караванов по зову не шлют -->
+		<commsTraderMaxTechLevel>Industrial</commsTraderMaxTechLevel>
+		<commsTraderExcludedFactions>
+			<li>Empire</li>
+		</commsTraderExcludedFactions>
+		<!-- Разбор оружия (smelt weapon, disassemble firearms — всё, что идёт
+		     через specialProducts Smelted). Ствол целее 50% HP отдаёт половину
+		     своих деталей, потрёпанный — только металл. С одной детали
+		     "половина" решается броском, то есть выпадет в половине случаев.
+		     Патроны из магазина выкидывает Combat Extended, их не трогаем. -->
+		<weaponPartSalvageMinHitPct>0.5</weaponPartSalvageMinHitPct>
+		<weaponPartSalvageFraction>0.5</weaponPartSalvageFraction>
+		<weaponPartSmeltSteel>5</weaponPartSmeltSteel>
+		<!-- Прочие продукты разбора (металл из costList) — тоже половина.
+		     Пак и так отдаёт четверть costList, с нами выходит восьмая часть. -->
+		<weaponSmeltOtherFraction>0.5</weaponSmeltOtherFraction>
+		<!-- Множители цены покупки у торговца. Отбор устроен так же, как в
+		     sellPriceRules, но списки независимы: товар может быть дешевле
+		     только при продаже, только при покупке или в обе стороны. -->
+		<buyPriceRules>
+			<li>
+				<label>еда</label>
+				<!-- Покупка дешевле продажи (0.3 против 0.5): без этого
+				     торговцы наживались на разнице втрое. -->
+				<multiplier>0.3</multiplier>
+				<categories>
+					<li>Foods</li>
+				</categories>
+			</li>
+		</buyPriceRules>
+		<!-- Точечные множители цены продажи (defName -> множитель), приоритетнее
+		     топливного правила — сюда можно вписать исключения, напр.
+		     <li><key>Chemfuel</key><value>1</value></li> -->
+		<sellPriceOverrides>
+		</sellPriceOverrides>
+	</HSKMoreHardcore.HardcoreSettingsDef>
+</Defs>

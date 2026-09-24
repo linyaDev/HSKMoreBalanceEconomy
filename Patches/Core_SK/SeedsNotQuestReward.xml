@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!--
+		Семена не должны падать наградой за квест.
+
+		В Reward_ItemsStandard почти все корзины отбирают вещи по
+		thingSetMakerTags, которых у семян нет. Но есть ветка «дорогое сырьё»
+		(вес 0.5): категория ResourcesRaw, всё дороже 7 серебра, кроме помеченного
+		RewardStandardHighFreq, RewardStandardCore и NonStandardReward. Семена
+		лежат в SeedsCategory -> PlantMatter -> ResourcesRaw, а дорогие сорта
+		(лечебный корень 14.3 и подобные) проходят и по цене — вот они и приходят
+		в наградах.
+
+		Вешаем на базовый деф семян NonStandardReward: тег наследуется всеми
+		семенами, включая добавленные другими модами, и эта ветка их отсекает.
+		Ни торговлю, ни посев, ни что-либо ещё тег не затрагивает.
+	-->
+	<Operation Class="PatchOperationFindMod">
+		<mods><li>SeedsPlease</li></mods>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/SeedsPlease.SeedDef[@Name="SeedBase"]</xpath>
+			<value>
+				<thingSetMakerTags>
+					<li>NonStandardReward</li>
+				</thingSetMakerTags>
+			</value>
+		</match>
+	</Operation>
+</Patch>

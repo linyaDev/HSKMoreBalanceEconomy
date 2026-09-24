@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Thick stone roof: add AncientStoneRoof as prerequisite -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ResearchProjectDef[defName="Roof_D2"]/prerequisites</xpath>
+		<value><li>AncientStoneRoof</li></value>
+	</Operation>
+
+	<!-- Thick stone roof: increase research cost to 100 stone per tile (40 -> 100) -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="ThickStoneRoofFraming"]/costStuffCount</xpath>
+		<value><costStuffCount>100</costStuffCount></value>
+	</Operation>
+</Patch>

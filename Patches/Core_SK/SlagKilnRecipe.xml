@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Переработка металлолома (ExtractMetalFromSlag) ещё и в горне.
+	     Рецепт остаётся на электроплавильне и электродуговой печи. -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="Kiln"]/recipes</xpath>
+		<value>
+			<li>ExtractMetalFromSlag</li>
+		</value>
+	</Operation>
+
+	<!-- Исследование рецепта Metals_C1 -> Craft_B1 (то же, что у горна).
+	     Рецепт общий: условие меняется на всех верстаках. Навык (ремесло 4) не трогаем. -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="ExtractMetalFromSlag"]/researchPrerequisite</xpath>
+		<value>
+			<researchPrerequisite>Craft_B1</researchPrerequisite>
+		</value>
+	</Operation>
+
+</Patch>

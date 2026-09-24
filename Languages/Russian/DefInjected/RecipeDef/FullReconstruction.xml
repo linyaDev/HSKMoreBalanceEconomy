@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<HSK_FullReconstruction.label>полная реконструкция</HSK_FullReconstruction.label>
+	<HSK_FullReconstruction.description>Полностью восстанавливает прочность вещи, расходуя 75% базового материала (стаффа, из которого сделана вещь). Снимает метки «Починено» (счётчик обнуляется), так что обычная починка снова становится доступна. Работает даже когда обычная починка исчерпана.</HSK_FullReconstruction.description>
+	<HSK_FullReconstruction.jobString>Полная реконструкция.</HSK_FullReconstruction.jobString>
+	<HSK_FullReconstructionHand.label>полная реконструкция</HSK_FullReconstructionHand.label>
+	<HSK_FullReconstructionHand.description>Полностью восстанавливает прочность вещи, расходуя 75% базового материала (стаффа, из которого сделана вещь). Снимает метки «Починено» (счётчик обнуляется). Работает даже когда обычная починка исчерпана. На этом станке — только низкотех.</HSK_FullReconstructionHand.description>
+	<HSK_FullReconstructionHand.jobString>Полная реконструкция.</HSK_FullReconstructionHand.jobString>
+</LanguageData>

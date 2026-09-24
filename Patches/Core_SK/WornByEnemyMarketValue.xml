@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Register the StatPart that lowers market value of apparel marked by CompWornByEnemy:
+	     stripped from an enemy in battle -> 30%, worn by our own colonist -> 40%.
+	     Added to MarketValue (alongside vanilla StatPart_WornByCorpse on the base def). -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/StatDef[defName="MarketValue"]/parts</xpath>
+		<value>
+			<li Class="HSKMoreHardcore.StatPart_WornByEnemy"/>
+		</value>
+	</Operation>
+</Patch>

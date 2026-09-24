@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Полная реконструкция: чинит вещь до 100% прочности, требует 75% базового стаффа,
+	     снимает метки «Починено» (счётчик в 0). Работает даже когда обычная починка исчерпана.
+	     Свой потребляющий пайплайн (WorkGiver + JobDriver), т.к. цена считается от вещи динамически. -->
+	<RecipeDef>
+		<defName>HSK_FullReconstruction</defName>
+		<label>full reconstruction</label>
+		<description>Fully restores the item's durability while consuming 75% of its base material (the stuff it is made of). Removes the "Repaired" marks (the repair counter resets to zero), so ordinary mending becomes available again. Works even after ordinary mending is exhausted.</description>
+		<jobString>Reconstructing item.</jobString>
+		<workAmount>2500</workAmount>
+		<workSpeedStat>TailoringSpeed</workSpeedStat>
+		<workSkill>Crafting</workSkill>
+		<effectWorking>Smith</effectWorking>
+		<soundWorking>Recipe_Smith</soundWorking>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Apparel</li>
+						<li>Weapons</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Apparel</li>
+				<li>Weapons</li>
+			</categories>
+		</fixedIngredientFilter>
+		<recipeUsers>
+			<li>TableMending</li>
+		</recipeUsers>
+	</RecipeDef>
+
+	<!-- Ранний станок (HandMendingWorkbench): только низкотех — апарель без Spacer/Ultra/Archotech
+	     и базовое оружие. Совпадает по охвату с обычной починкой на этом станке. -->
+	<RecipeDef>
+		<defName>HSK_FullReconstructionHand</defName>
+		<label>full reconstruction</label>
+		<description>Fully restores the item's durability while consuming 75% of its base material (the stuff it is made of). Removes the "Repaired" marks (the repair counter resets to zero). Works even after ordinary mending is exhausted. Limited to low-tech gear on this workbench.</description>
+		<jobString>Reconstructing item.</jobString>
+		<workAmount>2500</workAmount>
+		<workSpeedStat>TailoringSpeed</workSpeedStat>
+		<workSkill>Crafting</workSkill>
+		<effectWorking>Smith</effectWorking>
+		<soundWorking>Recipe_Smith</soundWorking>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Apparel</li>
+						<li>Weapons</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Apparel</li>
+				<li>ShieldCat</li>
+				<li>SharpMelee</li>
+				<li>AgileMelee</li>
+				<li>SurvivalToolsNeolithic</li>
+				<li>HeavyMelee</li>
+				<li>BluntMelee</li>
+				<li>CrossbarRanged</li>
+				<li>BowRanged</li>
+				<li>ThrownRanged</li>
+			</categories>
+			<specialFiltersToDisallow>
+				<li>AllowApparelSpacer</li>
+				<li>AllowApparelUltra</li>
+				<li>AllowApparelArchotech</li>
+			</specialFiltersToDisallow>
+		</fixedIngredientFilter>
+		<recipeUsers>
+			<li>HandMendingWorkbench</li>
+		</recipeUsers>
+	</RecipeDef>
+
+	<JobDef>
+		<defName>HSK_DoFullReconstruction</defName>
+		<driverClass>HSKMoreHardcore.JobDriver_FullReconstruction</driverClass>
+		<reportString>reconstructing TargetB.</reportString>
+	</JobDef>
+
+	<WorkGiverDef>
+		<defName>HSK_FullReconstruction</defName>
+		<label>reconstruct</label>
+		<giverClass>HSKMoreHardcore.WorkGiver_FullReconstruction</giverClass>
+		<workType>Crafting</workType>
+		<verb>reconstruct</verb>
+		<gerund>reconstructing</gerund>
+		<priorityInType>72</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+		<scanThings>true</scanThings>
+		<fixedBillGiverDefs>
+			<li>HandMendingWorkbench</li>
+			<li>TableMending</li>
+		</fixedBillGiverDefs>
+	</WorkGiverDef>
+
+</Defs>

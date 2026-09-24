@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Перенос гранат на обычный оружейный станок -->
+
+	<!-- Фугасная граната -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/RecipeDef[defName="MakeHighExplosiveGrenades"]/recipeUsers</xpath>
+		<value>
+			<recipeUsers>
+				<li>WeaponCraftingWorkTable</li>
+			</recipeUsers>
+		</value>
+	</Operation>
+
+	<!-- Зажигательная граната -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/RecipeDef[defName="MakeIncendiaryGrenade"]/recipeUsers</xpath>
+		<value>
+			<recipeUsers>
+				<li>WeaponCraftingWorkTable</li>
+			</recipeUsers>
+		</value>
+	</Operation>
+
+	<!-- Шоковая граната -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/RecipeDef[defName="MakeFlashbangGrenades"]/recipeUsers</xpath>
+		<value>
+			<recipeUsers>
+				<li>WeaponCraftingWorkTable</li>
+			</recipeUsers>
+		</value>
+	</Operation>
+
+	<!-- EMP граната -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/RecipeDef[defName="MakeEMPGrenades"]/recipeUsers</xpath>
+		<value>
+			<recipeUsers>
+				<li>WeaponCraftingWorkTable</li>
+			</recipeUsers>
+		</value>
+	</Operation>
+
+</Patch>

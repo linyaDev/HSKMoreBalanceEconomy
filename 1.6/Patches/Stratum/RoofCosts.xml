@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Правки крыш Stratum (Core SK - Stratum, SolarWeb.Stratum).
+	     Примитивная соломенная крыша: 1 сено.
+
+	     В самом Stratum costList у неё нет — крыша строилась за одну работу.
+	     HSK-совместимость пака (Core_SK_Stratum/Compat/skyarkhangel.hsk/1.6/
+	     Patches/Roofs_Core.xml) теперь добавляет ей 2 сена, поэтому простой
+	     Add дописывал бы второй costList к уже существующему: узла два,
+	     выигрывает последний — то есть всё держалось на порядке загрузки.
+	     Проверяем наличие узла и правим либо заменой, либо добавлением. -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="SolarWeb-Stratum-RoofThatch_Buildable"]/costList</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="SolarWeb-Stratum-RoofThatch_Buildable"]/costList</xpath>
+			<value>
+				<costList>
+					<Hay>1</Hay>
+				</costList>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="SolarWeb-Stratum-RoofThatch_Buildable"]</xpath>
+			<value>
+				<costList>
+					<Hay>1</Hay>
+				</costList>
+			</value>
+		</nomatch>
+	</Operation>
+
+	<!-- Наша примитивная дранка — в подкатегорию примитивных крыш (HSK-compat
+	     слой Stratum; списки там по StratumRoofDef-имени, не _Buildable) -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ArchitectSense.DesignationSubCategoryDef[defName="SubCategory_PrimitiveRoofs"]/defNames</xpath>
+		<value>
+			<li>HMH_RoofShingleWood</li>
+			<li>HMH_RoofMud</li>
+		</value>
+	</Operation>
+</Patch>

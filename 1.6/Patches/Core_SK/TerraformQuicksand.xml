@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Плывун убран из меню строительства: терраформы RockyDirt-Quicksand и
+	     Quicksand-RockyDirt убираются из подкатегории HSK «Sticky soil», иначе
+	     ArchitectSense показал бы их через неё даже без designationCategory.
+	     Условие — чтобы не сыпать ошибками, если в версии HSK их там нет. -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ArchitectSense.DesignationSubCategoryDef/defNames/li[text()="RockyDirt-Quicksand" or text()="Quicksand-RockyDirt"]</xpath>
+		<match Class="PatchOperationRemove">
+			<xpath>Defs/ArchitectSense.DesignationSubCategoryDef/defNames/li[text()="RockyDirt-Quicksand" or text()="Quicksand-RockyDirt"]</xpath>
+		</match>
+	</Operation>
+
+	<!-- Убрать плывун (HMH_Quicksand) теперь можно рецептом «Суглинок ► Скалистая
+	     грязь»: плывун добавлен в его список исходных поверхностей. -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="LoamSoil-RockyDirt"]/modExtensions/li[@Class="FertileFields.Terrain"]/above</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="LoamSoil-RockyDirt"]/modExtensions/li[@Class="FertileFields.Terrain"]/above</xpath>
+			<value>
+				<li>HMH_Quicksand</li>
+			</value>
+		</match>
+	</Operation>
+</Patch>

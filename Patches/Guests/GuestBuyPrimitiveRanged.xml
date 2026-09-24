@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!--
+		Гостю Hospitality нельзя продать лук, арбалет или духовую трубку.
+
+		Торговлю с гостем ведёт TraderKindDef с defName "Guest"
+		(Hospitality/Defs/TraderKindDefs/TraderKinds_Guests.xml), а что он готов
+		купить, решает TraderKind.WillTrade — то есть совпадение с его
+		генераторами стока. Оружейных там два, оба по tradeTag: WeaponRanged и
+		WeaponMelee. Общий StockGenerator_BuyExpensiveSimple оружие исключает
+		явной проверкой thingDef.IsWeapon.
+
+		А в HSK tradeTags розданы так (Core_SK/ThingDefs_Weapons/Weapons.xml):
+		    SK_BaseGun, BaseGunCR          -> WeaponRanged     (огнестрел покупает)
+		    SK_BaseMeleeWeapon             -> WeaponMelee      (ближний бой покупает)
+		    RangedWeaponNeolithicBase      -> RangedNeolithic  (не покупает)
+		    RangedWeaponMedievalBase       -> тегов нет        (не покупает)
+		    RangedWeaponIndustrialBase     -> тегов нет        (не покупает)
+
+		Добавляем гостю покупку примитивной дальнобойки, не трогая остальных
+		торговцев: тегом — всё неолитное (blowgun, Bow_Short, Bow_Great и любое
+		будущее), поимённо — средневековые и индустриальные луки с арбалетами,
+		у которых тегов нет вовсе.
+
+		Оба генератора покупочные: GenerateThings у них пуст, так что сами гости
+		такое оружие возить не начнут.
+	-->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Hospitality (Continued)</li>
+			<li>Hospitality</li>
+		</mods>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/TraderKindDef[defName="Guest"]/stockGenerators</xpath>
+			<value>
+				<li Class="StockGenerator_BuyTradeTag">
+					<tag>RangedNeolithic</tag>
+				</li>
+				<li Class="StockGenerator_BuySingleDef">
+					<thingDef>Bow_Recurve</thingDef>
+				</li>
+				<li Class="StockGenerator_BuySingleDef">
+					<thingDef>NorbalBow_Grape</thingDef>
+				</li>
+				<li Class="StockGenerator_BuySingleDef">
+					<thingDef>Bow_Compound</thingDef>
+				</li>
+				<li Class="StockGenerator_BuySingleDef">
+					<thingDef>Crossbow</thingDef>
+				</li>
+				<li Class="StockGenerator_BuySingleDef">
+					<thingDef>Arbalest</thingDef>
+				</li>
+				<li Class="StockGenerator_BuySingleDef">
+					<thingDef>Norbal_Scorpion</thingDef>
+				</li>
+				<li Class="StockGenerator_BuySingleDef">
+					<thingDef>Crossbow_Compound</thingDef>
+				</li>
+			</value>
+		</match>
+	</Operation>
+</Patch>

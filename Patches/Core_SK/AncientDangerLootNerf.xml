@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Ancient danger (ancient shrine) loot: remove all weapons and armor.
+	     Targets the "misc cool items" pool of MapGen_AncientTempleContents.
+	     Bionics, archotech parts, serums, TVs, sculptures, artifacts,
+	     luciferium, components and medicine are left untouched. -->
+
+	<!-- Remove power armor + charge/assault guns from the explicit thingDefs list -->
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/ThingSetMakerDef[defName="MapGen_AncientTempleContents"]/root/options/li/thingSetMaker/fixedParams/filter/thingDefs/li[.="Apparel_PowerArmor" or .="Apparel_PowerArmorHelmet" or .="Gun_ChargeRifle" or .="Gun_ChargeLance" or .="Gun_AssaultRifle"]</xpath>
+	</Operation>
+
+	<!-- Remove single-use weapons (doomsday/triple rocket) by dropping the tag -->
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/ThingSetMakerDef[defName="MapGen_AncientTempleContents"]/root/options/li/thingSetMaker/fixedParams/filter/thingSetMakerTagsToAllow/li[.="SingleUseWeapon"]</xpath>
+	</Operation>
+</Patch>

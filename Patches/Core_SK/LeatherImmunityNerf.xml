@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Leather_KirinHide: ImmunityGainSpeedFactor 1.35 -> 1.3 -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Leather_KirinHide"]/stuffProps/statFactors/ImmunityGainSpeedFactor</xpath>
+		<value><ImmunityGainSpeedFactor>1.3</ImmunityGainSpeedFactor></value>
+	</Operation>
+
+	<!-- Leather_FireDragonskin: ImmunityGainSpeedFactor 1.33 -> 1.25 -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Leather_FireDragonskin"]/stuffProps/statFactors/ImmunityGainSpeedFactor</xpath>
+		<value><ImmunityGainSpeedFactor>1.25</ImmunityGainSpeedFactor></value>
+	</Operation>
+
+	<!-- Leather_Lizard: ImmunityGainSpeedFactor 1.31 -> 1.22 -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Leather_Lizard"]/stuffProps/statFactors/ImmunityGainSpeedFactor</xpath>
+		<value><ImmunityGainSpeedFactor>1.22</ImmunityGainSpeedFactor></value>
+	</Operation>
+	<!-- HempCloth: ImmunityGainSpeedFactor 1.25 -> 1.19 -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="HempCloth"]/stuffProps/statFactors/ImmunityGainSpeedFactor</xpath>
+		<value><ImmunityGainSpeedFactor>1.19</ImmunityGainSpeedFactor></value>
+	</Operation>
+</Patch>

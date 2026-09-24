@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!--
+		Отдельный пункт на ручном ремонтном станке (HandMendingWorkbench,
+		исследование Repair_table_B1): починка простого огнестрела.
+
+		В паке этот станок чинит по MendRepairArmor только одежду, щиты, ближний бой
+		и примитивную дальнобойку, а любой ствол требует электрического TableMending
+		(MendComplexWeapon, навык 14). Первый тир оружия до электричества доживает
+		плохо, поэтому даём ему свой рецепт — не смешивая с бронёй.
+
+		Что входит (по первому тиру исследований Core_SK):
+		    категория Pistols                        Gunsmithing, Pistols_C2
+		    Gun_BoltActionRifle (Lee-Enfield)        Rifles_C1
+		    Gun_PumpShotgun, Gun_M37A2_USCM          GasOperation
+		    Gun_MachinePistol (PDW), RF_Gun_TMP,
+		    RF_Gun_Skorpion, RF_Gun_GreaseGun        BlowbackOperation
+
+		Всё со второго тира (Rifles_C2, Shotgun_C2, SMG_C2 и выше), автоматика и
+		снайперки чинятся только на TableMending, как и раньше.
+
+		ParentName MendingBase — абстракт Core_SK: воркер Mending.Worker, навык
+		Crafting, скорость по TailoringSpeed. Его recipeUsers (TableMending)
+		перекрываем своим списком.
+	-->
+	<RecipeDef ParentName="MendingBase">
+		<defName>HMH_MendSimpleFirearm</defName>
+		<label>repair simple firearm</label>
+		<description>Repair a simple firearm: pistols, the bolt-action rifle, pump shotguns and early submachine guns.</description>
+		<jobString>Repairing firearm.</jobString>
+		<workAmount>300</workAmount>
+		<effectWorking>Smith</effectWorking>
+		<soundWorking>Recipe_Smith</soundWorking>
+		<researchPrerequisite>Gunsmithing</researchPrerequisite>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Pistols</li>
+					</categories>
+					<thingDefs>
+						<li>Gun_BoltActionRifle</li>
+						<li>Gun_PumpShotgun</li>
+						<li>Gun_M37A2_USCM</li>
+						<li>Gun_MachinePistol</li>
+						<li>RF_Gun_TMP</li>
+						<li>RF_Gun_Skorpion</li>
+						<li>RF_Gun_GreaseGun</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Pistols</li>
+			</categories>
+			<thingDefs>
+				<li>Gun_BoltActionRifle</li>
+				<li>Gun_PumpShotgun</li>
+				<li>Gun_M37A2_USCM</li>
+				<li>Gun_MachinePistol</li>
+				<li>RF_Gun_TMP</li>
+				<li>RF_Gun_Skorpion</li>
+				<li>RF_Gun_GreaseGun</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<skillRequirements>
+			<Crafting>8</Crafting>
+		</skillRequirements>
+		<recipeUsers>
+			<li>HandMendingWorkbench</li>
+		</recipeUsers>
+	</RecipeDef>
+
+</Defs>

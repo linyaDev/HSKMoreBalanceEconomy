@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Заболоченное место: плодородность 100% -> 80% -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/TerrainDef[defName="MarshyTerrain"]/fertility</xpath>
+		<value><fertility>0.8</fertility></value>
+	</Operation>
+
+</Patch>

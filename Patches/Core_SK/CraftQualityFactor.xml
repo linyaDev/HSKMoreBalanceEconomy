@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Low-grade leathers craft into poor quality more often (chance to keep each quality tier).
+	     Read by StuffCraftQuality on player crafting; also visible in the material's stats. -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="Leather_Human"]/statBases</xpath>
+		<value>
+			<HSK_CraftQualityFactor>0.3</HSK_CraftQualityFactor>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="Leather_Patch"]/statBases</xpath>
+		<value>
+			<HSK_CraftQualityFactor>0.3</HSK_CraftQualityFactor>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="Leather_Light"]/statBases</xpath>
+		<value>
+			<HSK_CraftQualityFactor>0.7</HSK_CraftQualityFactor>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="Leather_Plain"]/statBases</xpath>
+		<value>
+			<HSK_CraftQualityFactor>0.8</HSK_CraftQualityFactor>
+		</value>
+	</Operation>
+</Patch>

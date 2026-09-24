@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!-- Собственные осколки ядер катапульты — усиленное пробитие относительно
+	     общих CE Fragment_Small (2 мм / 14.4 МПа) и Fragment_Large
+	     (4.5 мм / 122.5 МПа). Общие дефы не трогаем — они летят из всех
+	     гранат и снарядов пака. Подключаются в WeaponChanges.xml. -->
+
+	<ThingDef ParentName="BaseFragment">
+		<defName>HMH_Fragment_CatapultSmall</defName>
+		<label>small stone shards</label>
+		<graphicData>
+			<texPath>Things/Projectile/Fragments/Fragment_Small</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Fragment</damageDef>
+			<damageAmountBase>12</damageAmountBase>
+			<speed>40</speed>
+			<armorPenetrationSharp>2.75</armorPenetrationSharp>
+			<armorPenetrationBlunt>19.7</armorPenetrationBlunt>
+			<tickToTruePos>0</tickToTruePos>
+			<gravityFactor>5</gravityFactor>
+			<diameter>3.5~4.5</diameter>
+			<mass>3.5~4.5</mass>
+			<ballisticCoefficient>0.95~1.42</ballisticCoefficient>
+			<shieldDamageMultiplier>0.25</shieldDamageMultiplier>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseFragment">
+		<defName>HMH_Fragment_CatapultLarge</defName>
+		<label>large stone shards</label>
+		<graphicData>
+			<texPath>Things/Projectile/Fragments/Fragment_Large</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Fragment</damageDef>
+			<damageAmountBase>34</damageAmountBase>
+			<speed>60</speed>
+			<armorPenetrationSharp>5.25</armorPenetrationSharp>
+			<armorPenetrationBlunt>141.25</armorPenetrationBlunt>
+			<tickToTruePos>0</tickToTruePos>
+			<ballisticCoefficient>0.95~1.42</ballisticCoefficient>
+			<gravityFactor>5</gravityFactor>
+			<mass>65~75</mass>
+			<diameter>10~12</diameter>
+		</projectile>
+	</ThingDef>
+
+</Defs>

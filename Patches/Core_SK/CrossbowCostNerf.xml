@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Crossbow cost nerfs. Vile's Pre-Industrial rewrites these defs entirely
+	     (Crossbow -> Light Crossbow, Arbalest -> Arbalest Mk2) with its own costs,
+	     so only apply when Vile's is not loaded. -->
+	<Operation Class="PatchOperationFindMod">
+		<mods><li>HMC Vile's Pre-Industrial Overhaul</li></mods>
+		<nomatch Class="PatchOperationSequence">
+			<operations>
+				<!-- Reinforced crossbow: keep 8 primitive components, add 2 industrial -->
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/ThingDef[defName="Crossbow"]/costList</xpath>
+					<value><ComponentIndustrial>2</ComponentIndustrial></value>
+				</li>
+				<!-- Reinforced crossbow: build from planks (Woody) instead of raw logs -->
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="Crossbow"]/stuffCategories</xpath>
+					<value>
+						<stuffCategories>
+							<li>Woody</li>
+						</stuffCategories>
+					</value>
+				</li>
+				<!-- Arbalest (балестра): те же 2 промышленных компонента и доски -->
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/ThingDef[defName="Arbalest"]/costList</xpath>
+					<value><ComponentIndustrial>2</ComponentIndustrial></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="Arbalest"]/stuffCategories</xpath>
+					<value>
+						<stuffCategories>
+							<li>Woody</li>
+						</stuffCategories>
+					</value>
+				</li>
+				<!-- Arbalest: range 42 -> 30 -->
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="Arbalest"]/verbs/li/range</xpath>
+					<value><range>30</range></value>
+				</li>
+				<!-- Scorpion crossbow: 4 industrial components (magazine mechanism), planks instead of logs -->
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/ThingDef[defName="Norbal_Scorpion"]/costList</xpath>
+					<value><ComponentIndustrial>4</ComponentIndustrial></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="Norbal_Scorpion"]/stuffCategories</xpath>
+					<value>
+						<stuffCategories>
+							<li>Woody</li>
+						</stuffCategories>
+					</value>
+				</li>
+			</operations>
+		</nomatch>
+	</Operation>
+</Patch>

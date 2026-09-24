@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<HMH_ShowTechWidget>Виджет прогресса техуровня</HMH_ShowTechWidget>
+	<HMH_ShowTechWidgetTip>Плашка с прогрессом до следующего технологического уровня по расчёту Ignorance Is Bliss. ПКМ — перетащить, ЛКМ — открыть исследования. Работает только при установленном Ignorance Is Bliss в режиме «процент исследований».</HMH_ShowTechWidgetTip>
+	<HMH_TechWidget_Label>{0}: {1}/{2}</HMH_TechWidget_Label>
+	<HMH_TechWidget_TipHeader>Текущий уровень по Ignorance Is Bliss: {0}\nПорог перехода: {1}% исследований уровня</HMH_TechWidget_TipHeader>
+	<HMH_TechWidget_TipCum>в зачёте {0}, нужно {1}</HMH_TechWidget_TipCum>
+	<HMH_TechWidget_TipNote>Счётчик накопительный: законченные проекты более высоких уровней тоже идут в зачёт цели.\n\nЛКМ — исследования, ПКМ — перетащить виджет.</HMH_TechWidget_TipNote>
+</LanguageData>

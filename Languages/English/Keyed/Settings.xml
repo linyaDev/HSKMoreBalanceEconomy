@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<HMH_ShowTechWidget>Tech level progress widget</HMH_ShowTechWidget>
+	<HMH_ShowTechWidgetTip>Overlay showing progress toward the next tech level as calculated by Ignorance Is Bliss. RMB to drag, LMB to open research. Requires Ignorance Is Bliss in "percent researched" mode.</HMH_ShowTechWidgetTip>
+	<HMH_TechWidget_Label>{0}: {1}/{2}</HMH_TechWidget_Label>
+	<HMH_TechWidget_TipHeader>Current level per Ignorance Is Bliss: {0}\nTransition threshold: {1}% of the level's projects</HMH_TechWidget_TipHeader>
+	<HMH_TechWidget_TipCum>counted {0}, need {1}</HMH_TechWidget_TipCum>
+	<HMH_TechWidget_TipNote>The counter is cumulative: finished projects of higher levels also count toward the target.\n\nLMB — research, RMB — drag the widget.</HMH_TechWidget_TipNote>
+</LanguageData>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Crude Bandage Kit: 0.3 -> 0.28, cap 0.5 -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Bandagekitcrude"]/statBases/MedicalPotency</xpath>
+		<value><MedicalPotency>0.28</MedicalPotency></value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="Bandagekitcrude"]/statBases</xpath>
+		<value><MedicalQualityMax>0.35</MedicalQualityMax></value>
+	</Operation>
+
+	<!-- Bandage Kit: 0.4 -> 0.29, cap 0.5 -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Bandagekit"]/statBases/MedicalPotency</xpath>
+		<value><MedicalPotency>0.29</MedicalPotency></value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="Bandagekit"]/statBases</xpath>
+		<value><MedicalQualityMax>0.35</MedicalQualityMax></value>
+	</Operation>
+</Patch>

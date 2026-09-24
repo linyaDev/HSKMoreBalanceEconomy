@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!--
+		Интегральные схемы: золота 2 -> 10 прутков на партию из 5 штук.
+
+		Остальное в рецепте (кремний, пластик, электронные компоненты) тянется
+		из песка и нефти, то есть достаётся колонии даром. Золото — редкий
+		покупной ресурс, и на нём держится вся цена схем: было 70 серебра
+		на партию, стало 350.
+	-->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="MakeIntegratedCircuits"]/ingredients/li[filter/thingDefs/li="GoldBar"]/count</xpath>
+		<value>
+			<count>10</count>
+		</value>
+	</Operation>
+</Patch>

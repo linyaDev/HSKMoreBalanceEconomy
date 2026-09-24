@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<HSK_WashApparel.label>чистка одежды</HSK_WashApparel.label>
+	<HSK_WashApparel.description>Чистит одежду: снимает метки «Ношеное» и «Со следами боя» (вещь становится «Постирано», ~80% цены). Метку «была на трупе» не снимает.</HSK_WashApparel.description>
+	<HSK_WashApparel.jobString>Чистка одежды.</HSK_WashApparel.jobString>
+</LanguageData>

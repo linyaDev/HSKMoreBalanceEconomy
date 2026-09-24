@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!--
+		ВРЕМЕННО: автоматические винтовки не требуют спейсерских узлов.
+
+		В паке девять автоматов (M16, АК-47, AUG, FAMAS, SCAR-H, SG553, XM8,
+		Tactical Combat Rifle, Marine Sturm Rifle) просят AdvRifle_Component, а он
+		делается из AdvMechanism, который сидит за исследованием Components_D1
+		(Spacer, 2400, плюс Metals_C2 и Metals_C3 перед ним). Получается, что
+		индустриальное оружие с индустриальным исследованием Rifles_C2 недоступно
+		до космической эры.
+
+		Делаем как у M4A1 (BuildM4A1Gun): он обходится обычным Rifle_Component,
+		который собирается из слитков, ComponentIndustrial, Wire и Mechanism, без
+		спейсерского гейта. Только берём два узла вместо одного — автомат всё же
+		сложнее карабина.
+
+		Остальные потребители AdvMechanism не тронуты: узлы пушек, гранатомётов,
+		заряженного оружия и детали роботов остаются поздними.
+	-->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+
+			<!-- Сначала количество: предикат ищет ещё старый узел -->
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/RecipeDef[defName="BuildAssaultRifle" or defName="BuildAK47Gun" or defName="BuildAUG" or defName="BuildFAMAS" or defName="BuildSCAR_H" or defName="BuildSG553Gun" or defName="BuildXM8MilitaryRifle" or defName="BuildTacticalCombatrifle" or defName="BuildMarineSturmRifle"]/ingredients/li[filter/thingDefs/li="AdvRifle_Component"]/count</xpath>
+				<value><count>2</count></value>
+			</li>
+
+			<!-- Затем сам узел в рабочем фильтре -->
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/RecipeDef[defName="BuildAssaultRifle" or defName="BuildAK47Gun" or defName="BuildAUG" or defName="BuildFAMAS" or defName="BuildSCAR_H" or defName="BuildSG553Gun" or defName="BuildXM8MilitaryRifle" or defName="BuildTacticalCombatrifle" or defName="BuildMarineSturmRifle"]/ingredients/li/filter/thingDefs/li[text()="AdvRifle_Component"]</xpath>
+				<value><li>Rifle_Component</li></value>
+			</li>
+
+			<!-- И в фильтре билла, иначе узел не будет виден в списке материалов -->
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/RecipeDef[defName="BuildAssaultRifle" or defName="BuildAK47Gun" or defName="BuildAUG" or defName="BuildFAMAS" or defName="BuildSCAR_H" or defName="BuildSG553Gun" or defName="BuildXM8MilitaryRifle" or defName="BuildTacticalCombatrifle" or defName="BuildMarineSturmRifle"]/fixedIngredientFilter/thingDefs/li[text()="AdvRifle_Component"]</xpath>
+				<value><li>Rifle_Component</li></value>
+			</li>
+
+		</operations>
+	</Operation>
+</Patch>

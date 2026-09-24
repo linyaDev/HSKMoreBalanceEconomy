@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<HSK_CraftQualityFactor.label>качество при крафте</HSK_CraftQualityFactor.label>
+	<HSK_CraftQualityFactor.description>Шанс удержать каждый тир качества при изготовлении предмета из этого материала. Чем ниже — тем чаще изделия выходят низкого качества. 100% — без влияния.</HSK_CraftQualityFactor.description>
+</LanguageData>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Обычная солнечная батарея строится из обычного бетона вместо железобетона.
+	     costList задаёт патч Core_SK (AutoGenPatches/ThingDefs_Buildings/Buildings_Power_SK.xml),
+	     наш мод грузится позже, поэтому узел уже на месте.
+	     Продвинутую (AdvancedSolarGenerator) не трогаем. -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="SolarGenerator"]/costList/ReinforcedConcrete</xpath>
+		<value>
+			<ConcreteResource>60</ConcreteResource>
+		</value>
+	</Operation>
+</Patch>

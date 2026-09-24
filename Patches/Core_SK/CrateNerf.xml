@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Снижение стоимости ящиков в 10 раз -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="Balista_Crate"]/statBases/MarketValue</xpath>
+		<value><MarketValue>40</MarketValue></value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="Catapult_Crate"]/statBases/MarketValue</xpath>
+		<value><MarketValue>80</MarketValue></value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="SentryTurret_Crate"]/statBases/MarketValue</xpath>
+		<value><MarketValue>200</MarketValue></value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="Mortar_Crate"]/statBases/MarketValue</xpath>
+		<value><MarketValue>220</MarketValue></value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="M240B_Crate"]/statBases/MarketValue</xpath>
+		<value><MarketValue>240</MarketValue></value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="AGSturret_Crate"]/statBases/MarketValue</xpath>
+		<value><MarketValue>250</MarketValue></value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="AGCturret_Crate"]/statBases/MarketValue</xpath>
+		<value><MarketValue>270</MarketValue></value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="MGTurret_Crate"]/statBases/MarketValue</xpath>
+		<value><MarketValue>290</MarketValue></value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="MinigunTurret_Crate"]/statBases/MarketValue</xpath>
+		<value><MarketValue>300</MarketValue></value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="KPV_Crate"]/statBases/MarketValue</xpath>
+		<value><MarketValue>315</MarketValue></value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="TOW_Crate"]/statBases/MarketValue</xpath>
+		<value><MarketValue>320</MarketValue></value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="LightMissileSystem_Crate"]/statBases/MarketValue</xpath>
+		<value><MarketValue>340</MarketValue></value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="Oerlikonautocannon_Crate"]/statBases/MarketValue</xpath>
+		<value><MarketValue>340</MarketValue></value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="HeavyTurret_Crate"]/statBases/MarketValue</xpath>
+		<value><MarketValue>350</MarketValue></value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="SentryBlasterTurret_Crate"]/statBases/MarketValue</xpath>
+		<value><MarketValue>360</MarketValue></value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="LaserTurret_Crate"]/statBases/MarketValue</xpath>
+		<value><MarketValue>360</MarketValue></value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="SentryRocketLauncher_Crate"]/statBases/MarketValue</xpath>
+		<value><MarketValue>370</MarketValue></value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="FlakTurret_Crate"]/statBases/MarketValue</xpath>
+		<value><MarketValue>380</MarketValue></value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="VulcanCannon_Crate"]/statBases/MarketValue</xpath>
+		<value><MarketValue>390</MarketValue></value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="NavalGunTurret_Crate"]/statBases/MarketValue</xpath>
+		<value><MarketValue>400</MarketValue></value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="CannonTurret_Crate"]/statBases/MarketValue</xpath>
+		<value><MarketValue>410</MarketValue></value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="Avenger_Crate"]/statBases/MarketValue</xpath>
+		<value><MarketValue>440</MarketValue></value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="MediumMissileSystem_Crate"]/statBases/MarketValue</xpath>
+		<value><MarketValue>440</MarketValue></value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="HowitzerTurret_Crate"]/statBases/MarketValue</xpath>
+		<value><MarketValue>480</MarketValue></value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="RocketLauncher_Crate"]/statBases/MarketValue</xpath>
+		<value><MarketValue>560</MarketValue></value>
+	</Operation>
+
+	<!-- Удаление ящиков из продажи у торговцев -->
+
+	<Operation Class="PatchOperationRemove">
+		<xpath>/Defs/TraderKindDef/stockGenerators/li[tradeTag="SimpleCrate"]</xpath>
+	</Operation>
+
+	<Operation Class="PatchOperationRemove">
+		<xpath>/Defs/TraderKindDef/stockGenerators/li[tradeTag="NormalCrate"]</xpath>
+	</Operation>
+
+	<Operation Class="PatchOperationRemove">
+		<xpath>/Defs/TraderKindDef/stockGenerators/li[tradeTag="RareCrate"]</xpath>
+	</Operation>
+
+</Patch>

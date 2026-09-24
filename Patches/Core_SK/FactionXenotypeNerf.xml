@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!--
+		Убираем вампиров (Sanguophage) из фракций пака: HSK раздаёт их почти
+		всем с шансом 1-4%, у крысолюдов — 10%.
+
+		Мест два. Первое — xenotypeSet самой фракции. Второе — наборы
+		ксенотипов у конкретных видов пешек: у многих стоит
+		useFactionXenotypes false, и тогда набор фракции им не указ, вампир
+		придёт всё равно. Поэтому чистим и то, и другое.
+
+		Игроковые фракции (PlayerColony, PlayerNova, RK_PlayerFaction и т.д.)
+		не трогаем: там ксенотипы стартовых колонистов, это выбор игрока.
+
+		Узлы стоят под MayRequire Biotech — без DLC их нет, поэтому каждая
+		операция обёрнута в conditional, чтобы не сыпать ошибками в лог.
+	-->
+
+	<!-- Фракции. Pirate, Ancients и AncientsHostile — ванильные, вампиров им
+	     добавляет сам пак своими патчами, наш идёт после и убирает. -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/FactionDef[defName="NorbalTribe" or defName="NovaAlliance" or defName="MedievalKingdom" or defName="Predators" or defName="Brotherhood" or defName="Orassan" or defName="OrassanEvil" or defName="Orion" or defName="Pirate" or defName="Ancients" or defName="AncientsHostile" or defName="RK_Faction_Pilgrims" or defName="RK_Faction_Caravan" or @Name="RatkinFactionBase"]/xenotypeSet/xenotypeChances/Sanguophage</xpath>
+		<match Class="PatchOperationRemove">
+			<xpath>Defs/FactionDef[defName="NorbalTribe" or defName="NovaAlliance" or defName="MedievalKingdom" or defName="Predators" or defName="Brotherhood" or defName="Orassan" or defName="OrassanEvil" or defName="Orion" or defName="Pirate" or defName="Ancients" or defName="AncientsHostile" or defName="RK_Faction_Pilgrims" or defName="RK_Faction_Caravan" or @Name="RatkinFactionBase"]/xenotypeSet/xenotypeChances/Sanguophage</xpath>
+		</match>
+	</Operation>
+
+	<!-- Виды пешек со своим набором ксенотипов: хищники (база и Raven),
+	     разбойники Королевства (от них наследуется KingdomTrader) и все
+	     четыре базы Ориона. -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/PawnKindDef[@Name="PredatorsBase" or @Name="KingdomBrigand" or @Name="OrionBase" or @Name="OrionSundererBase" or @Name="OrionHawkeyeBase" or @Name="OrionSunRiserBase" or defName="PredatorsRaven"]/xenotypeSet/xenotypeChances/Sanguophage</xpath>
+		<match Class="PatchOperationRemove">
+			<xpath>Defs/PawnKindDef[@Name="PredatorsBase" or @Name="KingdomBrigand" or @Name="OrionBase" or @Name="OrionSundererBase" or @Name="OrionHawkeyeBase" or @Name="OrionSunRiserBase" or defName="PredatorsRaven"]/xenotypeSet/xenotypeChances/Sanguophage</xpath>
+		</match>
+	</Operation>
+</Patch>

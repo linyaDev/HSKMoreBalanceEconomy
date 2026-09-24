@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Цена человеческой кожи = цена лоскутной (0.5) -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="Leather_Human"]/statBases/MarketValue</xpath>
+		<value><MarketValue>0.5</MarketValue></value>
+	</Operation>
+
+</Patch>

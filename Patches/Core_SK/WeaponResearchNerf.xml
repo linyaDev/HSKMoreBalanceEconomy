@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <!-- SMG II зависит ещё и от Pistols II -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ResearchProjectDef[defName="SMG_C2"]/prerequisites</xpath>
+        <value>
+            <li>Pistols_C2</li>
+        </value>
+    </Operation>
+
+    <!-- Shotgun I: зависимость от Rifles I, сдвиг вправо на 2 -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ResearchProjectDef[defName="GasOperation"]/prerequisites</xpath>
+        <value>
+            <li>Rifles_C1</li>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ResearchProjectDef[defName="GasOperation"]/researchViewX</xpath>
+        <value>
+            <researchViewX>11.00</researchViewX>
+        </value>
+    </Operation>
+
+    <!-- Shotgun II: сдвиг вправо на 2 -->
+    <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ResearchProjectDef[defName="Shotgun_C2"]/researchViewX</xpath>
+        <value>
+            <researchViewX>15.00</researchViewX>
+        </value>
+    </Operation>
+</Patch>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Привилегии Империи на ресурсы: ванильные количества
+	     (Royalty/Defs/RoyalTitles/RoyalPermits_Empire.xml) малы для пака.
+	     Сталь 250 -> 350, сухпайки 20 -> 40, серебро 500 -> 750.
+	     Стоимость (очки, фавор, минимальный титул) и кулдаун не трогаем.
+	     Русские описания — Languages/Russian/DefInjected/RoyalTitlePermitDef.
+
+	     Не применяется при HMC Nobility Expanded: он переопределяет эти же
+	     дефы (SteelDrop, FoodDrop, SilverDrop) своей системой привилегий. -->
+	<Operation Class="PatchOperationFindMod">
+		<mods><li>Royalty</li></mods>
+		<match Class="PatchOperationFindMod">
+		<mods><li>HMC Nobility Expanded</li></mods>
+		<nomatch Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/RoyalTitlePermitDef[defName="SteelDrop"]/royalAid/itemsToDrop</xpath>
+					<value>
+						<itemsToDrop>
+							<Steel>350</Steel>
+						</itemsToDrop>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/RoyalTitlePermitDef[defName="SteelDrop"]/description</xpath>
+					<value><description>Call for a drop of 350 steel.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/RoyalTitlePermitDef[defName="FoodDrop"]/royalAid/itemsToDrop</xpath>
+					<value>
+						<itemsToDrop>
+							<MealSurvivalPack>40</MealSurvivalPack>
+						</itemsToDrop>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/RoyalTitlePermitDef[defName="FoodDrop"]/description</xpath>
+					<value><description>Call for a drop of 40 packaged survival meals.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/RoyalTitlePermitDef[defName="SilverDrop"]/royalAid/itemsToDrop</xpath>
+					<value>
+						<itemsToDrop>
+							<Silver>750</Silver>
+						</itemsToDrop>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/RoyalTitlePermitDef[defName="SilverDrop"]/description</xpath>
+					<value><description>Call for a drop of 750 silver.</description></value>
+				</li>
+			</operations>
+		</nomatch>
+		</match>
+	</Operation>
+
+	<!-- Наш собственный «запрос древесины» (Defs/RoyalTitlePermitDefs/Permits_Wood.xml)
+	     при HMC Nobility Expanded не нужен: его окно строится по своей
+	     RoyaltyPermitCategoryTableDef, и деф просто висел бы мёртвым. -->
+	<Operation Class="PatchOperationFindMod">
+		<mods><li>HMC Nobility Expanded</li></mods>
+		<match Class="PatchOperationRemove">
+			<xpath>Defs/RoyalTitlePermitDef[defName="HMH_WoodDrop"]</xpath>
+		</match>
+	</Operation>
+</Patch>

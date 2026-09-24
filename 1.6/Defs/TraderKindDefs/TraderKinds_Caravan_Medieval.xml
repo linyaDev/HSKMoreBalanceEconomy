@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!-- Средневековый военный караванщик — собственный караван для средневековых
+	     фракций (Княжество). Общий Caravan_Neolithic_WarMerchant не трогаем — он
+	     остаётся неолитным у Хищников/Норбалов/Королевства. Сток скроен по его
+	     образцу (патч Core_SK_CoreModule), но по-средневековому: средневековые
+	     компоненты вместо продвинутых, мили и арбалеты вместо неолитного оружия,
+	     зелья до Medieval. CE-позиции (FSX, прометеум, скупка патронов) вписаны
+	     напрямую — CombatExtended в HSK обязателен, а его патч на наш деф не
+	     распространяется. -->
+	<TraderKindDef>
+		<defName>Caravan_Medieval_WarMerchant</defName>
+		<label>war merchant</label>
+		<stockGenerators>
+			<!-- Resources -->
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Silver</thingDef>
+				<countRange>800~1250</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>ComponentMedieval</thingDef>
+				<countRange>15~40</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>ComponentIndustrial</thingDef>
+				<countRange>8~20</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>MedicineHerbal</thingDef>
+				<countRange>15~30</countRange>
+			</li>
+
+			<!-- Drugs -->
+			<li Class="StockGenerator_Category">
+				<categoryDef>Drugs</categoryDef>
+				<maxTechLevelGenerate>Medieval</maxTechLevelGenerate>
+			</li>
+
+			<!-- Techprints -->
+			<li Class="StockGenerator_Techprints">
+				<countChances>
+					<li>
+						<count>1</count>
+						<chance>1</chance>
+					</li>
+				</countChances>
+			</li>
+
+			<!-- Weapons: средневековый мили + арбалеты -->
+			<li Class="StockGenerator_Category">
+				<maxTechLevelGenerate>Medieval</maxTechLevelGenerate>
+				<categoryDef>WeaponsMelee</categoryDef>
+				<thingDefCountRange>2~3</thingDefCountRange>
+				<countRange>1~1</countRange>
+				<totalPriceRange>600~1600</totalPriceRange>
+			</li>
+			<li Class="StockGenerator_Category">
+				<maxTechLevelGenerate>Medieval</maxTechLevelGenerate>
+				<categoryDef>CrossbarRanged</categoryDef>
+				<thingDefCountRange>1~2</thingDefCountRange>
+				<countRange>1~1</countRange>
+			</li>
+			<!-- Скупка неолитического оружия: луки и духовые трубки (ноль видов
+			     на продажу — только покупка; милишку любого техуровня генератор
+			     WeaponsMelee выше и так скупает) -->
+			<li Class="StockGenerator_Category">
+				<categoryDef>BowRanged</categoryDef>
+				<thingDefCountRange>0~0</thingDefCountRange>
+			</li>
+			<li Class="StockGenerator_Category">
+				<categoryDef>Specialranged</categoryDef>
+				<thingDefCountRange>0~0</thingDefCountRange>
+			</li>
+
+			<!-- Apparel -->
+			<li Class="StockGenerator_Category">
+				<categoryDef>Leathers</categoryDef>
+				<thingDefCountRange>1~3</thingDefCountRange>
+				<totalPriceRange>150~300</totalPriceRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Shield_Buckler</thingDef>
+				<countRange>1~2</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Shield_Medieval</thingDef>
+				<countRange>1~2</countRange>
+			</li>
+
+			<!-- Animals -->
+			<li Class="StockGenerator_Animals">
+				<checkTemperature>true</checkTemperature>
+				<tradeTagsSell>
+					<li>AnimalFighter</li>
+				</tradeTagsSell>
+				<tradeTagsBuy>
+					<li>AnimalFighter</li>
+					<li>AnimalExotic</li>
+				</tradeTagsBuy>
+				<kindCountRange>2~3</kindCountRange>
+				<countRange>6~9</countRange>
+				<createMatingPair>
+					<li>AnimalFarm</li>
+				</createMatingPair>
+			</li>
+
+			<!-- CombatExtended -->
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>FSX</thingDef>
+				<countRange>5~20</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Prometheum</thingDef>
+				<countRange>5~20</countRange>
+			</li>
+			<li Class="StockGenerator_Category">
+				<categoryDef>Ammo</categoryDef>
+				<thingDefCountRange>0~0</thingDefCountRange>
+			</li>
+
+			<!-- Buying -->
+			<li Class="StockGenerator_BuyExpensiveSimple" />
+			<li Class="StockGenerator_BuyTradeTag">
+				<tag>Art</tag>
+			</li>
+			<li Class="StockGenerator_BuyTradeTag">
+				<tag>MusicalInstrument</tag>
+			</li>
+		</stockGenerators>
+	</TraderKindDef>
+
+</Defs>

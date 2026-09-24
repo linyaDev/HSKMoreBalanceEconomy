@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Гильзы для огнестрельных патронов CE вместо оружейных деталей.
+	     Пять классов — по детали, которую раньше требовал патрон; текстура та же,
+	     что у соответствующей детали Core_SK. Расход — 1 гильза на партию патронов
+	     (патч Patches/CombatExtended/AmmoCartridgeCases.xml).
+	     Рецепт гильзы: только металл — весь, что уходил на деталь, включая металл
+	     вложенных компонентов, проволоки и механизмов; исследование то же, что у
+	     детали. Делаются на станке снаряжения патронов CE (AmmoBench). Имена рецептов
+	     не начинаются с MakeAmmo_, поэтому AmmoCraftNerf их не умножает. -->
+
+	<!-- ==================== Items ========================== -->
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>CartridgeCase_Pistol</defName>
+		<label>pistol cartridge cases</label>
+		<description>Brass cases for pistol cartridges (9x19mm, .45 ACP). Needed to load pistol and SMG ammunition.</description>
+		<graphicData>
+			<texPath>Things/Item/WeaponParts/PistolComponent</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Metal_Drop</soundInteract>
+		<soundDrop>Metal_Drop</soundDrop>
+		<techLevel>Industrial</techLevel>
+		<statBases>
+			<MarketValue>20</MarketValue>
+			<DeteriorationRate>0</DeteriorationRate>
+			<Flammability>0</Flammability>
+			<Mass>1</Mass>
+			<Bulk>2</Bulk>
+		</statBases>
+		<useHitPoints>true</useHitPoints>
+		<thingCategories>
+			<li>WeaponParts</li>
+		</thingCategories>
+		<stackLimit>75</stackLimit>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>CartridgeCase_Shotgun</defName>
+		<label>shotgun shell cases</label>
+		<description>Empty shells for 12 gauge cartridges. Needed to load shotgun ammunition.</description>
+		<graphicData>
+			<texPath>Things/Item/WeaponParts/ShotgunComponent</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Metal_Drop</soundInteract>
+		<soundDrop>Metal_Drop</soundDrop>
+		<techLevel>Industrial</techLevel>
+		<statBases>
+			<MarketValue>50</MarketValue>
+			<DeteriorationRate>0</DeteriorationRate>
+			<Flammability>0</Flammability>
+			<Mass>1.3</Mass>
+			<Bulk>2</Bulk>
+		</statBases>
+		<useHitPoints>true</useHitPoints>
+		<thingCategories>
+			<li>WeaponParts</li>
+		</thingCategories>
+		<stackLimit>75</stackLimit>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>CartridgeCase_Rifle</defName>
+		<label>rifle cartridge cases</label>
+		<description>Brass cases for intermediate and rifle cartridges (5.56x45mm, 7.62x39mm, .303 British). Needed to load rifle ammunition.</description>
+		<graphicData>
+			<texPath>Things/Item/WeaponParts/RifleComponent</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Metal_Drop</soundInteract>
+		<soundDrop>Metal_Drop</soundDrop>
+		<techLevel>Industrial</techLevel>
+		<statBases>
+			<MarketValue>65</MarketValue>
+			<DeteriorationRate>0</DeteriorationRate>
+			<Flammability>0</Flammability>
+			<Mass>1.3</Mass>
+			<Bulk>2</Bulk>
+		</statBases>
+		<useHitPoints>true</useHitPoints>
+		<thingCategories>
+			<li>WeaponParts</li>
+		</thingCategories>
+		<stackLimit>75</stackLimit>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>CartridgeCase_Sniper</defName>
+		<label>full-power rifle cartridge cases</label>
+		<description>Reinforced brass cases for full-power rifle cartridges (7.62x51mm NATO). Needed to load battle rifle and sniper ammunition.</description>
+		<graphicData>
+			<texPath>Things/Item/WeaponParts/SniperComponent</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Metal_Drop</soundInteract>
+		<soundDrop>Metal_Drop</soundDrop>
+		<techLevel>Industrial</techLevel>
+		<statBases>
+			<MarketValue>80</MarketValue>
+			<DeteriorationRate>0</DeteriorationRate>
+			<Flammability>0</Flammability>
+			<Mass>1.4</Mass>
+			<Bulk>2</Bulk>
+		</statBases>
+		<useHitPoints>true</useHitPoints>
+		<thingCategories>
+			<li>WeaponParts</li>
+		</thingCategories>
+		<stackLimit>75</stackLimit>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>CartridgeCase_Heavy</defName>
+		<label>heavy cartridge cases</label>
+		<description>Massive cases for heavy machine gun and anti-materiel cartridges (.50 BMG, 14.5x114mm). Needed to load heavy ammunition.</description>
+		<graphicData>
+			<texPath>Things/Item/WeaponParts/HeavyComponent</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Metal_Drop</soundInteract>
+		<soundDrop>Metal_Drop</soundDrop>
+		<techLevel>Industrial</techLevel>
+		<statBases>
+			<MarketValue>170</MarketValue>
+			<DeteriorationRate>0</DeteriorationRate>
+			<Flammability>0</Flammability>
+			<Mass>3</Mass>
+			<Bulk>4</Bulk>
+		</statBases>
+		<useHitPoints>true</useHitPoints>
+		<thingCategories>
+			<li>WeaponParts</li>
+		</thingCategories>
+		<stackLimit>25</stackLimit>
+	</ThingDef>
+
+	<!-- ==================== Recipes ========================== -->
+	<!-- Металл = весь металл рецепта детали Core_SK (Recipes_WeaponComponents.xml),
+	     с развёрнутыми вложенными частями по рецептам HSK:
+	       компонент  (Make_ComponentIndustrial: 30 стали -> 10)      = 3 стали;
+	       механизм   (MakeSimpleMechanism: 30 стали + 10 комп. -> 5) = 12 стали;
+	       проволока  (MakeWires: 10 цветного -> 20)                  = 0.5 тяжёлого.
+	     Затем всё поделено пополам и округлено вверх (итог ниже).
+	       пистолетные:  6+3  + 2 комп. + 1 пров. + 1 мех.  -> 12 стали, 2 тяжёлого;
+	       дробовые:     15+8 + 4 комп. + 5 пров. + 2 мех.  -> 26 стали, 6 тяжёлого;
+	       винтовочные:  20+10 + 6 комп. + 8 пров. + 3 мех. -> 37 стали, 7 тяжёлого;
+	       полноразмерные: винтовочная деталь + 6 комп. (стекло не металл)
+	                                                        -> 46 стали, 7 тяжёлого;
+	       крупнокалиберные: 25+15 + 12 комп. + 15 пров. + 6 мех.
+	                                                        -> 67 стали, 12 тяжёлого. -->
+
+	<RecipeDef>
+		<defName>MakeCartridgeCase_Pistol</defName>
+		<label>make pistol cartridge cases</label>
+		<description>Make pistol cartridge cases from metal. Produces 1.</description>
+		<jobString>Making pistol cartridge cases.</jobString>
+		<workAmount>1200</workAmount>
+		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<effectWorking>Smith</effectWorking>
+		<soundWorking>Recipe_Machining</soundWorking>
+		<skillRequirements>
+			<Crafting>4</Crafting>
+		</skillRequirements>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>SLDBar</li>
+						<li>USLDBar</li>
+					</categories>
+				</filter>
+				<count>12</count>
+			</li>
+			<li>
+				<filter>
+					<categories>
+						<li>HeavyBar</li>
+					</categories>
+				</filter>
+				<count>2</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>SLDBar</li>
+				<li>USLDBar</li>
+				<li>HeavyBar</li>
+			</categories>
+		</fixedIngredientFilter>
+		<products>
+			<CartridgeCase_Pistol>1</CartridgeCase_Pistol>
+		</products>
+		<workSkill>Crafting</workSkill>
+		<workSkillLearnFactor>0.8</workSkillLearnFactor>
+		<recipeUsers>
+			<li>AmmoBench</li>
+		</recipeUsers>
+		<researchPrerequisite>Gunsmithing</researchPrerequisite>
+	</RecipeDef>
+
+	<RecipeDef>
+		<defName>MakeCartridgeCase_Shotgun</defName>
+		<label>make shotgun shell cases</label>
+		<description>Make shotgun shell cases from metal. Produces 1.</description>
+		<jobString>Making shotgun shell cases.</jobString>
+		<workAmount>1800</workAmount>
+		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<effectWorking>Smith</effectWorking>
+		<soundWorking>Recipe_Machining</soundWorking>
+		<skillRequirements>
+			<Crafting>5</Crafting>
+		</skillRequirements>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>SLDBar</li>
+						<li>USLDBar</li>
+					</categories>
+				</filter>
+				<count>26</count>
+			</li>
+			<li>
+				<filter>
+					<categories>
+						<li>HeavyBar</li>
+					</categories>
+				</filter>
+				<count>6</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>SLDBar</li>
+				<li>USLDBar</li>
+				<li>HeavyBar</li>
+			</categories>
+		</fixedIngredientFilter>
+		<products>
+			<CartridgeCase_Shotgun>1</CartridgeCase_Shotgun>
+		</products>
+		<workSkill>Crafting</workSkill>
+		<workSkillLearnFactor>0.8</workSkillLearnFactor>
+		<recipeUsers>
+			<li>AmmoBench</li>
+		</recipeUsers>
+		<researchPrerequisite>GasOperation</researchPrerequisite>
+	</RecipeDef>
+
+	<RecipeDef>
+		<defName>MakeCartridgeCase_Rifle</defName>
+		<label>make rifle cartridge cases</label>
+		<description>Make rifle cartridge cases from metal. Produces 1.</description>
+		<jobString>Making rifle cartridge cases.</jobString>
+		<workAmount>2100</workAmount>
+		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<effectWorking>Smith</effectWorking>
+		<soundWorking>Recipe_Machining</soundWorking>
+		<skillRequirements>
+			<Crafting>6</Crafting>
+		</skillRequirements>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>SLDBar</li>
+						<li>USLDBar</li>
+					</categories>
+				</filter>
+				<count>37</count>
+			</li>
+			<li>
+				<filter>
+					<categories>
+						<li>HeavyBar</li>
+					</categories>
+				</filter>
+				<count>7</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>SLDBar</li>
+				<li>USLDBar</li>
+				<li>HeavyBar</li>
+			</categories>
+		</fixedIngredientFilter>
+		<products>
+			<CartridgeCase_Rifle>1</CartridgeCase_Rifle>
+		</products>
+		<workSkill>Crafting</workSkill>
+		<workSkillLearnFactor>0.8</workSkillLearnFactor>
+		<recipeUsers>
+			<li>AmmoBench</li>
+		</recipeUsers>
+		<researchPrerequisite>Rifles_C1</researchPrerequisite>
+	</RecipeDef>
+
+	<RecipeDef>
+		<defName>MakeCartridgeCase_Sniper</defName>
+		<label>make full-power rifle cartridge cases</label>
+		<description>Make full-power rifle cartridge cases from metal. Produces 1.</description>
+		<jobString>Making full-power rifle cartridge cases.</jobString>
+		<workAmount>2100</workAmount>
+		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<effectWorking>Smith</effectWorking>
+		<soundWorking>Recipe_Machining</soundWorking>
+		<skillRequirements>
+			<Crafting>7</Crafting>
+		</skillRequirements>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>SLDBar</li>
+						<li>USLDBar</li>
+					</categories>
+				</filter>
+				<count>46</count>
+			</li>
+			<li>
+				<filter>
+					<categories>
+						<li>HeavyBar</li>
+					</categories>
+				</filter>
+				<count>7</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>SLDBar</li>
+				<li>USLDBar</li>
+				<li>HeavyBar</li>
+			</categories>
+		</fixedIngredientFilter>
+		<products>
+			<CartridgeCase_Sniper>1</CartridgeCase_Sniper>
+		</products>
+		<workSkill>Crafting</workSkill>
+		<workSkillLearnFactor>0.8</workSkillLearnFactor>
+		<recipeUsers>
+			<li>AmmoBench</li>
+		</recipeUsers>
+		<researchPrerequisite>Sniper_rifles_C1</researchPrerequisite>
+	</RecipeDef>
+
+	<RecipeDef>
+		<defName>MakeCartridgeCase_Heavy</defName>
+		<label>make heavy cartridge cases</label>
+		<description>Make heavy cartridge cases from metal. Produces 1.</description>
+		<jobString>Making heavy cartridge cases.</jobString>
+		<workAmount>2800</workAmount>
+		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<effectWorking>Smith</effectWorking>
+		<soundWorking>Recipe_Machining</soundWorking>
+		<skillRequirements>
+			<Crafting>8</Crafting>
+		</skillRequirements>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>SLDBar</li>
+						<li>USLDBar</li>
+					</categories>
+				</filter>
+				<count>67</count>
+			</li>
+			<li>
+				<filter>
+					<categories>
+						<li>HeavyBar</li>
+					</categories>
+				</filter>
+				<count>12</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>SLDBar</li>
+				<li>USLDBar</li>
+				<li>HeavyBar</li>
+			</categories>
+		</fixedIngredientFilter>
+		<products>
+			<CartridgeCase_Heavy>1</CartridgeCase_Heavy>
+		</products>
+		<workSkill>Crafting</workSkill>
+		<workSkillLearnFactor>0.8</workSkillLearnFactor>
+		<recipeUsers>
+			<li>AmmoBench</li>
+		</recipeUsers>
+		<researchPrerequisite>HeavyTurrets</researchPrerequisite>
+	</RecipeDef>
+
+</Defs>

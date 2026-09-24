@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Железная руда: цена 2 -> 3 (Core_SK/ThingDefs_Resources/Items_Resource_Ore.xml).
+	     Оптовики возят её большими партиями (BulkTraderIron.xml), цена
+	     подтягивает закупку к остальным материалам. -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Iron"]/statBases/MarketValue</xpath>
+		<value><MarketValue>3</MarketValue></value>
+	</Operation>
+</Patch>

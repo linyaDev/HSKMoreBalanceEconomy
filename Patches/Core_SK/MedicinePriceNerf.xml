@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Bandagekitcrude: 5 -> 10 (x2) -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Bandagekitcrude"]/statBases/MarketValue</xpath>
+		<value><MarketValue>10</MarketValue></value>
+	</Operation>
+
+	<!-- Bandagekit: 5 -> 10 (x2) -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Bandagekit"]/statBases/MarketValue</xpath>
+		<value><MarketValue>10</MarketValue></value>
+	</Operation>
+
+	<!-- MedicineHerbal: 8 -> 16 (x2) -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="MedicineHerbal"]/statBases/MarketValue</xpath>
+		<value><MarketValue>16</MarketValue></value>
+	</Operation>
+
+	<!-- Herbmedicine: 10 -> 20 (x2) -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Herbmedicine"]/statBases/MarketValue</xpath>
+		<value><MarketValue>20</MarketValue></value>
+	</Operation>
+
+	<!-- HerbMedicine: 10 -> 20 (x2) -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="HerbMedicine"]/statBases/MarketValue</xpath>
+		<value><MarketValue>20</MarketValue></value>
+	</Operation>
+
+	<!-- MedicalDrink: 15 -> 60 -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="MedicalDrink"]/statBases/MarketValue</xpath>
+		<value><MarketValue>60</MarketValue></value>
+	</Operation>
+
+	<!-- MushroomTincture: 20 -> 80 -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="MushroomTincture"]/statBases/MarketValue</xpath>
+		<value><MarketValue>80</MarketValue></value>
+	</Operation>
+
+	<!-- HealrootTincture: 20 -> 80 -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="HealrootTincture"]/statBases/MarketValue</xpath>
+		<value><MarketValue>80</MarketValue></value>
+	</Operation>
+
+	<!-- Fungicine: 20 -> 400 (HSK more content) -->
+	<Operation Class="PatchOperationFindMod">
+		<mods><li>HSK more content</li></mods>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="Fungicine"]/statBases/MarketValue</xpath>
+			<value><MarketValue>180</MarketValue></value>
+		</match>
+	</Operation>
+
+	<!-- MedicineIndustrial: 35 -> 200 -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="MedicineIndustrial"]/statBases/MarketValue</xpath>
+		<value><MarketValue>200</MarketValue></value>
+	</Operation>
+
+	<!-- MedicineUltratech: 130 -> 520 -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="MedicineUltratech"]/statBases/MarketValue</xpath>
+		<value><MarketValue>520</MarketValue></value>
+	</Operation>
+</Patch>
