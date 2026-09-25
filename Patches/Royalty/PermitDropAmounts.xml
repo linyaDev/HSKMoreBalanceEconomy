@@ -2,7 +2,7 @@
 <Patch>
 	<!-- Привилегии Империи на ресурсы: ванильные количества
 	     (Royalty/Defs/RoyalTitles/RoyalPermits_Empire.xml) малы для пака.
-	     Сталь 250 -> 350, сухпайки 20 -> 40, серебро 500 -> 750.
+	     Сталь 250 -> 500, сухпайки 20 -> 40, серебро 500 -> 750.
 	     Стоимость (очки, фавор, минимальный титул) и кулдаун не трогаем.
 	     Русские описания — Languages/Russian/DefInjected/RoyalTitlePermitDef.
 
@@ -18,13 +18,13 @@
 					<xpath>Defs/RoyalTitlePermitDef[defName="SteelDrop"]/royalAid/itemsToDrop</xpath>
 					<value>
 						<itemsToDrop>
-							<Steel>350</Steel>
+							<Steel>500</Steel>
 						</itemsToDrop>
 					</value>
 				</li>
 				<li Class="PatchOperationReplace">
 					<xpath>Defs/RoyalTitlePermitDef[defName="SteelDrop"]/description</xpath>
-					<value><description>Call for a drop of 350 steel.</description></value>
+					<value><description>Call for a drop of 500 steel.</description></value>
 				</li>
 				<li Class="PatchOperationReplace">
 					<xpath>Defs/RoyalTitlePermitDef[defName="FoodDrop"]/royalAid/itemsToDrop</xpath>

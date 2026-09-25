@@ -2,8 +2,8 @@
 <LanguageData>
 
 	<!-- Количества изменены патчем Patches/Royalty/PermitDropAmounts.xml:
-	     250 стали -> 350, 20 сухпайков -> 40, 500 серебра -> 750 -->
-	<SteelDrop.description>Запрос доставки 350 единиц стали.</SteelDrop.description>
+	     250 стали -> 500, 20 сухпайков -> 40, 500 серебра -> 750 -->
+	<SteelDrop.description>Запрос доставки 500 единиц стали.</SteelDrop.description>
 	<FoodDrop.description>Запрос доставки 40 сухих пайков.</FoodDrop.description>
 	<SilverDrop.description>Запрос доставки 750 единиц серебра.</SilverDrop.description>
 
