@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Шахтёрский орбитальник (DeepSpaceMiningShip) возит больше руды.
+	     Паковый генератор Metals: 4~8 видов на 1200~3500 серебра — это всего
+	     200-600 единиц за рейс (железо/медь/олово/бокситы по 2, англезит 4,
+	     никель 8, ильменит 16, вольфрамит 18). Поднимаем в ~2.5 раза:
+	     6~10 видов на 3000~8000 — порядка 500-1500 единиц руды. -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/TraderKindDef[defName="DeepSpaceMiningShip"]/stockGenerators/li[categoryDef="Metals"]</xpath>
+		<value>
+			<li Class="StockGenerator_Category">
+				<categoryDef>Metals</categoryDef>
+				<thingDefCountRange>6~10</thingDefCountRange>
+				<price>Cheap</price>
+				<totalPriceRange>3000~8000</totalPriceRange>
+			</li>
+		</value>
+	</Operation>
+</Patch>
