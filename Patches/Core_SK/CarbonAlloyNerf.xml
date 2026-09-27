@@ -13,9 +13,11 @@
 		<value><StuffPower_Armor_Blunt>1.0</StuffPower_Armor_Blunt></value>
 	</Operation>
 
+	<!-- Цена как у стального слитка (SteelBar = 8): композит гонится из
+	     нефти почти даром, дороже стали ему стоить не за что. -->
 	<Operation Class="PatchOperationReplace">
 		<xpath>/Defs/ThingDef[defName="CarbonAlloy"]/statBases/MarketValue</xpath>
-		<value><MarketValue>30</MarketValue></value>
+		<value><MarketValue>8</MarketValue></value>
 	</Operation>
 
 </Patch>
