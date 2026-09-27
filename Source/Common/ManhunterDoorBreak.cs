@@ -1,17 +1,22 @@
 using System.Collections.Generic;
 using HarmonyLib;
 using RimWorld;
+using UnityEngine;
 using Verse;
 using Verse.AI;
 
 namespace HSKMoreHardcore
 {
     /// <summary>
-    /// Когда любое безумное животное на карте получает урон от колониста,
-    /// все manhunter на этой карте начинают ломать двери — но только если их
-    /// цель пешка игрока. За чужими пешками (рейдеры, гости) гоняются как в ванилле.
-    /// Как только manhunter кого-то опрокинул или убил, флаг для карты снимается (ярость остаётся).
-    /// Глобальный флаг per-map: lastManhunterHarmTick.
+    /// Когда безумное животное получает урон от колониста, все manhunter в радиусе
+    /// 40 клеток от раненого получают хедифф HSK_ManhunterRage (жажда мести) на 3 часа.
+    /// Только животные с этим хедиффом ломают двери — и только если их цель пешка игрока.
+    /// Приоритет у досягаемых целей: пока есть кто-то, до кого можно дойти без
+    /// ломания дверей, зверь дерётся с ним и двери не трогает.
+    /// За чужими пешками (рейдеры, гости) гоняются как в ванилле.
+    /// Как только manhunter кого-то опрокинул или убил, его хедифф снимается (ярость остаётся).
+    /// Хедифф сохраняется в сейве и виден во вкладке здоровья животного;
+    /// над животным рисуется пульсирующий «!» с тултипом.
     /// </summary>
     [StaticConstructorOnStartup]
     public static class ManhunterDoorBreak
@@ -22,14 +27,23 @@ namespace HSKMoreHardcore
         // Причина пропуска пишется только при смене её категории для животного.
         private const bool DebugLog = true;
 
-        // Окно реагирования: 3 часа (7500 тиков) после урона по любому manhunter
+        // Длительность жажды мести: 3 часа (7500 тиков) после урона
         private const int AggroWindowTicks = 7500;
 
-        // Per-map: тик последнего урона по manhunter
-        private static Dictionary<int, int> lastHarmTickPerMap = new Dictionary<int, int>();
+        // Радиус заражения яростью от раненого животного
+        private const float RageRadius = 40f;
 
         // Последняя записанная в лог категория решения по животному (thingIDNumber -> категория)
         private static readonly Dictionary<int, string> lastLoggedDecision = new Dictionary<int, string>();
+
+        private static HediffDef rageDef;
+        private static HediffDef RageDef =>
+            rageDef ??= DefDatabase<HediffDef>.GetNamed("HSK_ManhunterRage");
+
+        // Иконка «!» над животным с жаждой мести (грузится в статическом
+        // конструкторе — он выполняется в главном потоке)
+        private static readonly Texture2D RageIcon =
+            ContentFinder<Texture2D>.Get("HMH/ManhunterRageMark", reportFailure: false);
 
         static ManhunterDoorBreak()
         {
@@ -57,65 +71,53 @@ namespace HSKMoreHardcore
                     postfix: new HarmonyMethod(typeof(ManhunterDoorBreak), nameof(DamagePostfix)));
             }
 
-            // Очистка при загрузке/новой игре
-            var gameInit = AccessTools.Method(typeof(Game), "InitNewGame");
-            if (gameInit != null)
-                harmony.Patch(gameInit, postfix: new HarmonyMethod(typeof(ManhunterDoorBreak), nameof(ClearFlags)));
-
-            var gameLoad = AccessTools.Method(typeof(Game), "LoadGame");
-            if (gameLoad != null)
-                harmony.Patch(gameLoad, postfix: new HarmonyMethod(typeof(ManhunterDoorBreak), nameof(ClearFlags)));
-
-            // Postfix на Pawn.Kill — manhunter кого-то убил: снять флаг ломания дверей
+            // Postfix на Pawn.Kill — manhunter кого-то убил: снять его жажду мести
             var kill = AccessTools.Method(typeof(Pawn), nameof(Pawn.Kill));
             if (kill != null)
                 harmony.Patch(kill, postfix: new HarmonyMethod(typeof(ManhunterDoorBreak), nameof(KillPostfix)));
 
-            // Postfix на Pawn_HealthTracker.MakeDowned — manhunter кого-то опрокинул: снять флаг
+            // Postfix на Pawn_HealthTracker.MakeDowned — manhunter кого-то опрокинул: снять хедифф
             var makeDowned = AccessTools.Method(typeof(Pawn_HealthTracker), "MakeDowned");
             if (makeDowned != null)
                 harmony.Patch(makeDowned, postfix: new HarmonyMethod(typeof(ManhunterDoorBreak), nameof(DownedPostfix)));
             else
-                Log.Warning("[HSKMoreHardcore] ManhunterDoorBreak: Pawn_HealthTracker.MakeDowned not found — флаг снимается только при убийстве.");
+                Log.Warning("[HSKMoreHardcore] ManhunterDoorBreak: Pawn_HealthTracker.MakeDowned not found — хедифф снимается только при убийстве.");
+
+            if (RageIcon == null)
+                Log.Warning("[HSKMoreHardcore] ManhunterDoorBreak: текстура HMH/ManhunterRageMark не найдена — иконка ярости не рисуется.");
 
             Log.Message($"[HSKMoreHardcore] ManhunterDoorBreak applied. DebugLog={DebugLog}");
         }
 
-        public static void ClearFlags()
-        {
-            lastHarmTickPerMap.Clear();
-            lastLoggedDecision.Clear();
-        }
-
         // Manhunter опрокинул (или сразу убил) любую пешку — «месть» утолена: снимаем
-        // флаг ломания дверей для его карты. Сама ярость (ментальное состояние)
-        // остаётся; новый урон от колониста снова включит флаг.
+        // жажду мести с этого животного. Сама ярость (ментальное состояние)
+        // остаётся; новый урон от колониста снова навесит хедифф.
         public static void DownedPostfix(Pawn ___pawn, DamageInfo? dinfo)
         {
-            ClearFlagByManhunter(dinfo, ___pawn, "опрокинул");
+            ClearRageByManhunter(dinfo, ___pawn, "опрокинул");
         }
 
         // Убийство без опрокидывания (сразу насмерть) — тоже снимаем
         public static void KillPostfix(Pawn __instance, DamageInfo? dinfo)
         {
-            ClearFlagByManhunter(dinfo, __instance, "убил");
+            ClearRageByManhunter(dinfo, __instance, "убил");
         }
 
-        private static void ClearFlagByManhunter(DamageInfo? dinfo, Pawn victim, string what)
+        private static void ClearRageByManhunter(DamageInfo? dinfo, Pawn victim, string what)
         {
             if (dinfo?.Instigator is not Pawn attacker || !IsManhunter(attacker))
                 return;
 
-            var map = attacker.Map;
-            if (map == null)
-                return;
+            var rage = attacker.health?.hediffSet?.GetFirstHediffOfDef(RageDef);
+            if (rage != null)
+                attacker.health.RemoveHediff(rage);
 
-            bool hadFlag = lastHarmTickPerMap.Remove(map.uniqueID);
             if (DebugLog)
-                Log.Message($"[HSKMoreHardcore] ManhunterDoorBreak: {Describe(attacker)} {what} {Describe(victim)} -> флаг карты {(hadFlag ? "СНЯТ" : "не был активен")}");
+                Log.Message($"[HSKMoreHardcore] ManhunterDoorBreak: {Describe(attacker)} {what} {Describe(victim)} -> жажда мести {(rage != null ? "СНЯТА" : "не была активна")}");
         }
 
-        // Когда manhunter получает урон от колониста — ставим глобальный флаг для карты
+        // Когда manhunter получает урон от колониста — вешаем жажду мести на него
+        // и на всех manhunter в радиусе RageRadius от него
         public static void DamagePostfix(Pawn_MindState __instance, DamageInfo dinfo)
         {
             var pawn = __instance.pawn;
@@ -129,13 +131,43 @@ namespace HSKMoreHardcore
             if (dinfo.Instigator is not Pawn attacker || attacker.Faction != Faction.OfPlayer)
                 return;
 
-            bool wasActive = IsFlagActive(pawn.Map, out _);
-            lastHarmTickPerMap[pawn.Map.uniqueID] = Find.TickManager.TicksGame;
+            int enraged = 0, refreshed = 0;
+            var pawns = pawn.Map.mapPawns.AllPawnsSpawned;
+            for (int i = 0; i < pawns.Count; i++)
+            {
+                Pawn other = pawns[i];
+                if (!IsManhunter(other))
+                    continue;
+                if (!other.Position.InHorDistOf(pawn.Position, RageRadius))
+                    continue;
+
+                if (ApplyRage(other))
+                    enraged++;
+                else
+                    refreshed++;
+            }
+
             if (DebugLog)
-                Log.Message($"[HSKMoreHardcore] ManhunterDoorBreak: {Describe(attacker)} ранил {Describe(pawn)} -> флаг карты {(wasActive ? "продлён" : "ВКЛЮЧЁН")} на {AggroWindowTicks} тиков");
+                Log.Message($"[HSKMoreHardcore] ManhunterDoorBreak: {Describe(attacker)} ранил {Describe(pawn)} -> " +
+                    $"жажда мести в радиусе {RageRadius}: новых {enraged}, продлено {refreshed}, на {AggroWindowTicks} тиков");
         }
 
-        // Manhunter не нашёл цель — если глобальный флаг активен, ломать дверь
+        // Навесить/продлить жажду мести. true — хедифф новый, false — продлён существующий.
+        private static bool ApplyRage(Pawn pawn)
+        {
+            var hediff = pawn.health.hediffSet.GetFirstHediffOfDef(RageDef);
+            bool added = hediff == null;
+            if (added)
+                hediff = pawn.health.AddHediff(RageDef);
+
+            var disappears = hediff.TryGetComp<HediffComp_Disappears>();
+            if (disappears != null)
+                disappears.ticksToDisappear = AggroWindowTicks;
+
+            return added;
+        }
+
+        // Manhunter не нашёл цель — если у него жажда мести, ломать дверь
         public static void JobPostfix(ref Job __result, Pawn pawn)
         {
             // Только если оригинал не дал атаку (Goto/Wait/null = бродит или застрял)
@@ -163,17 +195,41 @@ namespace HSKMoreHardcore
                 return;
             }
 
-            // Проверяем глобальный флаг для этой карты
-            if (!IsFlagActive(pawn.Map, out int elapsed))
+            // Двери ломают только животные с жаждой мести
+            if (pawn.health?.hediffSet?.GetFirstHediffOfDef(RageDef) == null)
             {
-                LogSkip(pawn, "flag-off", $"флаг карты не активен (elapsed={elapsed}); ванилла: {original}");
+                LogSkip(pawn, "no-rage", $"нет жажды мести; ванилла: {original}");
+                return;
+            }
+
+            // Сначала — есть ли пешка, до которой можно дойти БЕЗ ломания дверей
+            // (кто-то остался на улице). Если есть — дерёмся с ней, двери не трогаем.
+            // Ваниль так не умеет: она выбирает ближайшую цель, считая двери
+            // проходимыми, и если та заперта — просто бродит рядом, не глядя
+            // на досягаемых. Из-за этого зверь ломал дверь, когда рядом стоял колонист.
+            Pawn openTarget = FindPawnTarget(pawn, canBashDoors: false);
+            if (openTarget != null && pawn.CanReach(openTarget, PathEndMode.Touch, Danger.Deadly, canBashDoors: false, pawn.FenceBlocked))
+            {
+                // Параметры атаки — как у ванильного MeleeAttackJob манхантера
+                Job attack = JobMaker.MakeJob(JobDefOf.AttackMelee, openTarget);
+                attack.maxNumMeleeAttacks = 1;
+                attack.expiryInterval = Rand.Range(420, 900);
+                attack.attackDoorIfTargetLost = true;
+                attack.canBashFences = pawn.FenceBlocked;
+                __result = attack;
+
+                if (DebugLog)
+                {
+                    lastLoggedDecision.Remove(pawn.thingIDNumber);
+                    Log.Message($"[HSKMoreHardcore] ManhunterDoorBreak: {Describe(pawn)} -> ДОСЯГАЕМАЯ ЦЕЛЬ {Describe(openTarget)}, двери не трогаем; ванилла была: {original}");
+                }
                 return;
             }
 
             // Цель — как её выбирает сама ванилла. Ломаем двери, только если животное
             // идёт на пешку игрока; за чужими (рейдеры, гости) пусть гонится как обычно,
             // иначе оно разворачивается на полпути к ним и идёт бить дверь колонии.
-            Pawn target = FindPawnTarget(pawn);
+            Pawn target = FindPawnTarget(pawn, canBashDoors: true);
             if (target == null || target.Faction != Faction.OfPlayer)
             {
                 LogSkip(pawn, "not-player:" + (target?.thingIDNumber ?? 0),
@@ -205,17 +261,56 @@ namespace HSKMoreHardcore
             {
                 lastLoggedDecision.Remove(pawn.thingIDNumber);
                 Log.Message($"[HSKMoreHardcore] ManhunterDoorBreak: {Describe(pawn)} -> ДВЕРЬ {door.Label} @{door.Position} " +
-                    $"(цель {Describe(target)}, elapsed={elapsed}); ванилла была: {original}");
+                    $"(цель {Describe(target)}); ванилла была: {original}");
             }
         }
 
-        private static bool IsFlagActive(Map map, out int elapsed)
+        // Иконки «!» над животными с жаждой мести на текущей карте. Вызывается из
+        // MapComponent_ManhunterRageOverlay.MapComponentOnGUI — свой канал отрисовки,
+        // не зависящий от чужих патчей на пешечные оверлеи (Camera+ и т.п.).
+        // GUI-пространство (OnGUI), поэтому тултип через TipRegion работает.
+        public static void DrawRageIcons(Map map)
         {
-            elapsed = -1;
-            if (!lastHarmTickPerMap.TryGetValue(map.uniqueID, out int lastTick))
-                return false;
-            elapsed = Find.TickManager.TicksGame - lastTick;
-            return elapsed <= AggroWindowTicks;
+            if (RageIcon == null)
+                return;
+
+            CellRect viewRect = Find.CameraDriver.CurrentViewRect;
+            var pawns = map.mapPawns.AllPawnsSpawned;
+            for (int i = 0; i < pawns.Count; i++)
+            {
+                Pawn pawn = pawns[i];
+                if (!viewRect.Contains(pawn.Position))
+                    continue;
+                if (map.fogGrid.IsFogged(pawn.Position))
+                    continue;
+                if (!IsManhunter(pawn))
+                    continue;
+                if (pawn.health?.hediffSet?.GetFirstHediffOfDef(RageDef) == null)
+                    continue;
+
+                // Позиция и размер — один в один как у CEQuickLoadout
+                // (Patch_PawnOverlay): фиксированные 20px, якорь — полклетки левее
+                // и полклетки выше DrawPos, без привязки к размеру спрайта.
+                const float iconSize = 20f;
+                Vector3 world = pawn.DrawPos;
+                world.x -= 0.5f;
+                world.z += 0.5f;
+                Vector2 pos = Find.Camera.WorldToScreenPoint(world) / Prefs.UIScale;
+                pos.y = UI.screenHeight - pos.y;
+                Rect rect = new Rect(pos.x - iconSize / 2f, pos.y - iconSize / 2f, iconSize, iconSize);
+
+                // лёгкая пульсация — как у ванильных предупреждающих оверлеев
+                float alpha = 0.7f + 0.3f * Mathf.Sin(Time.realtimeSinceStartup * 4f);
+                GUI.color = new Color(1f, 1f, 1f, alpha);
+                GUI.DrawTexture(rect, RageIcon);
+                GUI.color = Color.white;
+
+                TooltipHandler.TipRegion(rect, "HSK_ManhunterRageTip".Translate());
+
+                // Диагностика отрисовки: раз в ~2 сек
+                if (DebugLog && Time.frameCount % 120 == 0)
+                    Log.Message($"[HSKMoreHardcore] ManhunterDoorBreak: рисую «!» над {Describe(pawn)} rect={rect}, UIScale={Prefs.UIScale}");
+            }
         }
 
         private static bool IsManhunter(Pawn pawn)
@@ -258,14 +353,17 @@ namespace HSKMoreHardcore
             return false;
         }
 
-        // Копия JobGiver_Manhunter.FindPawnTarget: любая пешка с интеллектом, двери ломать можно
-        private static Pawn FindPawnTarget(Pawn pawn)
+        // Копия JobGiver_Manhunter.FindPawnTarget: любая пешка с интеллектом.
+        // canBashDoors=true — цели за дверями тоже годятся; false — только
+        // досягаемые без ломания (для рукопашников BestAttackTarget сам
+        // отфильтрует недостижимых).
+        private static Pawn FindPawnTarget(Pawn pawn, bool canBashDoors)
         {
             return (Pawn)AttackTargetFinder.BestAttackTarget(pawn,
                 TargetScanFlags.NeedThreat | TargetScanFlags.NeedAutoTargetable,
                 x => x is Pawn && (int)x.def.race.intelligence >= 1,
                 0f, 9999f, default(IntVec3), float.MaxValue,
-                canBashDoors: true, canTakeTargetsCloserThanEffectiveMinRange: true,
+                canBashDoors: canBashDoors, canTakeTargetsCloserThanEffectiveMinRange: true,
                 canBashFences: pawn.FenceBlocked);
         }
 
@@ -320,6 +418,24 @@ namespace HSKMoreHardcore
             var t = job.targetA;
             string target = t.Thing != null ? $"{t.Thing.LabelShort}#{t.Thing.thingIDNumber} @{t.Thing.Position}" : t.Cell.ToString();
             return $"{job.def.defName} -> {target} (expiry={job.expiryInterval}, checkOverride={job.checkOverrideOnExpire})";
+        }
+    }
+
+    /// <summary>
+    /// Рисует «!» над животными с жаждой мести. MapComponent создаётся движком
+    /// автоматически для каждой карты (ничего не сохраняет в сейв).
+    /// </summary>
+    public class MapComponent_ManhunterRageOverlay : MapComponent
+    {
+        public MapComponent_ManhunterRageOverlay(Map map) : base(map)
+        {
+        }
+
+        public override void MapComponentOnGUI()
+        {
+            if (Event.current.type != EventType.Repaint)
+                return;
+            ManhunterDoorBreak.DrawRageIcons(map);
         }
     }
 }
