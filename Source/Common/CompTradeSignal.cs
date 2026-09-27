@@ -419,6 +419,10 @@ namespace HSKMoreHardcore
                 return false;
             if (NeutralGroupIncidentUtility.AnyBlockingHostileLord(map, f))
                 return false;
+            // Фракция обижена гибелью вьючных животных своего каравана
+            var animalBans = WorldComponent_CaravanAnimalDeaths.Instance;
+            if (animalBans != null && animalBans.IsBanned(f, out _))
+                return false;
 
             return true;
         }

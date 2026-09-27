@@ -108,6 +108,15 @@ namespace HSKMoreHardcore
                 silverCost, -Faction.OfPlayer.CalculateAdjustedGoodwillChange(faction, -goodwillCost),
                 charges, settings.commsTraderMaxCharges);
 
+            // Фракция обижена гибелью вьючных животных своего каравана
+            var animalBans = WorldComponent_CaravanAnimalDeaths.Instance;
+            if (animalBans != null && animalBans.IsBanned(faction, out int banTicksLeft))
+            {
+                var disabled = new DiaOption(label);
+                disabled.Disable("HSK_TraderBanAnimals".Translate(banTicksLeft.ToStringTicksToPeriod()));
+                return disabled;
+            }
+
             if (!faction.def.allowedArrivalTemperatureRange.ExpandedBy(-4f).Includes(map.mapTemperature.SeasonalTemp))
             {
                 var disabled = new DiaOption(label);
