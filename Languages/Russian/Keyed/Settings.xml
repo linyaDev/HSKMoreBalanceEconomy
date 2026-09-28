@@ -2,6 +2,11 @@
 <LanguageData>
 	<HMH_ShowTechWidget>Виджет прогресса техуровня</HMH_ShowTechWidget>
 	<HMH_ShowTechWidgetTip>Плашка с прогрессом до следующего технологического уровня по расчёту Ignorance Is Bliss. ПКМ — перетащить, ЛКМ — открыть исследования. Работает только при установленном Ignorance Is Bliss в режиме «процент исследований».</HMH_ShowTechWidgetTip>
+	<HMH_GuestsSection>Гости</HMH_GuestsSection>
+	<HMH_ShowGuestSilver>Серебро гостей над головой</HMH_ShowGuestSilver>
+	<HMH_ShowGuestSilverTip>Показывать над гостями Hospitality иконку серебра и остаток денег на покупки. Отображается, только когда у гостя больше 40 серебра.</HMH_ShowGuestSilverTip>
+	<HMH_GuestSilverZoom>Порог зума для метки: {0} пикс/клетку</HMH_GuestSilverZoom>
+	<HMH_GuestSilverZoomTip>Метка серебра видна, только когда камера приближена сильнее порога. 0 — показывать при любом зуме; чем больше значение, тем ближе нужно приблизить камеру.</HMH_GuestSilverZoomTip>
 	<HMH_TechWidget_Label>{0}: {1}/{2}</HMH_TechWidget_Label>
 	<HMH_TechWidget_TipHeader>Текущий уровень по Ignorance Is Bliss: {0}\nПорог перехода: {1}% исследований уровня</HMH_TechWidget_TipHeader>
 	<HMH_TechWidget_TipCum>в зачёте {0}, нужно {1}</HMH_TechWidget_TipCum>

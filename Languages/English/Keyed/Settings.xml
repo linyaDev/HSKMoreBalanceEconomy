@@ -2,6 +2,11 @@
 <LanguageData>
 	<HMH_ShowTechWidget>Tech level progress widget</HMH_ShowTechWidget>
 	<HMH_ShowTechWidgetTip>Overlay showing progress toward the next tech level as calculated by Ignorance Is Bliss. RMB to drag, LMB to open research. Requires Ignorance Is Bliss in "percent researched" mode.</HMH_ShowTechWidgetTip>
+	<HMH_GuestsSection>Guests</HMH_GuestsSection>
+	<HMH_ShowGuestSilver>Guest silver overhead</HMH_ShowGuestSilver>
+	<HMH_ShowGuestSilverTip>Show a silver icon and the remaining shopping money above Hospitality guests. Only displayed when a guest carries more than 40 silver.</HMH_ShowGuestSilverTip>
+	<HMH_GuestSilverZoom>Tag zoom threshold: {0} px/cell</HMH_GuestSilverZoom>
+	<HMH_GuestSilverZoomTip>The silver tag is only visible when the camera is zoomed in past this threshold. 0 — always show; higher values require zooming in closer.</HMH_GuestSilverZoomTip>
 	<HMH_TechWidget_Label>{0}: {1}/{2}</HMH_TechWidget_Label>
 	<HMH_TechWidget_TipHeader>Current level per Ignorance Is Bliss: {0}\nTransition threshold: {1}% of the level's projects</HMH_TechWidget_TipHeader>
 	<HMH_TechWidget_TipCum>counted {0}, need {1}</HMH_TechWidget_TipCum>
