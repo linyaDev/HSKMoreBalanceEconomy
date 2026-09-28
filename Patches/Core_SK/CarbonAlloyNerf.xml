@@ -21,4 +21,11 @@
 		<value><MarketValue>1.9</MarketValue></value>
 	</Operation>
 
+	<!-- Работа на выплавку вдвое меньше паковой (2800 -> 1400 на 10 штук):
+	     раз композит больше не топ-материал, гонять его столько же незачем. -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/RecipeDef[defName="MakeCarbonAlloy"]/workAmount</xpath>
+		<value><workAmount>1400</workAmount></value>
+	</Operation>
+
 </Patch>
