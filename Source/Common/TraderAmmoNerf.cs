@@ -65,15 +65,32 @@ namespace HSKMoreHardcore
             for (int i = __result.Count - 1; i >= 0; i--)
             {
                 var thing = __result[i];
-                if (isTrader && thing.def == ThingDefOf.Silver && thing.stackCount < silverMin)
-                {
-                    thing.stackCount = silverMin;
-                }
-                else if (ammoThingType.IsInstanceOfType(thing) && thing.stackCount > 1)
+                if (ammoThingType.IsInstanceOfType(thing) && thing.stackCount > 1)
                 {
                     float mult = isTrader ? NerfSettings.traderAmmoMultiplier : NerfSettings.rewardAmmoMultiplier;
                     thing.stackCount = Mathf.Max(5, Mathf.FloorToInt(thing.stackCount * mult));
                 }
+            }
+
+            // Минимум серебра у торговца: считаем СУММУ по всем пачкам и добиваем
+            // разницу в первую (поштучное раздувание каждой мелкой пачки
+            // переплачивало при нескольких пачках). Торговцу вовсе без серебра
+            // не даём ничего — как в More hardcore: бартерным оно не положено.
+            if (isTrader)
+            {
+                int totalSilver = 0;
+                Thing firstSilver = null;
+                for (int i = 0; i < __result.Count; i++)
+                {
+                    if (__result[i].def == ThingDefOf.Silver)
+                    {
+                        totalSilver += __result[i].stackCount;
+                        firstSilver ??= __result[i];
+                    }
+                }
+
+                if (firstSilver != null && totalSilver < silverMin)
+                    firstSilver.stackCount += silverMin - totalSilver;
             }
         }
 
@@ -135,10 +152,31 @@ namespace HSKMoreHardcore
                     }
                 }
 
+                // Предметы искусства не профильны обычным торговцам: всем, кроме
+                // торговцев экзотикой, сдаются с множителем artSellNonExoticMultiplier
+                if (settings.artSellNonExoticMultiplier != 1f && IsArt(thing) && !IsExoticTrader())
+                    __result *= settings.artSellNonExoticMultiplier;
+
                 float mult = GetSellMultiplier(thing.def, settings);
                 if (mult != 1f)
                     __result *= mult;
             }
+        }
+
+        // Арт по компу CompArt (скульптуры и т.п.); свёрнутая скульптура —
+        // MinifiedThing, комп смотрим у вещи внутри
+        private static bool IsArt(Thing thing)
+        {
+            var def = thing.GetInnerIfMinified()?.def;
+            return def != null && def.HasComp(typeof(CompArt));
+        }
+
+        // Торговец экзотикой: Orbital_Exotic, Caravan_Outlander_Exotic и любые
+        // модовые с Exotic в defName
+        private static bool IsExoticTrader()
+        {
+            var kind = TradeSession.trader?.TraderKind;
+            return kind != null && kind.defName.IndexOf("Exotic", StringComparison.OrdinalIgnoreCase) >= 0;
         }
 
         // Множитель цены для дефа: точечный из overrides, иначе первое подходящее

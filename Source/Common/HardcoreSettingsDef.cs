@@ -27,6 +27,10 @@ namespace HSKMoreHardcore
         // Рождённые в колонии метки не получают и продаются по полной цене.
         public float freeAnimalSellMultiplier = 1f;
         public float tamedAnimalSellMultiplier = 1f;
+        // Предметы искусства (CompArt: скульптуры и т.п.) продаются с этим
+        // множителем всем торговцам, кроме торговцев экзотикой (defName
+        // содержит Exotic). 1 = без изменений.
+        public float artSellNonExoticMultiplier = 1f;
         // Стальной дождь: пауза между письмом и первыми осколками, в тиках
         // (60 тиков = 1 секунда на обычной скорости). 0 = без задержки.
         public int razorRainStartDelayTicks = 0;
