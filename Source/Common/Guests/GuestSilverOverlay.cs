@@ -88,11 +88,9 @@ namespace HSKMoreHardcore
                 pad + iconSize + 3f * scale + textSize.x + pad,
                 bgHeight);
 
-            // Тёмная плашка с едва заметной рамкой — читаемее ванильной серой
-            Widgets.DrawBoxSolid(bgRect, new Color(0.08f, 0.08f, 0.1f, 0.65f));
-            GUI.color = new Color(1f, 1f, 1f, 0.2f);
-            Widgets.DrawBox(bgRect);
-            GUI.color = Color.white;
+            // Фон как у наших виджетов (TechProgressWidget), без рамки:
+            // рамка на движущейся пешке рябила и мешала читать
+            Widgets.DrawBoxSolid(bgRect, new Color(0.08f, 0.08f, 0.08f, 0.7f));
 
             Rect iconRect = new Rect(bgRect.x + pad, bgRect.y + (bgRect.height - iconSize) / 2f, iconSize, iconSize);
             GUI.DrawTexture(iconRect, ThingDefOf.Silver.uiIcon);
