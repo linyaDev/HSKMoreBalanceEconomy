@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Руда у оптовиков-караванщиков. Паковое железо (120~350 у аутлендеров,
+	     120~250 у неолита) — копейки при цене руды 2: 350 штук = 700 серебра.
+	     Поднимаем в духе буста орбитального шахтёра (OrbitalMinerOreBoost) и
+	     добавляем медную руду зеркально железной — теперь возят обе всегда.
+	     У орбитального оптовика гарантированной руды нет (случайная категория
+	     Metals) — его не трогаем. -->
+
+	<!-- Аутлендеры: железо 120~350 -> 400~1000, медь столько же -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/TraderKindDef[defName="Caravan_Outlander_BulkGoods"]/stockGenerators/li[thingDef="Iron"]/countRange</xpath>
+		<value><countRange>400~1000</countRange></value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TraderKindDef[defName="Caravan_Outlander_BulkGoods"]/stockGenerators</xpath>
+		<value>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Copper</thingDef>
+				<price>Cheap</price>
+				<countRange>400~1000</countRange>
+			</li>
+		</value>
+	</Operation>
+
+	<!-- Неолит: железо 120~250 -> 300~700, медь столько же -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/TraderKindDef[defName="Caravan_Neolithic_BulkGoods"]/stockGenerators/li[thingDef="Iron"]/countRange</xpath>
+		<value><countRange>300~700</countRange></value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TraderKindDef[defName="Caravan_Neolithic_BulkGoods"]/stockGenerators</xpath>
+		<value>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Copper</thingDef>
+				<price>Cheap</price>
+				<countRange>300~700</countRange>
+			</li>
+		</value>
+	</Operation>
+</Patch>
