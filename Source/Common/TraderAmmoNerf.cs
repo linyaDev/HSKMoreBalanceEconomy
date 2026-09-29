@@ -46,7 +46,7 @@ namespace HSKMoreHardcore
         private static Type traderStockType;
         private static Type rewardMarketValueType;
 
-        public static void StockPostfix(ThingSetMaker __instance, ref List<Thing> __result)
+        public static void StockPostfix(ThingSetMaker __instance, ThingSetMakerParams parms, ref List<Thing> __result)
         {
             if (traderStockType == null)
                 traderStockType = typeof(ThingSetMaker).Assembly.GetType("RimWorld.ThingSetMaker_TraderStock");
@@ -55,6 +55,11 @@ namespace HSKMoreHardcore
 
             bool isTrader = traderStockType != null && traderStockType.IsInstanceOfType(__instance);
             bool isReward = rewardMarketValueType != null && rewardMarketValueType.IsInstanceOfType(__instance);
+
+            // Диагностика: ассортимент торговца пришёл НЕ через TraderStock —
+            // минимум серебра к нему не применится, надо знать про такой канал
+            if (!isTrader && parms.traderDef != null)
+                Log.Message($"[HSKMoreHardcore] TraderSilverMin: ассортимент {parms.traderDef.defName} генерит {__instance.GetType().FullName} (не TraderStock) — минимум серебра не применён.");
 
             if (!isTrader && !isReward)
                 return;
@@ -89,8 +94,14 @@ namespace HSKMoreHardcore
                     }
                 }
 
-                if (firstSilver != null && totalSilver < silverMin)
+                bool topped = firstSilver != null && totalSilver < silverMin;
+                if (topped)
                     firstSilver.stackCount += silverMin - totalSilver;
+
+                Log.Message($"[HSKMoreHardcore] TraderSilverMin: {parms.traderDef?.defName ?? __instance.GetType().Name} — " +
+                    $"серебро {totalSilver}" +
+                    (topped ? $" -> {silverMin} (добито)" : firstSilver == null ? " (серебра нет — не добиваем)" : " (минимум соблюдён)") +
+                    $", порог {silverMin}, вещей в ассортименте {__result.Count}");
             }
         }
 
