@@ -69,6 +69,8 @@ namespace HSKMoreHardcore
             {
                 if (t == null || t.Destroyed)
                     continue;
+                // С MendFlatRepair каждая завершённая починка — полноценные
+                // +50% прочности, считаем все (две починки = полный запас HP).
                 var comp = t.TryGetComp<CompWornByEnemy>();
                 if (comp == null)
                     continue;
