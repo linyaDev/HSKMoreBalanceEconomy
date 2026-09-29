@@ -8,7 +8,8 @@ using Verse.AI;
 namespace HSKMoreHardcore
 {
     /// <summary>
-    /// Когда безумное животное получает урон от колониста, все manhunter в радиусе
+    /// Когда безумное животное получает урон от колониста-человека (животные,
+    /// дриады и мехи колонии не в счёт), все manhunter в радиусе
     /// 40 клеток от раненого получают хедифф HSK_ManhunterRage (жажда мести) на 3 часа.
     /// Только животные с этим хедиффом ломают двери — и только если их цель пешка игрока.
     /// Приоритет у досягаемых целей: пока есть кто-то, до кого можно дойти без
@@ -127,8 +128,11 @@ namespace HSKMoreHardcore
             if (!IsManhunter(pawn))
                 return;
 
-            // Только урон от пешки фракции игрока
+            // Только урон от человека фракции игрока: боевые животные, дриады
+            // и мехи колонии ярость не разжигают
             if (dinfo.Instigator is not Pawn attacker || attacker.Faction != Faction.OfPlayer)
+                return;
+            if (attacker.RaceProps == null || !attacker.RaceProps.Humanlike)
                 return;
 
             int enraged = 0, refreshed = 0;
