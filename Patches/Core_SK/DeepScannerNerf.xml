@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
 
-	<!-- Глубинный сканер: время поиска x4 -->
+	<!-- Глубинный сканер: время поиска x3 от ванили (3/6 -> 9/18) -->
 	<Operation Class="PatchOperationReplace">
 		<xpath>/Defs/ThingDef[defName="GroundPenetratingScanner"]/comps/li[@Class="CompProperties_ScannerMineralsDeep"]/scanFindMtbDays</xpath>
 		<value><scanFindMtbDays>9</scanFindMtbDays></value>
@@ -12,15 +12,15 @@
 		<value><scanFindGuaranteedDays>18</scanFindGuaranteedDays></value>
 	</Operation>
 
-	<!-- Дальний сканер: время поиска x3 -->
+	<!-- Дальний сканер: как у глубинного (ваниль 4/8 -> 9/18) -->
 	<Operation Class="PatchOperationReplace">
 		<xpath>/Defs/ThingDef[defName="LongRangeMineralScanner"]/comps/li[@Class="CompProperties_LongRangeMineralScanner"]/scanFindMtbDays</xpath>
-		<value><scanFindMtbDays>12</scanFindMtbDays></value>
+		<value><scanFindMtbDays>9</scanFindMtbDays></value>
 	</Operation>
 
 	<Operation Class="PatchOperationReplace">
 		<xpath>/Defs/ThingDef[defName="LongRangeMineralScanner"]/comps/li[@Class="CompProperties_LongRangeMineralScanner"]/scanFindGuaranteedDays</xpath>
-		<value><scanFindGuaranteedDays>24</scanFindGuaranteedDays></value>
+		<value><scanFindGuaranteedDays>18</scanFindGuaranteedDays></value>
 	</Operation>
 
 </Patch>
