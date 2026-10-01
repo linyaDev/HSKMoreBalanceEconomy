@@ -43,6 +43,19 @@ namespace HSKMoreHardcore
                 if (excludedRecipes.Contains(recipe.defName))
                     continue;
 
+                // Множитель задуман для массовых патронов (партии по 80).
+                // Поштучные и малопартийные тяжёлые снаряды (гаубица, пушки,
+                // РПГ, СПГ-9, подствольные и т.п. — у них выход 1-8) не множим:
+                // с x3 гаубичный выстрел стоил под тысячу серебра.
+                int batchSize = 0;
+                if (recipe.products != null)
+                {
+                    foreach (var p in recipe.products)
+                        batchSize += p.count;
+                }
+                if (batchSize < 20)
+                    continue;
+
                 float mult;
                 if (recipe.defName.StartsWith("MakeAmmo_Arrow_"))
                 {
