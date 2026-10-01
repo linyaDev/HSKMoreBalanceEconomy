@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-	<!-- Добывающая установка (Extractor): радиус добычи на клетку больше
-	     буровой после нашего буста (DeepDrillRadius, 37 клеток ~3.2) —
-	     61 ближайшая клетка (~4.2) вместо паковых 9 (~1.4).
-	     Улучшенную (RareExtractor, 16 клеток) не трогаем.
-	     Кольцо радиуса добавляем для наглядности — в паке его не было. -->
+	<!-- Добывающие установки: радиус добычи на клетку больше буровой после
+	     нашего буста (DeepDrillRadius, 37 клеток ~3.2) — 61 ближайшая клетка
+	     (~4.2) у обеих: обычной (паковые 9) и улучшенной (паковые 16).
+	     Кольца радиуса добавляем для наглядности — в паке их не было. -->
 	<Operation Class="PatchOperationReplace">
 		<xpath>Defs/ThingDef[defName="Extractor"]/modExtensions/li[@Class="SK.MineExtractorExtension"]/MineSizeinCells</xpath>
 		<value><MineSizeinCells>61</MineSizeinCells></value>
@@ -12,6 +11,16 @@
 
 	<Operation Class="PatchOperationAdd">
 		<xpath>Defs/ThingDef[defName="Extractor"]</xpath>
+		<value><specialDisplayRadius>4.6</specialDisplayRadius></value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="RareExtractor"]/modExtensions/li[@Class="SK.MineAdvancedExtractorExtension"]/MineSizeinCells</xpath>
+		<value><MineSizeinCells>61</MineSizeinCells></value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="RareExtractor"]</xpath>
 		<value><specialDisplayRadius>4.6</specialDisplayRadius></value>
 	</Operation>
 
