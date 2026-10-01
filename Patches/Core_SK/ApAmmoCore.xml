@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Сердечник бронебойных патронов. В паке он брался из категорий
+	     USLDHBar (об. уран 18, победит 33, вольфрам 40, бета-поли 65) ИЛИ
+	     Ceramic (керамика за 12 из песка и глины) — на практике все клепали
+	     керамику, и AP стоил едва дороже FMJ. Убираем Ceramic и взамен
+	     добавляем инвар (SteelBar, 8) и альнико (AlnicoAlloy, 11) — твёрдые
+	     сплавы попроще: AP доступен до урана, но требует настоящего металла.
+	     // в xpath удаления покрывает и слот ингредиента, и fixedIngredientFilter;
+	     в fixedIngredientFilter инвар с альнико уже входят через категорию
+	     USLDBar первого слота, добавлять их надо только в слот сердечника. -->
+
+	<!-- 9x19 мм Парабеллум -->
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/RecipeDef[defName="MakeAmmo_9x19mmPara_AP"]//categories/li[text()="Ceramic"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/RecipeDef[defName="MakeAmmo_9x19mmPara_AP"]/ingredients/li[filter/categories/li="USLDHBar"]/filter</xpath>
+		<value><thingDefs><li>SteelBar</li><li>AlnicoAlloy</li></thingDefs></value>
+	</Operation>
+
+	<!-- .45 ACP -->
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/RecipeDef[defName="MakeAmmo_45ACP_AP"]//categories/li[text()="Ceramic"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/RecipeDef[defName="MakeAmmo_45ACP_AP"]/ingredients/li[filter/categories/li="USLDHBar"]/filter</xpath>
+		<value><thingDefs><li>SteelBar</li><li>AlnicoAlloy</li></thingDefs></value>
+	</Operation>
+
+	<!-- 5.56x45 мм НАТО -->
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/RecipeDef[defName="MakeAmmo_556x45mmNATO_AP"]//categories/li[text()="Ceramic"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/RecipeDef[defName="MakeAmmo_556x45mmNATO_AP"]/ingredients/li[filter/categories/li="USLDHBar"]/filter</xpath>
+		<value><thingDefs><li>SteelBar</li><li>AlnicoAlloy</li></thingDefs></value>
+	</Operation>
+
+	<!-- 7.62x39 мм -->
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/RecipeDef[defName="MakeAmmo_762x39mmSoviet_AP"]//categories/li[text()="Ceramic"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/RecipeDef[defName="MakeAmmo_762x39mmSoviet_AP"]/ingredients/li[filter/categories/li="USLDHBar"]/filter</xpath>
+		<value><thingDefs><li>SteelBar</li><li>AlnicoAlloy</li></thingDefs></value>
+	</Operation>
+
+	<!-- 7.62x51 мм НАТО -->
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/RecipeDef[defName="MakeAmmo_762x51mmNATO_AP"]//categories/li[text()="Ceramic"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/RecipeDef[defName="MakeAmmo_762x51mmNATO_AP"]/ingredients/li[filter/categories/li="USLDHBar"]/filter</xpath>
+		<value><thingDefs><li>SteelBar</li><li>AlnicoAlloy</li></thingDefs></value>
+	</Operation>
+
+	<!-- .303 British -->
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/RecipeDef[defName="MakeAmmo_303British_AP"]//categories/li[text()="Ceramic"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/RecipeDef[defName="MakeAmmo_303British_AP"]/ingredients/li[filter/categories/li="USLDHBar"]/filter</xpath>
+		<value><thingDefs><li>SteelBar</li><li>AlnicoAlloy</li></thingDefs></value>
+	</Operation>
+</Patch>
