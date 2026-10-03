@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Гости активнее ходят по магазинам: вес шопинга среди развлечений
+	     25 -> 50 (покупка вещей и еды). Порог «понравилось — купил» правится
+	     кодом в GuestShoppingBoost.cs. -->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Hospitality</li>
+		</mods>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/Hospitality.JoyGiverDefShopping[defName="BuyStuff" or defName="BuyFood"]/baseChance</xpath>
+			<value><baseChance>50</baseChance></value>
+		</match>
+	</Operation>
+</Patch>
