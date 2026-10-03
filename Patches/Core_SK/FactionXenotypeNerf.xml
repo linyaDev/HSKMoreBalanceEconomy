@@ -17,11 +17,13 @@
 	-->
 
 	<!-- Фракции. Pirate, Ancients и AncientsHostile — ванильные, вампиров им
-	     добавляет сам пак своими патчами, наш идёт после и убирает. -->
+	     добавляет сам пак своими патчами, наш идёт после и убирает.
+	     У орассанов (оба прайда) xenotypeSet лежит в абстрактной базе
+	     SK_OrassanBase — ловим её по @Name, иначе defName-ы не матчатся. -->
 	<Operation Class="PatchOperationConditional">
-		<xpath>Defs/FactionDef[defName="NorbalTribe" or defName="NovaAlliance" or defName="MedievalKingdom" or defName="Predators" or defName="Brotherhood" or defName="Orassan" or defName="OrassanEvil" or defName="Orion" or defName="Pirate" or defName="Ancients" or defName="AncientsHostile" or defName="RK_Faction_Pilgrims" or defName="RK_Faction_Caravan" or @Name="RatkinFactionBase"]/xenotypeSet/xenotypeChances/Sanguophage</xpath>
+		<xpath>Defs/FactionDef[defName="NorbalTribe" or defName="NovaAlliance" or defName="MedievalKingdom" or defName="Predators" or defName="Brotherhood" or defName="Orassan" or defName="OrassanEvil" or @Name="SK_OrassanBase" or defName="Orion" or defName="Pirate" or defName="Ancients" or defName="AncientsHostile" or defName="RK_Faction_Pilgrims" or defName="RK_Faction_Caravan" or @Name="RatkinFactionBase"]/xenotypeSet/xenotypeChances/Sanguophage</xpath>
 		<match Class="PatchOperationRemove">
-			<xpath>Defs/FactionDef[defName="NorbalTribe" or defName="NovaAlliance" or defName="MedievalKingdom" or defName="Predators" or defName="Brotherhood" or defName="Orassan" or defName="OrassanEvil" or defName="Orion" or defName="Pirate" or defName="Ancients" or defName="AncientsHostile" or defName="RK_Faction_Pilgrims" or defName="RK_Faction_Caravan" or @Name="RatkinFactionBase"]/xenotypeSet/xenotypeChances/Sanguophage</xpath>
+			<xpath>Defs/FactionDef[defName="NorbalTribe" or defName="NovaAlliance" or defName="MedievalKingdom" or defName="Predators" or defName="Brotherhood" or defName="Orassan" or defName="OrassanEvil" or @Name="SK_OrassanBase" or defName="Orion" or defName="Pirate" or defName="Ancients" or defName="AncientsHostile" or defName="RK_Faction_Pilgrims" or defName="RK_Faction_Caravan" or @Name="RatkinFactionBase"]/xenotypeSet/xenotypeChances/Sanguophage</xpath>
 		</match>
 	</Operation>
 
