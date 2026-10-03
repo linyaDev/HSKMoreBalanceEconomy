@@ -57,6 +57,12 @@
 				<li Class="StockGenerator_BuySingleDef">
 					<thingDef>Crossbow_Compound</thingDef>
 				</li>
+				<!-- Биотоксиновый шипомёт (Anomaly): tradeTag у него HoraxWeapon,
+				     под WeaponRanged не попадает; по технике — средневековый
+				     арбалет, самое место в этом списке -->
+				<li Class="StockGenerator_BuySingleDef" MayRequire="Ludeon.RimWorld.Anomaly">
+					<thingDef>NerveSpiker</thingDef>
+				</li>
 			</value>
 		</match>
 	</Operation>
