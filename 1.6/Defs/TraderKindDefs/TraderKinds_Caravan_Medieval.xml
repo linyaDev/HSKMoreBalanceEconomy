@@ -61,15 +61,16 @@
 				<thingDefCountRange>1~2</thingDefCountRange>
 				<countRange>1~1</countRange>
 			</li>
-			<!-- Скупка неолитического оружия: луки и духовые трубки (ноль видов
-			     на продажу — только покупка; милишку любого техуровня генератор
-			     WeaponsMelee выше и так скупает) -->
+			<!-- Скупка дальнобойного оружия ЛЮБОГО техуровня: ноль видов на
+			     продажу (торгует он только средневековым, см. генераторы выше),
+			     но трофейные луки, духовые трубки и огнестрел скупает —
+			     maxTechLevelBuy по умолчанию Archotech. Категория целиком, а не
+			     поштучно: Pistols/Rifles/SMGs/Shotguns/SRifles/MachineGun/
+			     Launchers/Glaunchers/ThrownRanged — всё это дети WeaponsRanged.
+			     Милишку любого техуровня генератор WeaponsMelee выше и так
+			     скупает. -->
 			<li Class="StockGenerator_Category">
-				<categoryDef>BowRanged</categoryDef>
-				<thingDefCountRange>0~0</thingDefCountRange>
-			</li>
-			<li Class="StockGenerator_Category">
-				<categoryDef>Specialranged</categoryDef>
+				<categoryDef>WeaponsRanged</categoryDef>
 				<thingDefCountRange>0~0</thingDefCountRange>
 			</li>
 
