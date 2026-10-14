@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<!-- Характеристики крыш Stratum — видны в карточке крыши и материалов -->
+
+	<SolarWeb-Stratum-Insulation.label>теплоизоляция</SolarWeb-Stratum-Insulation.label>
+	<SolarWeb-Stratum-Insulation.description>Насколько хорошо материал удерживает тепло. Чем выше значение, тем лучше сохраняется температура в помещении.</SolarWeb-Stratum-Insulation.description>
+
+	<SolarWeb-Stratum-ThermalConductivity.label>теплопроводность</SolarWeb-Stratum-ThermalConductivity.label>
+	<SolarWeb-Stratum-ThermalConductivity.description>Насколько быстро тепло проходит сквозь крышу.</SolarWeb-Stratum-ThermalConductivity.description>
+
+	<SolarWeb-Stratum-Transparency.label>светопропускание</SolarWeb-Stratum-Transparency.label>
+	<SolarWeb-Stratum-Transparency.description>Сколько света проходит сквозь эту крышу.</SolarWeb-Stratum-Transparency.description>
+
+	<SolarWeb-Stratum-SolarOutput.label>выработка энергии</SolarWeb-Stratum-SolarOutput.label>
+	<SolarWeb-Stratum-SolarOutput.description>Мощность, которую эта клетка крыши вырабатывает под солнечным светом.</SolarWeb-Stratum-SolarOutput.description>
+
+	<SolarWeb-Stratum-DamageThreshold.label>запас прочности</SolarWeb-Stratum-DamageThreshold.label>
+	<SolarWeb-Stratum-DamageThreshold.description>Сколько урона выдержит крыша, прежде чем разрушится.</SolarWeb-Stratum-DamageThreshold.description>
+
+	<SolarWeb-Stratum-ArmorRating.label>броня</SolarWeb-Stratum-ArmorRating.label>
+	<SolarWeb-Stratum-ArmorRating.description>Базовая бронированность крыши против попаданий.</SolarWeb-Stratum-ArmorRating.description>
+
+	<SolarWeb-Stratum-TransitionSpeed.label>скорость раздвижения</SolarWeb-Stratum-TransitionSpeed.label>
+	<SolarWeb-Stratum-TransitionSpeed.description>Время, за которое раздвижная крыша открывает или закрывает одно кольцо.</SolarWeb-Stratum-TransitionSpeed.description>
+
+	<SolarWeb-Stratum-StuffInsulationMultiplier.label>множитель теплоизоляции материала</SolarWeb-Stratum-StuffInsulationMultiplier.label>
+	<SolarWeb-Stratum-StuffInsulationMultiplier.description>Множитель к теплоизоляции, которую даёт материал постройки крыши.</SolarWeb-Stratum-StuffInsulationMultiplier.description>
+
+	<SolarWeb-Stratum-StuffArmorMultiplier.label>множитель брони материала</SolarWeb-Stratum-StuffArmorMultiplier.label>
+	<SolarWeb-Stratum-StuffArmorMultiplier.description>Множитель к бронированности, которую даёт материал постройки крыши.</SolarWeb-Stratum-StuffArmorMultiplier.description>
+
+	<SolarWeb-Stratum-StuffBeautyMultiplier.label>множитель красоты материала</SolarWeb-Stratum-StuffBeautyMultiplier.label>
+	<SolarWeb-Stratum-StuffBeautyMultiplier.description>Множитель к красоте, которую даёт материал постройки крыши.</SolarWeb-Stratum-StuffBeautyMultiplier.description>
+
+	<SolarWeb-Stratum-ScanSpeed.label>скорость сканирования</SolarWeb-Stratum-ScanSpeed.label>
+	<SolarWeb-Stratum-ScanSpeed.description>Скорость сканирования этого сканера.</SolarWeb-Stratum-ScanSpeed.description>
+
+	<SolarWeb-Stratum-ScanSpeedOffset.label>прибавка к скорости сканирования</SolarWeb-Stratum-ScanSpeedOffset.label>
+	<SolarWeb-Stratum-ScanSpeedOffset.description>Прибавка к скорости сканирования сканеров.</SolarWeb-Stratum-ScanSpeedOffset.description>
+</LanguageData>

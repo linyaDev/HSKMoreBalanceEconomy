@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<!-- Крыши Stratum (Core_SK_Stratum): базовый набор. Строительные дефы
+	     (_Buildable); сами крыши переведены в SolarWeb.Stratum.Defs.StratumRoofDef. -->
+
+	<SolarWeb-Stratum-RoofThatch_Buildable.label>примитивная соломенная крыша</SolarWeb-Stratum-RoofThatch_Buildable.label>
+	<SolarWeb-Stratum-RoofThatch_Buildable.description>Примитивная крыша из связок сена или соломы. Крайне дешёвая и быстрая в сборке, но сильно пропускает воздух и почти не защищает от жары и холода.</SolarWeb-Stratum-RoofThatch_Buildable.description>
+
+	<SolarWeb-Stratum-RoofThatchHay_Buildable.label>соломенная крыша</SolarWeb-Stratum-RoofThatchHay_Buildable.label>
+	<SolarWeb-Stratum-RoofThatchHay_Buildable.description>Более основательная соломенная крыша из возделанного сена. Продвинутые приёмы укладки делают её вполне годным вариантом для разборчивого кровельщика.</SolarWeb-Stratum-RoofThatchHay_Buildable.description>
+
+	<SolarWeb-Stratum-RoofShingle_Buildable.label>черепичная крыша</SolarWeb-Stratum-RoofShingle_Buildable.label>
+	<SolarWeb-Stratum-RoofShingle_Buildable.description>Простая черепица из различных материалов. Даёт прочный герметичный настил и надёжную защиту.</SolarWeb-Stratum-RoofShingle_Buildable.description>
+
+	<SolarWeb-Stratum-RoofGlass_Buildable.label>световой люк</SolarWeb-Stratum-RoofGlass_Buildable.label>
+	<SolarWeb-Stratum-RoofGlass_Buildable.description>Обычные стеклянные панели в лёгкой раме. Хороши для теплиц, но хрупкие и плохо держат тепло.</SolarWeb-Stratum-RoofGlass_Buildable.description>
+
+	<SolarWeb-Stratum-RoofSolarShingles_Buildable.label>солнечная черепица</SolarWeb-Stratum-RoofSolarShingles_Buildable.label>
+	<SolarWeb-Stratum-RoofSolarShingles_Buildable.description>Современная кровельная черепица со встроенными фотоэлементами. Уступает по эффективности обычным солнечным батареям, зато даёт чистую энергию, не занимая места на земле.</SolarWeb-Stratum-RoofSolarShingles_Buildable.description>
+
+	<SolarWeb-Stratum-CompositeInsulatedPanel_Buildable.label>композитная утеплённая панель</SolarWeb-Stratum-CompositeInsulatedPanel_Buildable.label>
+	<SolarWeb-Stratum-CompositeInsulatedPanel_Buildable.description>Современные многослойные кровельные панели. Прочный стальной каркас удерживает толстые слои текстильного утеплителя. Дорого, зато исключительно стабильно держит температуру.</SolarWeb-Stratum-CompositeInsulatedPanel_Buildable.description>
+</LanguageData>

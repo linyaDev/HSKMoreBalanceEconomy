@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<!-- Крыши Stratum: космос и раздвижные купола (строительные дефы) -->
+
+	<SolarWeb-Stratum-HullPlating_Buildable.label>обшивка корпуса</SolarWeb-Stratum-HullPlating_Buildable.label>
+	<SolarWeb-Stratum-HullPlating_Buildable.description>Простые герметичные металлические плиты для базовой обшивки космического корабля. Полностью непроницаемы, но лишены усиленного каркаса плит старших классов.</SolarWeb-Stratum-HullPlating_Buildable.description>
+
+	<SolarWeb-Stratum-ReinforcedHullPlating_Buildable.label>усиленная обшивка корпуса</SolarWeb-Stratum-ReinforcedHullPlating_Buildable.label>
+	<SolarWeb-Stratum-ReinforcedHullPlating_Buildable.description>Тяжёлые двухслойные металлические плиты с внутренним каркасом. Рассчитаны на серьёзные перепады давления и удары микрометеоритов.</SolarWeb-Stratum-ReinforcedHullPlating_Buildable.description>
+
+	<SolarWeb-Stratum-SolarHullPlate_Buildable.label>усиленная солнечная обшивка</SolarWeb-Stratum-SolarHullPlate_Buildable.label>
+	<SolarWeb-Stratum-SolarHullPlate_Buildable.description>Кровля высшего класса для орбиты. Сочетает прочность усиленной обшивки со встроенными солнечными элементами. Дорогая, зато вырабатывает энергию, оставаясь герметичной под давлением.</SolarWeb-Stratum-SolarHullPlate_Buildable.description>
+
+	<SolarWeb-Stratum-ReinforcedGlassPanel_Buildable.label>усиленная стеклянная панель</SolarWeb-Stratum-ReinforcedGlassPanel_Buildable.label>
+	<SolarWeb-Stratum-ReinforcedGlassPanel_Buildable.description>Толстые панели из освинцованного стекла в стальной раме. Оптически чистый кристалл пропускает больше света, чем обычный световой люк, — лучшая крыша для выращивания растений. Позволяет любоваться звёздами, сохраняя герметичность, но хуже держит тепло и прочность, чем сплошные плиты обшивки.</SolarWeb-Stratum-ReinforcedGlassPanel_Buildable.description>
+
+	<SolarWeb-Stratum-RetractableRoof_Buildable.label>тяжёлый раздвижной купол</SolarWeb-Stratum-RetractableRoof_Buildable.label>
+	<SolarWeb-Stratum-RetractableRoof_Buildable.description>Моторизованная бронированная секция купола. Раздвигается по команде с подключённого пульта. При движении потребляет огромную мощность.</SolarWeb-Stratum-RetractableRoof_Buildable.description>
+
+	<SolarWeb-Stratum-RetractableRoofLight_Buildable.label>лёгкий раздвижной купол</SolarWeb-Stratum-RetractableRoofLight_Buildable.label>
+	<SolarWeb-Stratum-RetractableRoofLight_Buildable.description>Лёгкая моторизованная секция купола. Быстро раздвигается по команде с подключённого пульта. Требует меньше энергии и материалов, чем тяжёлый вариант, но почти не защищает.</SolarWeb-Stratum-RetractableRoofLight_Buildable.description>
+
+	<SolarWeb-Stratum-RetractableRoofConsole.label>пульт раздвижного купола</SolarWeb-Stratum-RetractableRoofConsole.label>
+	<SolarWeb-Stratum-RetractableRoofConsole.description>Командный пульт, связанный со всеми секциями раздвижного бронекупола в своей комнате. В режиме ожидания потребляет 200 Вт, а при открытии или закрытии купола — 1500 Вт. Колонист может запустить с пульта секундную последовательность авторизации.</SolarWeb-Stratum-RetractableRoofConsole.description>
+
+	<SolarWeb-Stratum-SolarSkylight_Buildable.label>солнечный световой люк</SolarWeb-Stratum-SolarSkylight_Buildable.label>
+	<SolarWeb-Stratum-SolarSkylight_Buildable.description>Усовершенствованная световая панель с прозрачной фотоэлектрической плёнкой внутри стеклокомпозитной обшивки. Вырабатывает чистую энергию и при этом пропускает вдоволь солнечного света для растений.</SolarWeb-Stratum-SolarSkylight_Buildable.description>
+</LanguageData>

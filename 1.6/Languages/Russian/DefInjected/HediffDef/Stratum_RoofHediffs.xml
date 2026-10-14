@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<!-- Эффекты от подвесного оборудования Stratum -->
+	<SolarWeb-Stratum-PA_Calming_Hediff.label>успокаивающая трансляция</SolarWeb-Stratum-PA_Calming_Hediff.label>
+	<SolarWeb-Stratum-PA_Calming_Hediff.description>Умиротворяющие звуки из ближайшего громкоговорителя.</SolarWeb-Stratum-PA_Calming_Hediff.description>
+
+	<SolarWeb-Stratum-PA_Inspirational_Hediff.label>вдохновляющая трансляция</SolarWeb-Stratum-PA_Inspirational_Hediff.label>
+	<SolarWeb-Stratum-PA_Inspirational_Hediff.description>Бодрая музыка из ближайшего громкоговорителя: работа идёт живее.</SolarWeb-Stratum-PA_Inspirational_Hediff.description>
+
+	<SolarWeb-Stratum-PA_Educational_Hediff.label>образовательная трансляция</SolarWeb-Stratum-PA_Educational_Hediff.label>
+	<SolarWeb-Stratum-PA_Educational_Hediff.description>Познавательные лекции из ближайшего громкоговорителя: учиться проще.</SolarWeb-Stratum-PA_Educational_Hediff.description>
+
+	<SolarWeb-Stratum-PA_Analytical_Hediff.label>аналитическая трансляция</SolarWeb-Stratum-PA_Analytical_Hediff.label>
+	<SolarWeb-Stratum-PA_Analytical_Hediff.description>Потоки сложных данных из ближайшего громкоговорителя: легче сосредоточиться на исследованиях.</SolarWeb-Stratum-PA_Analytical_Hediff.description>
+
+	<SolarWeb-Stratum-PA_SleepAid_Hediff.label>снотворная трансляция</SolarWeb-Stratum-PA_SleepAid_Hediff.label>
+	<SolarWeb-Stratum-PA_SleepAid_Hediff.description>Негромкий белый шум из ближайшего динамика: сон крепче.</SolarWeb-Stratum-PA_SleepAid_Hediff.description>
+
+	<SolarWeb-Stratum-CeilingFanBreeze.label>ветерок от вентилятора</SolarWeb-Stratum-CeilingFanBreeze.label>
+	<SolarWeb-Stratum-CeilingFanBreeze.description>Прохладный ветерок от потолочного вентилятора делает жару терпимее.</SolarWeb-Stratum-CeilingFanBreeze.description>
+</LanguageData>

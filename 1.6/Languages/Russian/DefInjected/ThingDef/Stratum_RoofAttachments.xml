@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<!-- Stratum: оборудование, подвешиваемое к потолку и ставящееся на крышу -->
+
+	<!-- Подвесное -->
+	<SolarWeb-Stratum-SunLamp_Hanging.label>подвесная солнечная лампа</SolarWeb-Stratum-SunLamp_Hanging.label>
+	<SolarWeb-Stratum-SunLamp_Hanging.description>Промышленная лампа, освещающая участок достаточно ярко для выращивания растений, но потребляющая уйму энергии. Рассчитана на подвес к потолку.</SolarWeb-Stratum-SunLamp_Hanging.description>
+
+	<SolarWeb-Stratum-FireSprinkler.label>подвесной спринклер</SolarWeb-Stratum-FireSprinkler.label>
+	<SolarWeb-Stratum-FireSprinkler.description>Автоматическая система пожаротушения, подвешенная к потолку. Обнаружив огонь, распыляет огнетушащую пену. Расходует химтопливо и требует перезарядки после срабатывания.</SolarWeb-Stratum-FireSprinkler.description>
+
+	<SolarWeb-Stratum-LEDLight_Hanging.label>подвесной светодиодный светильник</SolarWeb-Stratum-LEDLight_Hanging.label>
+	<SolarWeb-Stratum-LEDLight_Hanging.description>Компактный светильник, подвешенный к потолку.</SolarWeb-Stratum-LEDLight_Hanging.description>
+
+	<SolarWeb-Stratum-PASpeaker_Hanging.label>подвесной громкоговоритель</SolarWeb-Stratum-PASpeaker_Hanging.label>
+	<SolarWeb-Stratum-PASpeaker_Hanging.description>Небольшой динамик, подвешенный к потолку. Принимает сигнал с запитанного пульта трансляции в той же энергосети и передаёт его колонистам поблизости.</SolarWeb-Stratum-PASpeaker_Hanging.description>
+
+	<SolarWeb-Stratum-PATransmitter.label>пульт трансляции</SolarWeb-Stratum-PATransmitter.label>
+	<SolarWeb-Stratum-PATransmitter.description>Пульт для вещания аудиопрограмм на все громкоговорители, подключённые к той же энергосети.</SolarWeb-Stratum-PATransmitter.description>
+
+	<SolarWeb-Stratum-CeilingFan.label>потолочный вентилятор</SolarWeb-Stratum-CeilingFan.label>
+	<SolarWeb-Stratum-CeilingFan.description>Потолочный вентилятор с питанием, разгоняющий воздух: поднимает верхнюю границу комфортной температуры для пешек поблизости, облегчая жару.</SolarWeb-Stratum-CeilingFan.description>
+
+	<SolarWeb-Stratum-SurgicalSpotlight.label>хирургический светильник</SolarWeb-Stratum-SurgicalSpotlight.label>
+	<SolarWeb-Stratum-SurgicalSpotlight.description>Мощный потолочный светильник с питанием, дающий сфокусированный луч: хирургу лучше видно операционное поле.</SolarWeb-Stratum-SurgicalSpotlight.description>
+
+	<SolarWeb-Stratum-AeroponicsMister_Hanging.label>аэропонный распылитель</SolarWeb-Stratum-AeroponicsMister_Hanging.label>
+	<SolarWeb-Stratum-AeroponicsMister_Hanging.description>Потолочный автоматический распылитель с питанием для сельского хозяйства. Периодически выпускает мелкую взвесь воды с питательными веществами, слегка ускоряя рост растений поблизости.</SolarWeb-Stratum-AeroponicsMister_Hanging.description>
+
+	<!-- На крыше -->
+	<SolarWeb-Stratum-LightningRod.label>кровельный громоотвод</SolarWeb-Stratum-LightningRod.label>
+	<SolarWeb-Stratum-LightningRod.description>Медный стержень, установленный на крыше. Притягивает удары молний в пределах колонии и безопасно преобразует разряд в энергию, которая идёт прямо в подключённые батареи.</SolarWeb-Stratum-LightningRod.description>
+
+	<SolarWeb-Stratum-RooftopScannerBooster.label>кровельный усилитель сканирования</SolarWeb-Stratum-RooftopScannerBooster.label>
+	<SolarWeb-Stratum-RooftopScannerBooster.description>Остронаправленная следящая антенна на крыше. Связываясь с продвинутыми сканирующими комплексами — сканером минералов дальнего действия, пультом орбитальных сигналов, — ускоряет сканирование и приём сигнала. Работает только под напряжением.</SolarWeb-Stratum-RooftopScannerBooster.description>
+
+	<SolarWeb-Stratum-RotaryTurbineVent.label>кровельный турбинный дефлектор</SolarWeb-Stratum-RotaryTurbineVent.label>
+	<SolarWeb-Stratum-RotaryTurbineVent.description>Вытяжка со встроенной роторной турбиной: вытягивает горячий воздух из помещения под ней, не потребляя энергии. Турбину вращает ветер, поэтому в безветрие толку от неё мало.</SolarWeb-Stratum-RotaryTurbineVent.description>
+
+	<SolarWeb-Stratum-RooftopSolarGenerator.label>кровельная солнечная батарея</SolarWeb-Stratum-RooftopSolarGenerator.label>
+	<SolarWeb-Stratum-RooftopSolarGenerator.description>Солнечная панель на крыше, вырабатывающая электричество из солнечного света.</SolarWeb-Stratum-RooftopSolarGenerator.description>
+</LanguageData>

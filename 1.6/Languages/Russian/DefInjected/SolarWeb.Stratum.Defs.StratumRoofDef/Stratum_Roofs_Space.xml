@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<!-- Крыши Stratum: космос и раздвижные купола (сами крыши) -->
+
+	<SolarWeb-Stratum-HullPlating.label>обшивка корпуса</SolarWeb-Stratum-HullPlating.label>
+	<SolarWeb-Stratum-HullPlating.description>Простые герметичные металлические плиты для базовой обшивки космического корабля. Полностью непроницаемы, но лишены усиленного каркаса плит старших классов.</SolarWeb-Stratum-HullPlating.description>
+
+	<SolarWeb-Stratum-ReinforcedHullPlating.label>усиленная обшивка корпуса</SolarWeb-Stratum-ReinforcedHullPlating.label>
+	<SolarWeb-Stratum-ReinforcedHullPlating.description>Тяжёлые двухслойные металлические плиты с внутренним каркасом. Рассчитаны на серьёзные перепады давления и удары микрометеоритов.</SolarWeb-Stratum-ReinforcedHullPlating.description>
+
+	<SolarWeb-Stratum-SolarHullPlate.label>усиленная солнечная обшивка</SolarWeb-Stratum-SolarHullPlate.label>
+	<SolarWeb-Stratum-SolarHullPlate.description>Кровля высшего класса для орбиты. Сочетает прочность усиленной обшивки со встроенными солнечными элементами. Дорогая, зато вырабатывает энергию, оставаясь герметичной под давлением.</SolarWeb-Stratum-SolarHullPlate.description>
+
+	<SolarWeb-Stratum-ReinforcedGlassPanel.label>усиленная стеклянная панель</SolarWeb-Stratum-ReinforcedGlassPanel.label>
+	<SolarWeb-Stratum-ReinforcedGlassPanel.description>Толстые панели из освинцованного стекла в стальной раме. Оптически чистый кристалл пропускает больше света, чем обычный световой люк, — лучшая крыша для выращивания растений. Позволяет любоваться звёздами, сохраняя герметичность, но хуже держит тепло и прочность, чем сплошные плиты обшивки.</SolarWeb-Stratum-ReinforcedGlassPanel.description>
+
+	<SolarWeb-Stratum-RetractableRoof.label>тяжёлый раздвижной купол</SolarWeb-Stratum-RetractableRoof.label>
+	<SolarWeb-Stratum-RetractableRoof.description>Моторизованная бронированная секция купола. Раздвигается по команде с подключённого пульта. При движении потребляет огромную мощность.</SolarWeb-Stratum-RetractableRoof.description>
+
+	<SolarWeb-Stratum-RetractableRoofLight.label>лёгкий раздвижной купол</SolarWeb-Stratum-RetractableRoofLight.label>
+	<SolarWeb-Stratum-RetractableRoofLight.description>Лёгкая моторизованная секция купола. Быстро раздвигается по команде с подключённого пульта. Требует меньше энергии и материалов, чем тяжёлый вариант, но почти не защищает.</SolarWeb-Stratum-RetractableRoofLight.description>
+
+	<SolarWeb-Stratum-SolarSkylight.label>солнечный световой люк</SolarWeb-Stratum-SolarSkylight.label>
+	<SolarWeb-Stratum-SolarSkylight.description>Усовершенствованная световая панель с прозрачной фотоэлектрической плёнкой внутри стеклокомпозитной обшивки. Вырабатывает чистую энергию и при этом пропускает вдоволь солнечного света для растений.</SolarWeb-Stratum-SolarSkylight.description>
+</LanguageData>

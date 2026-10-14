@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<!-- Работы по крышам Stratum -->
+	<SolarWeb-Stratum-BuildCustomRoof.label>строить крыши</SolarWeb-Stratum-BuildCustomRoof.label>
+	<SolarWeb-Stratum-RepairCustomRoof.label>чинить крыши</SolarWeb-Stratum-RepairCustomRoof.label>
+	<SolarWeb-Stratum-SmoothRoof.label>шлифовать каменные крыши</SolarWeb-Stratum-SmoothRoof.label>
+	<SolarWeb-Stratum-DeliverRoofIngredients.label>доставить материалы для крыши</SolarWeb-Stratum-DeliverRoofIngredients.label>
+	<SolarWeb-Stratum-CleanSkylights.label>мыть световые люки</SolarWeb-Stratum-CleanSkylights.label>
+	<SolarWeb-Stratum-FightRoofFires.label>тушить пожары на крыше</SolarWeb-Stratum-FightRoofFires.label>
+	<SolarWeb-Stratum-OperateRetractableRoofConsole.label>управлять раздвижной крышей</SolarWeb-Stratum-OperateRetractableRoofConsole.label>
+</LanguageData>
