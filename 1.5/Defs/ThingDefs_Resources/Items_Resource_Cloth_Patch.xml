@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!--
+		Лоскутная ткань — тканевый аналог лоскутной кожи (Leather_Patch).
+
+		Числа получены переносом отношения «лоскутная кожа / обычная кожа» на обычную
+		ткань. Там, где лоскутная кожа выходит лучше обычной (Armor_Blunt, Insulation_Heat),
+		коэффициент зажат до единицы: мусорный материал не должен выигрывать у ткани.
+
+		Текстуру не заводим — берём текстуру ткани и меняем цвет, ровно как сделано
+		у лоскутной кожи.
+
+		Рецепта нет: материал объявлен, способ получения добавим отдельно.
+
+		Опирается на SK_ResourceBase и категорию BTextiles из Core_SK.
+	-->
+
+	<ThingDef ParentName="SK_ResourceBase">
+		<defName>Cloth_Patch</defName>
+		<label>patch cloth</label>
+		<description>A weak textile sewn together from scraps and offcuts of other fabrics. Its irregular seams fray easily and catch on everything, and no amount of care makes it look like anything but rags stitched into a sheet.</description>
+		<graphicData>
+			<texPath>Things/Item/Resource/Cloth</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+			<color>(130,120,105)</color>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<MarketValue>0.25</MarketValue>
+			<Flammability>1.75</Flammability>
+			<DeteriorationRate>0</DeteriorationRate>
+			<StuffPower_Armor_Sharp>0.46</StuffPower_Armor_Sharp>
+			<StuffPower_Armor_Blunt>0.95</StuffPower_Armor_Blunt>
+			<StuffPower_Armor_Heat>0.086</StuffPower_Armor_Heat>
+			<StuffPower_Insulation_Cold>9</StuffPower_Insulation_Cold>
+			<StuffPower_Insulation_Heat>11</StuffPower_Insulation_Heat>
+			<Mass>0.01</Mass>
+			<Bulk>0.01</Bulk>
+		</statBases>
+		<tickerType>Rare</tickerType>
+		<stackLimit>300</stackLimit>
+		<techLevel>Medieval</techLevel>
+		<stuffProps>
+			<categories>
+				<li>Fabric</li>
+			</categories>
+			<color>(130,120,105)</color>
+			<statFactors>
+				<MaxHitPoints>1.5</MaxHitPoints>
+				<Beauty>0.46</Beauty>
+				<MoveSpeed>1</MoveSpeed>
+				<MarketValue>0.8</MarketValue>
+				<WorkToMake>1.8</WorkToMake>
+				<WorkToBuild>1.8</WorkToBuild>
+				<BedRestEffectiveness>0.64</BedRestEffectiveness>
+				<ImmunityGainSpeedFactor>0.79</ImmunityGainSpeedFactor>
+				<Mass>0.5</Mass>
+			</statFactors>
+			<commonality>0.53</commonality>
+			<allowColorGenerators>true</allowColorGenerators>
+			<!-- canSuggestUseDefaultStuff намеренно не выставлен: игра не должна сама
+			     подставлять мусорный материал в чертежи. -->
+		</stuffProps>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<thingCategories>
+			<li>BTextiles</li>
+		</thingCategories>
+		<burnableByRecipe>True</burnableByRecipe>
+		<comps>
+			<li>
+				<compClass>CompColorable</compClass>
+			</li>
+		</comps>
+		<allowedArchonexusCount>100</allowedArchonexusCount>
+	</ThingDef>
+
+</Defs>

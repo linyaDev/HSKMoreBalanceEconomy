@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<Ammo_Bolt_Light.label>лёгкий болт</Ammo_Bolt_Light.label>
+	<Ammo_Bolt_Light.description>Короткий лёгкий арбалетный болт для одноручных балестр. Слабее полноразмерного болта.</Ammo_Bolt_Light.description>
+	<Projectile_LightBolt.label>лёгкий болт</Projectile_LightBolt.label>
+</LanguageData>

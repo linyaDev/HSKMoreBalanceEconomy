@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Совпадает с одеждой БЕЗ метки износа; в рецепте запрещён -> только помеченная -->
+	<SpecialThingFilterDef>
+		<defName>HSK_AllowUnmarkedApparel</defName>
+		<label>unmarked apparel</label>
+		<description>Apparel without the worn / battle-worn mark.</description>
+		<parentCategory>Apparel</parentCategory>
+		<allowedByDefault>true</allowedByDefault>
+		<saveKey>HSK_AllowUnmarkedApparel</saveKey>
+		<workerClass>HSKMoreHardcore.SpecialThingFilterWorker_UnmarkedApparel</workerClass>
+	</SpecialThingFilterDef>
+
+	<RecipeDef>
+		<defName>HSK_WashApparel</defName>
+		<label>apparel cleaning</label>
+		<description>Cleans apparel: removes the "Worn" and "Battle-worn" marks (the item becomes "Washed", ~80% value). Does not remove the "Worn by corpse" taint.</description>
+		<jobString>Cleaning apparel.</jobString>
+		<workAmount>1800</workAmount>
+		<workSpeedStat>TailoringSpeed</workSpeedStat>
+		<workSkill>Crafting</workSkill>
+		<effectWorking>Tailor</effectWorking>
+		<soundWorking>Recipe_Tailor</soundWorking>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Apparel</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Apparel</li>
+			</categories>
+			<specialFiltersToDisallow>
+				<li>HSK_AllowUnmarkedApparel</li>
+			</specialFiltersToDisallow>
+		</fixedIngredientFilter>
+		<recipeUsers>
+			<li>HolyBasin</li>
+		</recipeUsers>
+	</RecipeDef>
+
+	<JobDef>
+		<defName>HSK_DoWashApparel</defName>
+		<driverClass>HSKMoreHardcore.JobDriver_WashApparel</driverClass>
+		<reportString>washing apparel.</reportString>
+	</JobDef>
+
+	<WorkGiverDef>
+		<defName>HSK_WashApparel</defName>
+		<label>wash apparel</label>
+		<giverClass>HSKMoreHardcore.WorkGiver_WashApparel</giverClass>
+		<workType>Crafting</workType>
+		<verb>wash</verb>
+		<gerund>washing apparel</gerund>
+		<priorityInType>92</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+		<scanThings>true</scanThings>
+		<fixedBillGiverDefs>
+			<li>HolyBasin</li>
+		</fixedBillGiverDefs>
+	</WorkGiverDef>
+
+</Defs>

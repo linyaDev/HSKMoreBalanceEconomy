@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- Жажда мести: вешается кодом (ManhunterDoorBreak) на manhunter'ов в радиусе
+       40 клеток от животного, раненного колонистом. Животные с этим хедиффом
+       ломают двери на пути к пешкам игрока. Снимается, когда животное кого-то
+       опрокинуло/убило, или само по истечении времени (7500 тиков = 3 часа). -->
+  <HediffDef>
+    <defName>HSK_ManhunterRage</defName>
+    <label>vengeful frenzy</label>
+    <description>This beast saw people wound its packmates, and its fury has grown even hotter. Closed doors will not stop it anymore — it will smash its way through to the offenders.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.95, 0.42, 0.22)</defaultLabelColor>
+    <initialSeverity>1</initialSeverity>
+    <maxSeverity>1</maxSeverity>
+    <isBad>false</isBad>
+    <everCurableByItem>false</everCurableByItem>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>7500</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+  </HediffDef>
+</Defs>

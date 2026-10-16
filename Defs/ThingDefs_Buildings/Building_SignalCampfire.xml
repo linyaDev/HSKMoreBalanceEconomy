@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef ParentName="BuildingBase">
+		<defName>TribalSignalCampfire</defName>
+		<label>tribal signal fire</label>
+		<description>A large signal fire. Light it to raise a smoke column visible to nearby tribal allies — a trading caravan from a Neolithic faction may answer. The fire burns until the caravan arrives, then the campfire is consumed. Costs 200 silver on activation.</description>
+		<thingClass>HSKMoreHardcore.Building_SignalCampfire</thingClass>
+		<graphicData>
+			<texPath>Things/Building/Misc/Campfire</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawRotated>false</drawRotated>
+			<allowFlip>false</allowFlip>
+			<damageData>
+				<rect>(0.2,0,0.6,0.1)</rect>
+			</damageData>
+		</graphicData>
+		<uiIconPath>TradingSignals/SignalFire</uiIconPath>
+		<useHitPoints>false</useHitPoints>
+		<statBases>
+			<WorkToBuild>350</WorkToBuild>
+			<Flammability>0</Flammability>
+			<Beauty>-2</Beauty>
+		</statBases>
+		<size>(1,1)</size>
+		<passability>PassThroughOnly</passability>
+		<pathCost>42</pathCost>
+		<fillPercent>0.1</fillPercent>
+		<canOverlapZones>false</canOverlapZones>
+		<constructEffect>ConstructDirt</constructEffect>
+		<building>
+			<ai_chillDestination>false</ai_chillDestination>
+		</building>
+		<tickerType>Normal</tickerType>
+		<costList>
+			<WoodLog>35</WoodLog>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Glower">
+				<glowRadius>8</glowRadius>
+				<glowColor>(252,187,113,0)</glowColor>
+			</li>
+			<li Class="HSKMoreHardcore.CompProperties_TradeSignal">
+				<cooldownTicks>2700000</cooldownTicks> <!-- 45 дней -->
+				<maxCharges>2</maxCharges>
+				<silverCost>200</silverCost>
+				<arrivalDelayTicks>120000</arrivalDelayTicks>
+				<targetTechLevel>Neolithic</targetTechLevel>
+				<destroyOnUse>true</destroyOnUse>
+				<disableAtTechLevel>Industrial</disableAtTechLevel>
+				<cooldownKey>tradeSignal</cooldownKey>
+				<commandLabelKey>TribalSignal_CommandLabel</commandLabelKey>
+				<commandDescKey>TribalSignal_CommandDesc</commandDescKey>
+				<scheduledKey>TribalSignal_Scheduled</scheduledKey>
+				<noFactionKey>TribalSignal_NoFaction</noFactionKey>
+				<activeKey>TribalSignal_Burning</activeKey>
+				<doneKey>TribalSignal_BurnedOut</doneKey>
+			</li>
+		</comps>
+		<researchPrerequisites>
+			<li>SignalFires</li>
+		</researchPrerequisites>
+		<designationCategory>Misc</designationCategory>
+	</ThingDef>
+</Defs>

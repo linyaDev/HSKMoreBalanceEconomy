@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Remove the "meditate at fishing spot" recreation entirely.
+	     This is the Core_SK JoyGiverDef that sends pawns to HSK_FishingSpot
+	     to run the LookAtWater job for Meditative joy. Without the giver the
+	     job is never assigned, so fishing spots no longer act as joy sources. -->
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/JoyGiverDef[defName="MeditateOnFishingPier"]</xpath>
+	</Operation>
+</Patch>

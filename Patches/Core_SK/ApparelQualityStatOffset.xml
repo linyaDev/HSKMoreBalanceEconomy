@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Make apparel equipped offsets for these stats scale with quality (additive, baseline Excellent).
+	     The StatPart only acts on apparel that already has a non-zero offset for the stat. -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/StatDef[defName="MoveSpeed"]/parts</xpath>
+		<value>
+			<li Class="HSKMoreHardcore.StatPart_ApparelQualityOffset"/>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/StatDef[defName="WorkSpeedGlobal"]/parts</xpath>
+		<value>
+			<li Class="HSKMoreHardcore.StatPart_ApparelQualityOffset"/>
+		</value>
+	</Operation>
+	<!-- MentalBreakThreshold has no <parts> in vanilla -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/StatDef[defName="MentalBreakThreshold"]</xpath>
+		<value>
+			<parts>
+				<li Class="HSKMoreHardcore.StatPart_ApparelQualityOffset"/>
+			</parts>
+		</value>
+	</Operation>
+</Patch>

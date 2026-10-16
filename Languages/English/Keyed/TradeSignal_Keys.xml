@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<TradeSignal_OnCooldown>Cooldown: {0}</TradeSignal_OnCooldown>
+	<TradeSignal_ConfirmPayment>Calling a caravan requires paying {0} silver to the caravaneer upon arrival. Set aside this amount now?</TradeSignal_ConfirmPayment>
+	<TradeSignal_NotEnoughSilver>Not enough silver. Need {0}, have {1}.</TradeSignal_NotEnoughSilver>
+	<TradeSignal_CooldownShared>Ready to use.</TradeSignal_CooldownShared>
+	<TradeSignal_Charges>Charges: {0}/{1}</TradeSignal_Charges>
+	<TradeSignal_TooAdvanced>We tried to send the signal, but the other tribes couldn't understand us.</TradeSignal_TooAdvanced>
+	<TradeSignal_TooAdvancedStatus>The tribes no longer understand our signals: the colony has grown too advanced.</TradeSignal_TooAdvancedStatus>
+	<TradeSignal_DelayCommandLabel>Delay the caravan</TradeSignal_DelayCommandLabel>
+	<TradeSignal_DelayCommandDesc>Signal the caravan to take its time: {0} silver for a {1} day delay. Can be repeated while the caravan is on its way.</TradeSignal_DelayCommandDesc>
+	<TradeSignal_Delayed>The caravan will take longer. Arriving in {0}.</TradeSignal_Delayed>
+	<TradeSignal_DelayFailed>The caravan can no longer be reached.</TradeSignal_DelayFailed>
+
+	<HSK_RequestTraderPaid>Order a trade caravan for {0} silver and {1} goodwill (orders {2}/{3})</HSK_RequestTraderPaid>
+	<HSK_TraderPaidSent>The order is accepted. A caravan of {0} is on its way, {1} silver sent as a deposit.</HSK_TraderPaidSent>
+
+	<TribalSignal_CommandLabel>Call tribal traders</TribalSignal_CommandLabel>
+	<TribalSignal_CommandDesc>Raise a smoke signal. A random non-hostile Neolithic faction that can send trade caravans will be notified; the caravan arrives after a delay (not instantly). Requires {0} silver. Cooldown applies after calling.</TribalSignal_CommandDesc>
+	<TribalSignal_Scheduled>Smoke signal sent to {0}. A trader caravan should arrive in about {1} days.</TribalSignal_Scheduled>
+	<TribalSignal_NoFaction>No suitable tribal faction is available (Neolithic, non-hostile, can trade, temperature OK).</TribalSignal_NoFaction>
+	<TribalSignal_Burning>Signal fire burning. Caravan arriving in {0}.</TribalSignal_Burning>
+	<TribalSignal_BurnedOut>The signal fire has burned out.</TribalSignal_BurnedOut>
+
+	<HSKMoreHardcore_FreeAnimal>Half-wild</HSKMoreHardcore_FreeAnimal>
+	<HSKMoreHardcore_TamedAnimal>Tamed</HSKMoreHardcore_TamedAnimal>
+	<HSKMoreHardcore_Worn>Worn</HSKMoreHardcore_Worn>
+	<HSKMoreHardcore_WornDesc>This item has been worn by a colonist.</HSKMoreHardcore_WornDesc>
+	<HSKMoreHardcore_WornByEnemy>Battle-worn</HSKMoreHardcore_WornByEnemy>
+	<HSKMoreHardcore_WornByEnemyDesc>This item bears traces of battle.</HSKMoreHardcore_WornByEnemyDesc>
+	<HSKMoreHardcore_Washed>Washed</HSKMoreHardcore_Washed>
+	<HSKMoreHardcore_WashedDesc>This item has been washed.</HSKMoreHardcore_WashedDesc>
+	<HSKMoreHardcore_Repaired>Repaired</HSKMoreHardcore_Repaired>
+	<HSKMoreHardcore_RepairedDesc>This item has been repaired.</HSKMoreHardcore_RepairedDesc>
+	<HSKMoreHardcore_NoReconstructMaterial>Needs {0} {1} for reconstruction</HSKMoreHardcore_NoReconstructMaterial>
+	<HSKMoreHardcore_QualityAdj>Stats adjusted for quality</HSKMoreHardcore_QualityAdj>
+	<TreeRegrowthBlocked>Tree regrowth blocked: {0}</TreeRegrowthBlocked>
+</LanguageData>

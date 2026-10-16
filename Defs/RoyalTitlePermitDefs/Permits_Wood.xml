@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!-- Запрос древесины: клетка справа от стали (0,0) в ванильном окне
+	     привилегий. Цена как у стали — 1 очко, 4 фавора, титул Acolyte,
+	     откат 45 дней из DropResourcesBase.
+	     При HMC Nobility Expanded деф удаляется патчем
+	     Patches/Royalty/PermitDropAmounts.xml — там своя система привилегий. -->
+	<RoyalTitlePermitDef ParentName="DropResourcesBase" MayRequire="Ludeon.RimWorld.Royalty">
+		<defName>HMH_WoodDrop</defName>
+		<label>wood drop</label>
+		<description>Call for a drop of 500 wood.</description>
+		<minTitle>Acolyte</minTitle>
+		<faction>Empire</faction>
+		<permitPointCost>1</permitPointCost>
+		<uiPosition>(1,0)</uiPosition>
+		<royalAid>
+			<itemsToDrop>
+				<WoodLog>500</WoodLog>
+			</itemsToDrop>
+			<favorCost>4</favorCost>
+		</royalAid>
+	</RoyalTitlePermitDef>
+
+</Defs>

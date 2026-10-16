@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Plant_TreePalm"]/plant/harvestYield</xpath>
+		<value>
+			<harvestYield>11</harvestYield>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Plant_TreeBanana"]/plant/harvestYield</xpath>
+		<value>
+			<harvestYield>20</harvestYield>
+		</value>
+	</Operation>
+</Patch>

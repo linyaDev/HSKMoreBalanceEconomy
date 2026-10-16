@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Уменьшение кожи с рыбы -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="ThingDefFishTailteeth"]/statBases/LeatherAmount</xpath>
+		<value><LeatherAmount>1</LeatherAmount></value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="ThingDefDeathSturgeon"]/statBases/LeatherAmount</xpath>
+		<value><LeatherAmount>1</LeatherAmount></value>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<HMH_QuicksandMoat.label>Плывун</HMH_QuicksandMoat.label>
+	<HMH_QuicksandMoat.description>↑ Скалистая грязь\n\n↓ Плывун\n\n  ▪ 3 мягкой глины\n  ▪ 2 песка\n\nУбрать плывун можно через Терраформинг: «Скалистая грязь» (2 щебня, 2 песка).</HMH_QuicksandMoat.description>
+	<RockyDirt-Quicksand.label>Плывун</RockyDirt-Quicksand.label>
+	<RockyDirt-Quicksand.description>↑ Скалистая грязь\n\n↓ Плывун\n\n  ▪ 3 мягкой глины\n  ▪ 2 песка</RockyDirt-Quicksand.description>
+	<Quicksand-RockyDirt.label>Скалистая грязь</Quicksand-RockyDirt.label>
+	<Quicksand-RockyDirt.description>↑ Плывун\n\n↓ Скалистая грязь\n\n  ▪ 2 щебня\n  ▪ 2 песка</Quicksand-RockyDirt.description>
+</LanguageData>

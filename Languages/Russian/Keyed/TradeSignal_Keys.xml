@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<TradeSignal_OnCooldown>Перезарядка: {0}</TradeSignal_OnCooldown>
+	<TradeSignal_ConfirmPayment>При вызове каравана придётся дополнительно заплатить караванщику по прибытию {0} серебра. Давайте отложим эту сумму заранее?</TradeSignal_ConfirmPayment>
+	<TradeSignal_NotEnoughSilver>Недостаточно серебра. Нужно {0}, есть {1}.</TradeSignal_NotEnoughSilver>
+	<TradeSignal_CooldownShared>Готов к использованию.</TradeSignal_CooldownShared>
+	<TradeSignal_Charges>Заряды: {0}/{1}</TradeSignal_Charges>
+	<TradeSignal_TooAdvanced>Мы попытались отправить сообщение, но другие племена не поняли нас.</TradeSignal_TooAdvanced>
+	<TradeSignal_TooAdvancedStatus>Племена больше не понимают наши сигналы: колония слишком развита.</TradeSignal_TooAdvancedStatus>
+	<TradeSignal_DelayCommandLabel>Отсрочить караван</TradeSignal_DelayCommandLabel>
+	<TradeSignal_DelayCommandDesc>Подать каравану сигнал задержаться: {0} серебра за отсрочку на {1} дн. Можно повторять, пока караван в пути.</TradeSignal_DelayCommandDesc>
+	<TradeSignal_Delayed>Караван задержится. Прибытие через {0}.</TradeSignal_Delayed>
+	<TradeSignal_DelayFailed>Сигнал подавать некому — караван уже не отозвать.</TradeSignal_DelayFailed>
+
+	<HSK_RequestTraderPaid>Заказать торговый караван за {0} серебра и {1} репутации (заказов {2}/{3})</HSK_RequestTraderPaid>
+	<HSK_TraderPaidSent>Заказ принят. Караван фракции «{0}» выходит к нам, {1} серебра отправлено в задаток.</HSK_TraderPaidSent>
+
+	<TribalSignal_CommandLabel>Позвать племенных торговцев</TribalSignal_CommandLabel>
+	<TribalSignal_CommandDesc>Поднять дымовой сигнал. Случайная не враждебная неолитовая фракция с караванами получит зов; караван придёт не сразу, а через некоторое время. Требуется {0} серебра. После вызова действует перезарядка.</TribalSignal_CommandDesc>
+	<TribalSignal_Scheduled>Сигнал отправлен фракции «{0}». Торговый караван ожидается примерно через {1} дн.</TribalSignal_Scheduled>
+	<TribalSignal_NoFaction>Нет подходящей племенной фракции (Neolithic, не враг, есть торговцы, температура).</TribalSignal_NoFaction>
+	<TribalSignal_Burning>Сигнальный костёр горит. Караван прибудет через {0}.</TribalSignal_Burning>
+	<TribalSignal_BurnedOut>Сигнальный костёр догорел.</TribalSignal_BurnedOut>
+
+	<HSKMoreHardcore_Worn>Ношеное</HSKMoreHardcore_Worn>
+	<HSKMoreHardcore_WornDesc>Этот предмет носил колонист.</HSKMoreHardcore_WornDesc>
+	<HSKMoreHardcore_WornByEnemy>Со следами боя</HSKMoreHardcore_WornByEnemy>
+	<HSKMoreHardcore_WornByEnemyDesc>Этот предмет имеет следы боя.</HSKMoreHardcore_WornByEnemyDesc>
+	<HSKMoreHardcore_FreeAnimal>Полудикое</HSKMoreHardcore_FreeAnimal>
+	<HSKMoreHardcore_TamedAnimal>Приручённое</HSKMoreHardcore_TamedAnimal>
+	<HSKMoreHardcore_Washed>Постирано</HSKMoreHardcore_Washed>
+	<HSKMoreHardcore_WashedDesc>Этот предмет постиран.</HSKMoreHardcore_WashedDesc>
+	<HSKMoreHardcore_Repaired>Починено</HSKMoreHardcore_Repaired>
+	<HSKMoreHardcore_RepairedDesc>Этот предмет чинили.</HSKMoreHardcore_RepairedDesc>
+	<HSKMoreHardcore_NoReconstructMaterial>Для реконструкции нужно {0} ед. «{1}»</HSKMoreHardcore_NoReconstructMaterial>
+	<HSKMoreHardcore_QualityAdj>Статы с учётом качества</HSKMoreHardcore_QualityAdj>
+	<TreeRegrowthBlocked>Рост дерева заблокирован: {0}</TreeRegrowthBlocked>
+</LanguageData>

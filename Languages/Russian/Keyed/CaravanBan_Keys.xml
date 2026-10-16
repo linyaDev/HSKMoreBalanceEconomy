@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<HSK_CaravanAnimalBan>{0}: фракция возмущена гибелью вьючных животных своего каравана! Её караваны больше нельзя вызвать за деньги ({1}).</HSK_CaravanAnimalBan>
+	<HSK_TraderBanAnimals>Фракция помнит гибель своих вьючных животных (осталось {0})</HSK_TraderBanAnimals>
+</LanguageData>

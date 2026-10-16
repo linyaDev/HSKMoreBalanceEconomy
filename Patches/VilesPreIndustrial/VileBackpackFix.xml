@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods><li>HMC Vile's Pre-Industrial Overhaul</li></mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!-- CE_Apparel_TribalBackpack: add CarryWeight +15 -->
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/ThingDef[defName="CE_Apparel_TribalBackpack"]/equippedStatOffsets</xpath>
+					<value><CarryWeight>15</CarryWeight></value>
+				</li>
+				<!-- Rucksack: add CarryWeight +15 -->
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/ThingDef[defName="Rucksack"]/equippedStatOffsets</xpath>
+					<value><CarryWeight>15</CarryWeight></value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

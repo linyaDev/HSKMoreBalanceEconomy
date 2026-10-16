@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!--
+		Княжество (MedievalPrincipality) не должно быть врагом Империи.
+
+		У Империи в ванильном дефе список permanentEnemyToEveryoneExcept: она
+		вечный враг всем, кого там нет (OutlanderCivil, TribeCivil, PlayerTribe,
+		PlayerColony, Ancients и DLC-шные; пак добавляет туда только игроковые
+		фракции патчем Core_SK_DLCModule/Royalty/Patches/FactionDefs/FactionPatch.xml).
+
+		Из-за этого Faction.GetInitialGoodwill выдаёт нашему княжеству -100, а
+		Faction.CanChangeGoodwillFor вдобавок запрещает менять репутацию — помириться
+		они не могут в принципе. Дописываем княжество в этот список.
+
+		Паковое Королевство (MedievalKingdom) оставляем враждебным: у него свои
+		naturalEnemy и mustStartOneEnemy, воинственность — его роль.
+
+		Учти: список влияет только на создание отношений. В уже начатой игре
+		отношения лежат в сейве и сами не изменятся.
+	-->
+	<Operation Class="PatchOperationFindMod">
+		<mods><li>Royalty</li></mods>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/FactionDef[defName="Empire"]/permanentEnemyToEveryoneExcept</xpath>
+			<value>
+				<li>MedievalPrincipality</li>
+			</value>
+		</match>
+	</Operation>
+</Patch>

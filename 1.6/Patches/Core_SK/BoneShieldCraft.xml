@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Костяной щит (Shield_Bone): в дефе нет recipeMaker — предмет существует,
+	     но нигде не крафтится (в отличие от Shield_Tribal). Добавляем рецепт по
+	     образцу трайбл-щита: верстак кожевника, Продвинутый пошив I (Apparel_A2).
+	     Стоимость: 25 кожи (stuff — любая кожа, как у трайбл-щита) + 40 брёвен
+	     (фикс. WoodLog: категорию в costList не вписать, а делать брёвна стаффом
+	     нельзя — при двух stuff-ингредиентах материал щита выбирался бы случайно). -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Shield_Bone"]/stuffCategories</xpath>
+		<value>
+			<stuffCategories>
+				<li>Leathery</li>
+			</stuffCategories>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Shield_Bone"]/costStuffCount</xpath>
+		<value><costStuffCount>25</costStuffCount></value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="Shield_Bone"]</xpath>
+		<value>
+			<costList>
+				<WoodLog>40</WoodLog>
+			</costList>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="Shield_Bone"]</xpath>
+		<value>
+			<recipeMaker>
+				<workSpeedStat>SmithingSpeed</workSpeedStat>
+				<workSkill>Crafting</workSkill>
+				<effectWorking>Smith</effectWorking>
+				<soundWorking>Recipe_Machining</soundWorking>
+				<recipeUsers>
+					<li>LeatherworkerTable</li>
+				</recipeUsers>
+				<researchPrerequisite>Apparel_A2</researchPrerequisite>
+				<unfinishedThingDef>UnfinishedShield</unfinishedThingDef>
+			</recipeMaker>
+		</value>
+	</Operation>
+
+	<!-- У дефа нет WorkToMake — без него у авторецепта нулевая работа -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="Shield_Bone"]/statBases</xpath>
+		<value><WorkToMake>2400</WorkToMake></value>
+	</Operation>
+</Patch>

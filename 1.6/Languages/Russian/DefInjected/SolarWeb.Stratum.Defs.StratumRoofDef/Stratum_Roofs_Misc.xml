@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<!-- Крыши Stratum: активные, люксовые и ванильные (сами крыши) -->
+
+	<SolarWeb-Stratum-ThermalRadiatorRoof.label>активная теплоотводящая крыша</SolarWeb-Stratum-ThermalRadiatorRoof.label>
+	<SolarWeb-Stratum-ThermalRadiatorRoof.description>Высокотехнологичная кровельная система со встроенными трубками теплообмена. Потребляя энергию из подключённых кабелей, она принудительно откачивает тепло из помещения наружу, сохраняя внутри прохладу.</SolarWeb-Stratum-ThermalRadiatorRoof.description>
+
+	<SolarWeb-Stratum-LuxuryGlassPanel.label>роскошная стеклянная панель</SolarWeb-Stratum-LuxuryGlassPanel.label>
+	<SolarWeb-Stratum-LuxuryGlassPanel.description>Свинцовое стекло, декоративно собранное в металлической раме. Пропускает меньше света, чем обычный световой люк, зато заметно украшает помещение.</SolarWeb-Stratum-LuxuryGlassPanel.description>
+
+	<SolarWeb-Stratum-SterileTiledRoof.label>стерильная плиточная крыша</SolarWeb-Stratum-SterileTiledRoof.label>
+	<SolarWeb-Stratum-SterileTiledRoof.description>Кровельная плитка со специальным серебросодержащим покрытием, подавляющим рост микробов. Незаменима в высокотехнологичных больницах и лабораториях.</SolarWeb-Stratum-SterileTiledRoof.description>
+
+	<SolarWeb-Stratum-RoofThinRockSmoothed.label>отшлифованная тонкая каменная крыша</SolarWeb-Stratum-RoofThinRockSmoothed.label>
+	<SolarWeb-Stratum-RoofThinRockSmoothed.description>Естественная крыша из тонкого камня, отшлифованная до ровной поверхности.</SolarWeb-Stratum-RoofThinRockSmoothed.description>
+
+	<SolarWeb-Stratum-RoofOverheadMountainSmoothed.label>отшлифованная толща горы</SolarWeb-Stratum-RoofOverheadMountainSmoothed.label>
+	<SolarWeb-Stratum-RoofOverheadMountainSmoothed.description>Огромная толща сплошного камня, отшлифованная до ровной поверхности.</SolarWeb-Stratum-RoofOverheadMountainSmoothed.description>
+</LanguageData>

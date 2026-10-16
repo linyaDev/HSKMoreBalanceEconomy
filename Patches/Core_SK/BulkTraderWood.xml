@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Дерево у торговцев сильно увеличено (сток: Core_SK_CoreModule/TraderKindDefs.xml).
+	     У поселения племени два генератора брёвен — целимся по текущему
+	     значению countRange, чтобы не заменить оба одним числом. -->
+
+	<!-- Оптовик поселенцев: сток 120-350 -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/TraderKindDef[defName="Caravan_Outlander_BulkGoods"]/stockGenerators/li[thingDef="WoodLog"]/countRange</xpath>
+		<value><countRange>700~1700</countRange></value>
+	</Operation>
+
+	<!-- Оптовик племени: сток 100-260 -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/TraderKindDef[defName="Caravan_Neolithic_BulkGoods"]/stockGenerators/li[thingDef="WoodLog"]/countRange</xpath>
+		<value><countRange>600~1500</countRange></value>
+	</Operation>
+
+	<!-- Поселение племени: сток 200-400. В CoreModule деф патчится
+	     дважды, вторая версия целиком заменяет первую (с брёвнами 500-600),
+	     так что в живом дефе один генератор брёвен. -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/TraderKindDef[defName="Base_Neolithic_Standard"]/stockGenerators/li[thingDef="WoodLog"]/countRange</xpath>
+		<value><countRange>1200~2500</countRange></value>
+	</Operation>
+</Patch>

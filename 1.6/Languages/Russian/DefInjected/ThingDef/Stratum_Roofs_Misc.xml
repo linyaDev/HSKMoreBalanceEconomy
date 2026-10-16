@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<!-- Крыши Stratum: активные, люксовые, ванильные и служебные дефы -->
+
+	<!-- Active -->
+	<SolarWeb-Stratum-ThermalRadiatorRoof_Buildable.label>активная теплоотводящая крыша</SolarWeb-Stratum-ThermalRadiatorRoof_Buildable.label>
+	<SolarWeb-Stratum-ThermalRadiatorRoof_Buildable.description>Высокотехнологичная кровельная система со встроенными трубками теплообмена. Потребляя энергию из подключённых кабелей, она принудительно откачивает тепло из помещения наружу, сохраняя внутри прохладу.</SolarWeb-Stratum-ThermalRadiatorRoof_Buildable.description>
+
+	<SolarWeb-Stratum-Thermostat.label>термостат</SolarWeb-Stratum-Thermostat.label>
+	<SolarWeb-Stratum-Thermostat.description>Настенный пульт управления температурой: задаёт целевую температуру для крыш.</SolarWeb-Stratum-Thermostat.description>
+
+	<!-- Luxury -->
+	<SolarWeb-Stratum-LuxuryGlassPanel_Buildable.label>роскошная стеклянная панель</SolarWeb-Stratum-LuxuryGlassPanel_Buildable.label>
+	<SolarWeb-Stratum-LuxuryGlassPanel_Buildable.description>Свинцовое стекло, декоративно собранное в металлической раме. Пропускает меньше света, чем обычный световой люк, зато заметно украшает помещение.</SolarWeb-Stratum-LuxuryGlassPanel_Buildable.description>
+
+	<SolarWeb-Stratum-SterileTiledRoof_Buildable.label>стерильная плиточная крыша</SolarWeb-Stratum-SterileTiledRoof_Buildable.label>
+	<SolarWeb-Stratum-SterileTiledRoof_Buildable.description>Кровельная плитка со специальным серебросодержащим покрытием, подавляющим рост микробов. Незаменима в высокотехнологичных больницах и лабораториях.</SolarWeb-Stratum-SterileTiledRoof_Buildable.description>
+
+	<!-- Ванильные крыши, которые Stratum делает строящимися -->
+	<SolarWeb-Stratum-RoofStandard_Buildable.label>обычная крыша</SolarWeb-Stratum-RoofStandard_Buildable.label>
+	<SolarWeb-Stratum-RoofStandard_Buildable.description>Стандартная крыша, какую строит большинство колоний. Прочная и герметичная, надёжно защищает от непогоды.</SolarWeb-Stratum-RoofStandard_Buildable.description>
+
+	<SolarWeb-Stratum-RoofThinRock_Buildable.label>тонкая каменная крыша</SolarWeb-Stratum-RoofThinRock_Buildable.label>
+	<SolarWeb-Stratum-RoofThinRock_Buildable.description>Естественная крыша из тонкого камня. Крепкая, но грубая и невзрачная.</SolarWeb-Stratum-RoofThinRock_Buildable.description>
+
+	<SolarWeb-Stratum-RoofThinRockSmoothed_Buildable.label>отшлифованная тонкая каменная крыша</SolarWeb-Stratum-RoofThinRockSmoothed_Buildable.label>
+	<SolarWeb-Stratum-RoofThinRockSmoothed_Buildable.description>Естественная крыша из тонкого камня, отшлифованная до ровной поверхности.</SolarWeb-Stratum-RoofThinRockSmoothed_Buildable.description>
+
+	<SolarWeb-Stratum-RoofOverheadMountain_Buildable.label>толща горы</SolarWeb-Stratum-RoofOverheadMountain_Buildable.label>
+	<SolarWeb-Stratum-RoofOverheadMountain_Buildable.description>Огромная толща сплошного камня. Практически неразрушима и даёт идеальную теплоизоляцию.</SolarWeb-Stratum-RoofOverheadMountain_Buildable.description>
+
+	<SolarWeb-Stratum-RoofOverheadMountainSmoothed_Buildable.label>отшлифованная толща горы</SolarWeb-Stratum-RoofOverheadMountainSmoothed_Buildable.label>
+	<SolarWeb-Stratum-RoofOverheadMountainSmoothed_Buildable.description>Огромная толща сплошного камня, отшлифованная до ровной поверхности.</SolarWeb-Stratum-RoofOverheadMountainSmoothed_Buildable.description>
+
+	<!-- Служебное -->
+	<SolarWeb-Stratum-RoofFrame.label>площадка постройки крыши</SolarWeb-Stratum-RoofFrame.label>
+	<SolarWeb-Stratum-RoofFrame.description>Временная отметка на клетке запланированной крыши. Принесите сюда материалы, чтобы начать строительство.</SolarWeb-Stratum-RoofFrame.description>
+
+	<SolarWeb-Stratum-RoofFire.label>огонь (крыша)</SolarWeb-Stratum-RoofFire.label>
+</LanguageData>

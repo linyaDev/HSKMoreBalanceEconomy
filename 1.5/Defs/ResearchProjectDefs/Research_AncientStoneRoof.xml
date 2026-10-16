@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ResearchProjectDef>
+		<defName>AncientStoneRoof</defName>
+		<label>Ancient stone roofs</label>
+		<description>Ancient techniques of building thick stone roofs using crude methods. Requires significantly more material than modern approaches.</description>
+		<baseCost>800</baseCost>
+		<techLevel>Medieval</techLevel>
+		<prerequisites>
+			<li>Construction_B3</li>
+		</prerequisites>
+		<researchViewX>6.00</researchViewX>
+		<researchViewY>14.00</researchViewY>
+		<tab>Buildings_SK</tab>
+	</ResearchProjectDef>
+</Defs>

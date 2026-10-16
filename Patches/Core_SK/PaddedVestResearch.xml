@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Грубый жилет (Armor_PaddedVest): рецепт открывается Производством одежды I
+	     (Apparel_A1) вместо Брони I (PlateArmor). Стёганая тряпка с кожаными
+	     нашивками — это швейное дело, а не кузнечная броня. -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Armor_PaddedVest"]/recipeMaker/researchPrerequisite</xpath>
+		<value><researchPrerequisite>Apparel_A1</researchPrerequisite></value>
+	</Operation>
+
+	<!-- Плюс шьётся на верстаке кожевника. recipeUsers у самого дефа нет — он
+	     наследуется от ApparelMedievalBase (HandTailoringBench); при слиянии
+	     наследования списки объединяются, так что станка будет два. -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="Armor_PaddedVest"]/recipeMaker</xpath>
+		<value>
+			<recipeUsers>
+				<li>LeatherworkerTable</li>
+			</recipeUsers>
+		</value>
+	</Operation>
+
+	<!-- Дешевле по коже: 75 -> 55 (компоненты 2 шт. не трогаем) -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Armor_PaddedVest"]/costStuffCount</xpath>
+		<value><costStuffCount>55</costStuffCount></value>
+	</Operation>
+</Patch>

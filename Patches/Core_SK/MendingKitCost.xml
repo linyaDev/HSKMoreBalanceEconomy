@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Дороже ремонтный комплект (MakeMendingKit): 5 каждого компонента + 100 ткани + 100 металла.
+	     Было: 1 ComponentMedieval, 1 ComponentIndustrial, 10 Textiles, 10 SLDBar -> 5 MendingKit. -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="MakeMendingKit"]/ingredients/li[filter/thingDefs/li="ComponentMedieval"]/count</xpath>
+		<value><count>5</count></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="MakeMendingKit"]/ingredients/li[filter/thingDefs/li="ComponentIndustrial"]/count</xpath>
+		<value><count>5</count></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="MakeMendingKit"]/ingredients/li[filter/categories/li="Textiles"]/count</xpath>
+		<value><count>100</count></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="MakeMendingKit"]/ingredients/li[filter/categories/li="SLDBar"]/count</xpath>
+		<value><count>100</count></value>
+	</Operation>
+</Patch>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Нерф ресурсов дриад -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="Dryad_Woodmaker"]/comps/li[@Class="CompProperties_Spawner"]/spawnCount</xpath>
+		<value><spawnCount>8</spawnCount></value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="Dryad_Berrymaker"]/comps/li[@Class="CompProperties_Spawner"]/spawnCount</xpath>
+		<value><spawnCount>5</spawnCount></value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="Dryad_Medicinemaker"]/comps/li[@Class="CompProperties_Spawner"]/spawnCount</xpath>
+		<value><spawnCount>2</spawnCount></value>
+	</Operation>
+
+</Patch>

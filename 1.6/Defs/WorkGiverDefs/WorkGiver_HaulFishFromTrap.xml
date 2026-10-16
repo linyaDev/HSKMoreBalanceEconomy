@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!--
+		Унести улов из рыбной ловушки — отдельная работа в колонке «рыба»
+		(WorkTypeDef Fishing из Odyssey; пак переводит туда же ловлю на мостках
+		патчем Core_SK_DLCModule/Odyssey/Patches/Special_Patches/Odyssey_Fish.xml).
+
+		Ловушка HSK_FishTrap — хранилище LWM Deep Storage, и обычный грузчик
+		считает улов уже сложенным: он унесёт рыбу только в хранилище с более
+		высоким приоритетом. Наш воркгивер уносит её в любое подходящее.
+
+		priorityInType выше, чем у ловли (89 у WorkGiver_FishAtFishingPier):
+		сначала освободить ловушки, потом ловить дальше.
+	-->
+	<WorkGiverDef MayRequire="Ludeon.RimWorld.Odyssey">
+		<defName>HMH_HaulFishFromTrap</defName>
+		<label>haul fish from traps</label>
+		<giverClass>HSKMoreHardcore.WorkGiver_HaulFishFromTrap</giverClass>
+		<workType>Fishing</workType>
+		<priorityInType>95</priorityInType>
+		<verb>haul</verb>
+		<gerund>hauling fish</gerund>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+	</WorkGiverDef>
+
+</Defs>

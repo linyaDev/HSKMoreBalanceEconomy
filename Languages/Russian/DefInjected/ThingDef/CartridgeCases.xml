@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<CartridgeCase_Pistol.label>пистолетные гильзы</CartridgeCase_Pistol.label>
+	<CartridgeCase_Pistol.description>Латунные гильзы для пистолетных патронов (9x19 мм, .45 ACP). Нужны для снаряжения патронов к пистолетам и пистолетам-пулемётам.</CartridgeCase_Pistol.description>
+
+	<CartridgeCase_Shotgun.label>дробовые гильзы</CartridgeCase_Shotgun.label>
+	<CartridgeCase_Shotgun.description>Пустые гильзы 12-го калибра. Нужны для снаряжения патронов к дробовикам.</CartridgeCase_Shotgun.description>
+
+	<CartridgeCase_Rifle.label>винтовочные гильзы</CartridgeCase_Rifle.label>
+	<CartridgeCase_Rifle.description>Латунные гильзы для промежуточных и винтовочных патронов (5,56x45 мм, 7,62x39 мм, .303 British). Нужны для снаряжения патронов к винтовкам.</CartridgeCase_Rifle.description>
+
+	<CartridgeCase_Sniper.label>гильзы полноразмерных патронов</CartridgeCase_Sniper.label>
+	<CartridgeCase_Sniper.description>Усиленные латунные гильзы для полноразмерных винтовочных патронов (7,62x51 мм NATO). Нужны для снаряжения патронов к боевым и снайперским винтовкам.</CartridgeCase_Sniper.description>
+
+	<CartridgeCase_Heavy.label>крупнокалиберные гильзы</CartridgeCase_Heavy.label>
+	<CartridgeCase_Heavy.description>Массивные гильзы для крупнокалиберных патронов (.50 BMG, 14,5x114 мм). Нужны для снаряжения патронов к тяжёлым пулемётам и крупнокалиберным винтовкам.</CartridgeCase_Heavy.description>
+</LanguageData>

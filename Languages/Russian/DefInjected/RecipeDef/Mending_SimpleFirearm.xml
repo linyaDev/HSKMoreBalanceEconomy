@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+	<HMH_MendSimpleFirearm.label>починить простое огнестрельное оружие</HMH_MendSimpleFirearm.label>
+	<HMH_MendSimpleFirearm.description>Починка простого огнестрела: пистолеты, винтовка с продольно-скользящим затвором, помповые дробовики и ранние пистолеты-пулемёты.</HMH_MendSimpleFirearm.description>
+	<HMH_MendSimpleFirearm.jobString>Починка оружия.</HMH_MendSimpleFirearm.jobString>
+
+</LanguageData>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Торговец животными (караванный и орбитальный): торгует разным сырым
+	     мясом (3-5 видов, кроме человечины) и скупает любую еду (генератор
+	     категории Foods с нулевым стоком ничего не продаёт, но включает скупку
+	     всей категории). -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TraderKindDef[defName="Caravan_AnimalTrader" or defName="AnimalTrader"]/stockGenerators</xpath>
+		<value>
+			<li Class="StockGenerator_Category">
+				<categoryDef>MeatRaw</categoryDef>
+				<thingDefCountRange>3~5</thingDefCountRange>
+				<totalPriceRange>200~500</totalPriceRange>
+				<excludedThingDefs>
+					<li>Meat_Human</li>
+				</excludedThingDefs>
+			</li>
+			<li Class="StockGenerator_Category">
+				<categoryDef>Foods</categoryDef>
+				<thingDefCountRange>0~0</thingDefCountRange>
+			</li>
+			<!-- Широкий ассортимент кож/шкур и меха-шерсти (фикс. виды шерсти
+			     из базового стока остаются, категория добавляет случайные) -->
+			<li Class="StockGenerator_Category">
+				<categoryDef>Leathers</categoryDef>
+				<thingDefCountRange>5~8</thingDefCountRange>
+				<totalPriceRange>300~700</totalPriceRange>
+			</li>
+			<li Class="StockGenerator_Category">
+				<categoryDef>Wools</categoryDef>
+				<thingDefCountRange>3~5</thingDefCountRange>
+				<totalPriceRange>200~500</totalPriceRange>
+			</li>
+		</value>
+	</Operation>
+</Patch>

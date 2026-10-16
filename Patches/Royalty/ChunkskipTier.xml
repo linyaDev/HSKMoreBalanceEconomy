@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Телепортация обломков (Chunkskip) — со второго тира псисвязи вместо первого.
+	     level у AbilityDef = требуемый уровень псисвязи, по нему же способность
+	     попадает в список наград за титул и в выбор при получении уровня. -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/AbilityDef[defName="Chunkskip"]/level</xpath>
+		<value>
+			<level>2</level>
+		</value>
+	</Operation>
+
+</Patch>

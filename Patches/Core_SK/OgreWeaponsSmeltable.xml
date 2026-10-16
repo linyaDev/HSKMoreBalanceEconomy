@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Сепаратор (Sunderer) — тесак огров — не переплавлялся: у базы
+	     BaseMutantMelee не задан smeltable, а по умолчанию он false, и рецепт
+	     SmeltWeapon такое оружие отсеивает (SpecialThingFilterWorker_
+	     NonSmeltableWeapons). Ванильное холодное оружие (BaseMeleeWeapon)
+	     smeltable=true, трофейному тесаку из 90 единиц прочного металла
+	     положено то же самое. -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="Sunderer"]</xpath>
+		<value><smeltable>true</smeltable></value>
+	</Operation>
+</Patch>

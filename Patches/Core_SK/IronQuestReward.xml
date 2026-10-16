@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!--
+		Железная руда наградой за квест — своей корзиной.
+
+		Раньше мы просто вешали на Iron тег RewardStandardMidFreq. Руда в награды
+		попадала, но мелкими порциями: в той корзине она конкурирует с десятком
+		других дефов, генератор набирает несколько предметов сразу, и каждому
+		достаётся своя доля бюджета (порог minSingleItemMarketValuePct — всего 15%
+		от суммы). В ветку «дорогое сырьё» руда не проходит: там отсекается всё
+		дешевле 7 серебра, а у неё 3.
+
+		Поэтому добавляем в Reward_ItemsStandard отдельный вариант только с Iron —
+		тем же приёмом, каким пак добавляет свою корзину боеприпасов. Когда
+		выпадает эта ветка, руда единственная в наборе и забирает весь бюджет
+		награды: 1500 серебра — это 500 руды.
+
+		Вес 1.5 против 3 у Core, 5 у HighFreq, 2.5 у MidFreq и 1 у LowFreq
+		(плюс корзины пака из SK_Patches_RewardsThingSets.xml).
+
+		Путь li[1] — тот самый RandomOption с корзинами по тегам, куда пак
+		дописывает и свои варианты.
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingSetMakerDef[defName="Reward_ItemsStandard"]/root/options/li[1]/thingSetMaker/options</xpath>
+		<value>
+			<li>
+				<weight>1.5</weight>
+				<thingSetMaker Class="ThingSetMaker_MarketValue">
+					<fixedParams>
+						<filter>
+							<thingDefs>
+								<li>Iron</li>
+							</thingDefs>
+						</filter>
+					</fixedParams>
+				</thingSetMaker>
+			</li>
+		</value>
+	</Operation>
+</Patch>

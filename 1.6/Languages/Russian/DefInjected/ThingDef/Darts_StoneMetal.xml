@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<Ammo_Dart_Stone.label>каменный дротик</Ammo_Dart_Stone.label>
+	<Ammo_Dart_Stone.description>Простой дротик с обтёсанным каменным наконечником. Дешёвый, но слабый.</Ammo_Dart_Stone.description>
+	<Ammo_Dart_Metal.label>металлический дротик</Ammo_Dart_Metal.label>
+	<Ammo_Dart_Metal.description>Дротик с кованым металлическим наконечником. Пробивает и ранит лучше каменного.</Ammo_Dart_Metal.description>
+	<StoneDart.label>каменный дротик</StoneDart.label>
+	<MetalDart.label>металлический дротик</MetalDart.label>
+</LanguageData>

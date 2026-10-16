@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Нерф полимерного композита -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="CarbonAlloy"]/statBases/StuffPower_Armor_Sharp</xpath>
+		<value><StuffPower_Armor_Sharp>1.0</StuffPower_Armor_Sharp></value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="CarbonAlloy"]/statBases/StuffPower_Armor_Blunt</xpath>
+		<value><StuffPower_Armor_Blunt>1.0</StuffPower_Armor_Blunt></value>
+	</Operation>
+
+	<!-- Цена как у стального слитка (ванильный Steel = 1.9; «SteelBar» в паке —
+	     это инвар за 8, не путать): композит гонится из нефти почти даром,
+	     дороже стали ему стоить не за что. -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="CarbonAlloy"]/statBases/MarketValue</xpath>
+		<value><MarketValue>1.9</MarketValue></value>
+	</Operation>
+
+	<!-- Работа на выплавку вдвое меньше паковой (2800 -> 1400 на 10 штук):
+	     раз композит больше не топ-материал, гонять его столько же незачем. -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/RecipeDef[defName="MakeCarbonAlloy"]/workAmount</xpath>
+		<value><workAmount>1400</workAmount></value>
+	</Operation>
+
+</Patch>

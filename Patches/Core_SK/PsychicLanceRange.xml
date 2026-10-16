@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Увеличение дальности психических копий -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="Apparel_PsychicShockLance"]/verbs/li/range</xpath>
+		<value><range>150</range></value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="Apparel_PsychicInsanityLance"]/verbs/li/range</xpath>
+		<value><range>150</range></value>
+	</Operation>
+
+</Patch>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Replace MedicineIndustrial reward tag (Tier4) with Herbmedicine (basic medicine kit) -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="MedicineIndustrial"]/thingSetMakerTags/li[.="HSKhumanitarianSuppliesTierFour"]</xpath>
+		<value>
+			<li>HSKhumanitarianSuppliesTierRemoved</li>
+		</value>
+	</Operation>
+
+	<!-- Replace MedicineUltratech reward tag with removed -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="MedicineUltratech"]/thingSetMakerTags/li[.="RewardStandardHighFreq"]</xpath>
+		<value>
+			<li>HSKhumanitarianSuppliesTierRemoved</li>
+		</value>
+	</Operation>
+
+	<!-- Add Herbmedicine (basic medicine kit) to Tier4 rewards -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Herbmedicine"]/thingSetMakerTags/li[.="HSKhumanitarianSuppliesTierThree"]</xpath>
+		<value>
+			<li>HSKhumanitarianSuppliesTierFour</li>
+		</value>
+	</Operation>
+
+	<!-- Add HerbMedicine (herbal medicine) to Tier3 rewards -->
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationTest">
+				<xpath>Defs/ThingDef[defName="HerbMedicine"]/thingSetMakerTags</xpath>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="HerbMedicine"]/thingSetMakerTags</xpath>
+				<value>
+					<li>HSKhumanitarianSuppliesTierThree</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationTest">
+				<xpath>Defs/ThingDef[defName="HerbMedicine"]/thingSetMakerTags</xpath>
+				<success>Invert</success>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="HerbMedicine"]</xpath>
+				<value>
+					<thingSetMakerTags>
+						<li>HSKhumanitarianSuppliesTierThree</li>
+					</thingSetMakerTags>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+	<!-- Capsules: replace MedicineIndustrial with Herbmedicine in DropPodLanded -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="DropPodLanded"]/comps/li[@Class="SK.CompLoot_Properties"]/lootCounters/MedicineIndustrial</xpath>
+		<value>
+			<Herbmedicine>10</Herbmedicine>
+		</value>
+	</Operation>
+
+	<!-- Capsules: replace MedicineIndustrial with HerbMedicine in ShipWreckLanded -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="ShipWreckLanded"]/comps/li[@Class="SK.CompLoot_Properties"]/lootCounters/MedicineIndustrial</xpath>
+		<value>
+			<HerbMedicine>10</HerbMedicine>
+		</value>
+	</Operation>
+</Patch>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!--
+		Часть одежды нельзя починить на ручном ремонтном станке, если включён
+		Vile's Pre-Industrial.
+
+		Он объявляет MendTextileApparel заново, с тем же defName, и версия HSK просто
+		выбрасывается из базы (Verse/DefDatabase.cs, AddAllInMods: одноимённый деф из мода,
+		загруженного позже, вытесняет прежний). Его фильтр — белый список категорий слоёв:
+		свои BaseLayerCat, MiddleLayerCat, ShellLayerCat плюс слоты SK (HeaddressCat,
+		AnimalHeaddressCat, BootsCat, PantsCat) и категории расы крыс.
+
+		SK при этом раскладывает часть одежды не по слоям, а по ролям и комплектам, и такие
+		вещи в белый список не попадают никогда:
+
+		    Apparel_Robe        ApparelNoble,      SetNoble     -> Apparel -> Root
+		    Apparel_ClothMask   SpecialApparelCat, SetGasMask   -> Apparel -> Root
+		    Rucksack            SpecialApparelCat               -> Apparel -> Root
+
+		Rucksack (рогулька) — вещь самого Vile's, но категория у неё тоже SpecialApparelCat,
+		так что в собственный белый список рецепта она не попадает.
+
+		Дописываем их в его же фильтр поимённо — тем же приёмом, каким он сам вписал туда
+		перчатки Apparello. Предикат [thingDefs] попадает только в его узел: у рецепта HSK
+		блока thingDefs нет, и его патч не заденет.
+
+		Правятся оба фильтра: ingredients задаёт, что берут в работу, fixedIngredientFilter —
+		что видно в билле.
+
+		Только перечисленные вещи. Через категории ApparelNoble или SpecialApparelCat
+		открылось бы всё дворянское и вся спецодежда, а правка thingCategories у самих вещей
+		сдвинула бы их в складах и сортировке.
+	-->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>HMC Vile's Pre-Industrial Overhaul</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/RecipeDef[defName="MendTextileApparel"]/ingredients/li/filter[thingDefs]/thingDefs</xpath>
+					<value>
+						<li>Apparel_Robe</li>
+						<li>Apparel_ClothMask</li>
+						<li>Rucksack</li>
+					</value>
+				</li>
+
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/RecipeDef[defName="MendTextileApparel"]/fixedIngredientFilter[thingDefs]/thingDefs</xpath>
+					<value>
+						<li>Apparel_Robe</li>
+						<li>Apparel_ClothMask</li>
+						<li>Rucksack</li>
+					</value>
+				</li>
+
+			</operations>
+		</match>
+	</Operation>
+</Patch>

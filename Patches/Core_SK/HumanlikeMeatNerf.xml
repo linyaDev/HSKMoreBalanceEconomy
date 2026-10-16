@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Roughly a third of the meat from butchering humanlikes (default MeatAmount 140 -> 47).
+	     Applied to the abstract BaseHumanlikePawn so it covers humans and SK humanlike races. -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[@Name="BaseHumanlikePawn"]/statBases</xpath>
+		<value>
+			<MeatAmount>47</MeatAmount>
+		</value>
+	</Operation>
+
+	<!-- Half the leather from a human (30 -> 15). Set on the Human def itself. -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Human"]/statBases/LeatherAmount</xpath>
+		<value>
+			<LeatherAmount>15</LeatherAmount>
+		</value>
+	</Operation>
+</Patch>

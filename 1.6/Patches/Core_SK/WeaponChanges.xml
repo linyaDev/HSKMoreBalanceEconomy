@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- ============================================================
+	     Все правки оружия в одном файле.
+
+	     Духовая трубка (blowgun):
+	       - одноручная (CE_OneHandedWeapon)
+	       - новые дротики в аммосете (дефы: Defs/Ammo/Darts_StoneMetal.xml)
+	       - рецепт: только 35 дерева (убрана травяная медицина)
+	       - время между атаками 0.8 -> 1.2
+
+	     Балестра (Arbalest):
+	       - одноручная
+	       - исследование Bow_B2 (Метательное IV) -> Greatbow (Метательное III)
+	       - свои лёгкие болты вместо общих (дефы: Defs/Ammo/Bolts_Light.xml)
+
+	     Катапульта:
+	       - свои усиленные осколки вместо общих CE (дефы: Defs/Ammo/Fragments_Catapult.xml):
+	         мелкие 2 -> 2.75 мм / 14.4 -> 19.7 МПа, крупные 4.5 -> 5.25 мм / 122.5 -> 141.25 МПа
+	       - острое пробитие самих ядер 1 -> 2.25 мм
+	       - дальность 150 -> 200
+
+	     Промышленные компоненты арбалетов (усиленный/скорпион/балестра по 2)
+	     живут в ОБЩЕМ Patches/Core_SK/CrossbowCostNerf.xml (действует и на 1.5,
+	     только без Vile's).
+	     ============================================================ -->
+
+	<!-- ==================== Духовая трубка ==================== -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="blowgun"]/weaponTags</xpath>
+		<value>
+			<li>CE_OneHandedWeapon</li>
+		</value>
+	</Operation>
+
+	<!-- Рецепт: только 35 дерева. Травяная медицина в costList — рудимент
+	     времён «трубки с набором ядовитых дротиков», яд теперь в самих дротиках. -->
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/ThingDef[defName="blowgun"]/costList</xpath>
+	</Operation>
+
+	<!-- Время между атаками 0.8 -> 1.2 -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="blowgun"]/statBases/RangedWeapon_Cooldown</xpath>
+		<value><RangedWeapon_Cooldown>1.2</RangedWeapon_Cooldown></value>
+	</Operation>
+
+	<!-- Каменный и металлический дротики в аммосет трубки -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/CombatExtended.AmmoSetDef[defName="AmmoSet_Darts"]/ammoTypes</xpath>
+		<value>
+			<Ammo_Dart_Stone>StoneDart</Ammo_Dart_Stone>
+			<Ammo_Dart_Metal>MetalDart</Ammo_Dart_Metal>
+		</value>
+	</Operation>
+
+	<!-- ==================== Балестра ==================== -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="Arbalest"]/weaponTags</xpath>
+		<value>
+			<li>CE_OneHandedWeapon</li>
+		</value>
+	</Operation>
+
+	<!-- Описание под новую роль: одноручный лёгкий арбалет (рус. — в Languages) -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Arbalest"]/description</xpath>
+		<value><description>A light one-handed crossbow. A special drawing mechanism lets it be cocked with one hand, and its low weight allows carrying it alongside a shield. Fires light bolts — weaker than a full-sized crossbow, but leaves the other hand free.</description></value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Arbalest"]/recipeMaker/researchPrerequisite</xpath>
+		<value><researchPrerequisite>Greatbow</researchPrerequisite></value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Arbalest"]/comps/li[@Class="CombatExtended.CompProperties_AmmoUser"]/ammoSet</xpath>
+		<value><ammoSet>AmmoSet_LightBolt</ammoSet></value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Arbalest"]/verbs/li/defaultProjectile</xpath>
+		<value><defaultProjectile>Projectile_LightBolt</defaultProjectile></value>
+	</Operation>
+
+	<!-- ==================== Катапульта ==================== -->
+	<!-- Ядрам — собственные усиленные осколки вместо общих CE-шных
+	     (Fragment_Small/Large летят из всех гранат и снарядов, их не трогаем).
+	     Количество осколков прежнее: камень 38 мелких + 12 крупных,
+	     разрывное 12 мелких + 16 крупных. -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Stone_Ball"]/comps/li[@Class="CombatExtended.CompProperties_Fragments"]/fragments</xpath>
+		<value>
+			<fragments>
+				<HMH_Fragment_CatapultSmall>38</HMH_Fragment_CatapultSmall>
+				<HMH_Fragment_CatapultLarge>12</HMH_Fragment_CatapultLarge>
+			</fragments>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Explosive_Ball"]/comps/li[@Class="CombatExtended.CompProperties_Fragments"]/fragments</xpath>
+		<value>
+			<fragments>
+				<HMH_Fragment_CatapultSmall>12</HMH_Fragment_CatapultSmall>
+				<HMH_Fragment_CatapultLarge>16</HMH_Fragment_CatapultLarge>
+			</fragments>
+		</value>
+	</Operation>
+
+	<!-- Дальность 150 -> 200 -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Artillery_Medieval_Catapult_Top"]/verbs/li/range</xpath>
+		<value><range>200</range></value>
+	</Operation>
+
+	<!-- Острое пробитие самих ядер 1 -> 2.25 мм (тупое и так 1541 МПа) -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Stone_Ball"]/projectile/armorPenetrationSharp</xpath>
+		<value><armorPenetrationSharp>2.25</armorPenetrationSharp></value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Explosive_Ball"]/projectile/armorPenetrationSharp</xpath>
+		<value><armorPenetrationSharp>2.25</armorPenetrationSharp></value>
+	</Operation>
+
+</Patch>

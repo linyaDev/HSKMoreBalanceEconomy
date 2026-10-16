@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Альфабобры: голод 3.0 -> 2.0. Жрут лес в полтора раза медленнее, но
+	     без деревьев живут дольше. При 1.0 ели совсем мало.
+	     Деф расы — свой у Core_SK (Races_Animal_Rodentlike.xml), не ванильный. -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Alphabeaver"]/race/baseHungerRate</xpath>
+		<value><baseHungerRate>2.0</baseHungerRate></value>
+	</Operation>
+</Patch>

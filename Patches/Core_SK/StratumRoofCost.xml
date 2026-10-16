@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Крыши Stratum: HSK-совместимость поднимает расход до 5 материалов
+	     (Core_SK_Stratum/Compat/skyarkhangel.hsk/1.6/Patches/Roofs_Core.xml).
+	     Возвращаем к 3: черепица и стеклянная панель. -->
+	<Operation Class="PatchOperationFindMod">
+		<mods><li>Stratum</li></mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="SolarWeb-Stratum-RoofShingle_Buildable"]/costStuffCount</xpath>
+					<value><costStuffCount>3</costStuffCount></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="SolarWeb-Stratum-RoofGlass_Buildable"]/costStuffCount</xpath>
+					<value><costStuffCount>3</costStuffCount></value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

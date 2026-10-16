@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<MakeCartridgeCase_Pistol.label>сделать пистолетные гильзы</MakeCartridgeCase_Pistol.label>
+	<MakeCartridgeCase_Pistol.description>Изготовить пистолетные гильзы из металла. Результат: 1.</MakeCartridgeCase_Pistol.description>
+	<MakeCartridgeCase_Pistol.jobString>Делает пистолетные гильзы.</MakeCartridgeCase_Pistol.jobString>
+
+	<MakeCartridgeCase_Shotgun.label>сделать дробовые гильзы</MakeCartridgeCase_Shotgun.label>
+	<MakeCartridgeCase_Shotgun.description>Изготовить дробовые гильзы из металла. Результат: 1.</MakeCartridgeCase_Shotgun.description>
+	<MakeCartridgeCase_Shotgun.jobString>Делает дробовые гильзы.</MakeCartridgeCase_Shotgun.jobString>
+
+	<MakeCartridgeCase_Rifle.label>сделать винтовочные гильзы</MakeCartridgeCase_Rifle.label>
+	<MakeCartridgeCase_Rifle.description>Изготовить винтовочные гильзы из металла. Результат: 1.</MakeCartridgeCase_Rifle.description>
+	<MakeCartridgeCase_Rifle.jobString>Делает винтовочные гильзы.</MakeCartridgeCase_Rifle.jobString>
+
+	<MakeCartridgeCase_Sniper.label>сделать гильзы полноразмерных патронов</MakeCartridgeCase_Sniper.label>
+	<MakeCartridgeCase_Sniper.description>Изготовить гильзы полноразмерных винтовочных патронов из металла. Результат: 1.</MakeCartridgeCase_Sniper.description>
+	<MakeCartridgeCase_Sniper.jobString>Делает гильзы полноразмерных патронов.</MakeCartridgeCase_Sniper.jobString>
+
+	<MakeCartridgeCase_Heavy.label>сделать крупнокалиберные гильзы</MakeCartridgeCase_Heavy.label>
+	<MakeCartridgeCase_Heavy.description>Изготовить крупнокалиберные гильзы из металла. Результат: 1.</MakeCartridgeCase_Heavy.description>
+	<MakeCartridgeCase_Heavy.jobString>Делает крупнокалиберные гильзы.</MakeCartridgeCase_Heavy.jobString>
+</LanguageData>

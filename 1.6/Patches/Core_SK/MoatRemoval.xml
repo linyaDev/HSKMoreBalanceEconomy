@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Ров (Moat, «полоса препятствий») убран из меню строительства — его роль
+	     оборонительного замедлителя занял терраформ «плывун» (HMH_Quicksand).
+	     Деф не удаляем: уже построенные рвы в сейвах остаются работать.
+
+	     Операции обёрнуты в PatchOperationConditional: в новых версиях HSK деф
+	     Moat уже заменён, поэтому цели удаления может не быть. Условие выполняет
+	     удаление только когда цель существует — иначе PatchOperationRemove сыпал
+	     ошибками «patch operation failed» в лог. -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="Moat"]/designationCategory</xpath>
+		<match Class="PatchOperationRemove">
+			<xpath>Defs/ThingDef[defName="Moat"]/designationCategory</xpath>
+		</match>
+	</Operation>
+
+	<!-- И из списка открытий исследования Фортификация I -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="Moat"]/researchPrerequisites</xpath>
+		<match Class="PatchOperationRemove">
+			<xpath>Defs/ThingDef[defName="Moat"]/researchPrerequisites</xpath>
+		</match>
+	</Operation>
+
+	<!-- Из подкатегории «укрепления» — иначе ArchitectSense показал бы ров
+	     через неё даже без designationCategory. Плывун (HMH_QuicksandMoat) сюда
+	     больше не добавляется: он убран из меню строительства. -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ArchitectSense.DesignationSubCategoryDef[defName="SubCategory_Fortifications"]/defNames/li[text()="Moat"]</xpath>
+		<match Class="PatchOperationRemove">
+			<xpath>Defs/ArchitectSense.DesignationSubCategoryDef[defName="SubCategory_Fortifications"]/defNames/li[text()="Moat"]</xpath>
+		</match>
+	</Operation>
+</Patch>

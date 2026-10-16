@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Moat: replace Polymers with FecalSludge -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Moat"]/costList/Polymers</xpath>
+		<value><FecalSludge>50</FecalSludge></value>
+	</Operation>
+</Patch>

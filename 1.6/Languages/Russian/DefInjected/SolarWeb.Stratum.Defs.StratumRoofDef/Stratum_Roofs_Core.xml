@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<!-- Крыши Stratum (Core_SK_Stratum): базовый набор, сами крыши -->
+
+	<SolarWeb-Stratum-RoofThatch.label>примитивная соломенная крыша</SolarWeb-Stratum-RoofThatch.label>
+	<SolarWeb-Stratum-RoofThatch.description>Примитивная крыша из связок сена или соломы. Крайне дешёвая и быстрая в сборке, но сильно пропускает воздух и почти не защищает от жары и холода.</SolarWeb-Stratum-RoofThatch.description>
+
+	<SolarWeb-Stratum-RoofThatchHay.label>соломенная крыша</SolarWeb-Stratum-RoofThatchHay.label>
+	<SolarWeb-Stratum-RoofThatchHay.description>Более основательная соломенная крыша из возделанного сена. Продвинутые приёмы укладки делают её вполне годным вариантом для разборчивого кровельщика.</SolarWeb-Stratum-RoofThatchHay.description>
+
+	<SolarWeb-Stratum-RoofShingle.label>черепичная крыша</SolarWeb-Stratum-RoofShingle.label>
+	<SolarWeb-Stratum-RoofShingle.description>Простая черепица из различных материалов. Даёт прочный герметичный настил и надёжную защиту.</SolarWeb-Stratum-RoofShingle.description>
+
+	<SolarWeb-Stratum-RoofGlass.label>световой люк</SolarWeb-Stratum-RoofGlass.label>
+	<SolarWeb-Stratum-RoofGlass.description>Обычные стеклянные панели в лёгкой раме. Хороши для теплиц, но хрупкие и плохо держат тепло.</SolarWeb-Stratum-RoofGlass.description>
+
+	<SolarWeb-Stratum-RoofSolarShingles.label>солнечная черепица</SolarWeb-Stratum-RoofSolarShingles.label>
+	<SolarWeb-Stratum-RoofSolarShingles.description>Современная кровельная черепица со встроенными фотоэлементами. Уступает по эффективности обычным солнечным батареям, зато даёт чистую энергию, не занимая места на земле.</SolarWeb-Stratum-RoofSolarShingles.description>
+
+	<SolarWeb-Stratum-CompositeInsulatedPanel.label>композитная утеплённая панель</SolarWeb-Stratum-CompositeInsulatedPanel.label>
+	<SolarWeb-Stratum-CompositeInsulatedPanel.description>Современные многослойные кровельные панели. Прочный стальной каркас удерживает толстые слои текстильного утеплителя. Дорого, зато исключительно стабильно держит температуру.</SolarWeb-Stratum-CompositeInsulatedPanel.description>
+</LanguageData>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Reduce BorealForest: plantDensity 0.7 -> 0.535, tree weights x0.39,
+	     animals -20%. Non-tree weights left at HSK stock.
+	     Итог по абсолютному числу: деревья ~41% от исходного HSK (прежний нерф x0.3 давал ~19%),
+	     трава/мох ~106%, вся растительность ~77% от стока.
+	     Dense variant carries the original HSK values -->
+
+	<!-- animalDensity: 2.5 -> 2.0 (-20%) -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BiomeDef[defName="BorealForest"]/animalDensity</xpath>
+		<value><animalDensity>2.0</animalDensity></value>
+	</Operation>
+
+	<!-- plantDensity: 0.7 -> 0.535 (~77% от стока) -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BiomeDef[defName="BorealForest"]/plantDensity</xpath>
+		<value><plantDensity>0.535</plantDensity></value>
+	</Operation>
+
+	<!-- === Trees (weights x0.39) === -->
+	<!-- TreePine: 8.0 -> 3.12 -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BiomeDef[defName="BorealForest"]/wildPlants/Plant_TreePine</xpath>
+		<value><Plant_TreePine>3.12</Plant_TreePine></value>
+	</Operation>
+	<!-- TreeBirch: 1.3 -> 0.51 -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BiomeDef[defName="BorealForest"]/wildPlants/Plant_TreeBirch</xpath>
+		<value><Plant_TreeBirch>0.51</Plant_TreeBirch></value>
+	</Operation>
+	<!-- TreePoplar: 0.1 -> 0.039 -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BiomeDef[defName="BorealForest"]/wildPlants/Plant_TreePoplar</xpath>
+		<value><Plant_TreePoplar>0.039</Plant_TreePoplar></value>
+	</Operation>
+	<!-- TreeMaple: 0.2 -> 0.078 -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BiomeDef[defName="BorealForest"]/wildPlants/Plant_TreeMaple</xpath>
+		<value><Plant_TreeMaple>0.078</Plant_TreeMaple></value>
+	</Operation>
+	<!-- TreeWillow: 0.28 -> 0.11 -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BiomeDef[defName="BorealForest"]/wildPlants/Plant_TreeWillow</xpath>
+		<value><Plant_TreeWillow>0.11</Plant_TreeWillow></value>
+	</Operation>
+
+	<!-- === Animals (-20%) === -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BiomeDef[defName="BorealForest"]/wildAnimals/Elk</xpath>
+		<value><Elk>0.32</Elk></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BiomeDef[defName="BorealForest"]/wildAnimals/Caribou</xpath>
+		<value><Caribou>0.32</Caribou></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BiomeDef[defName="BorealForest"]/wildAnimals/Muffalo</xpath>
+		<value><Muffalo>0.48</Muffalo></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BiomeDef[defName="BorealForest"]/wildAnimals/Squirrel</xpath>
+		<value><Squirrel>0.8</Squirrel></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BiomeDef[defName="BorealForest"]/wildAnimals/Hare</xpath>
+		<value><Hare>0.56</Hare></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BiomeDef[defName="BorealForest"]/wildAnimals/Rat</xpath>
+		<value><Rat>0.64</Rat></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BiomeDef[defName="BorealForest"]/wildAnimals/WildBoar</xpath>
+		<value><WildBoar>0.24</WildBoar></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BiomeDef[defName="BorealForest"]/wildAnimals/Turkey</xpath>
+		<value><Turkey>0.16</Turkey></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BiomeDef[defName="BorealForest"]/wildAnimals/Raccoon</xpath>
+		<value><Raccoon>0.32</Raccoon></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BiomeDef[defName="BorealForest"]/wildAnimals/Ibex</xpath>
+		<value><Ibex>0.24</Ibex></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BiomeDef[defName="BorealForest"]/wildAnimals/Chipmunk</xpath>
+		<value><Chipmunk>0.56</Chipmunk></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BiomeDef[defName="BorealForest"]/wildAnimals/Sheep</xpath>
+		<value><Sheep>0.32</Sheep></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BiomeDef[defName="BorealForest"]/wildAnimals/Crashbug</xpath>
+		<value><Crashbug>0.56</Crashbug></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BiomeDef[defName="BorealForest"]/wildAnimals/Fly</xpath>
+		<value><Fly>0.88</Fly></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BiomeDef[defName="BorealForest"]/wildAnimals/Mosquito</xpath>
+		<value><Mosquito>1.44</Mosquito></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BiomeDef[defName="BorealForest"]/wildAnimals/Yak</xpath>
+		<value><Yak>0.096</Yak></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BiomeDef[defName="BorealForest"]/wildAnimals/Horse</xpath>
+		<value><Horse>0.048</Horse></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BiomeDef[defName="BorealForest"]/wildAnimals/Horse_Wooly</xpath>
+		<value><Horse_Wooly>0.056</Horse_Wooly></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BiomeDef[defName="BorealForest"]/wildAnimals/Wolf_Timber</xpath>
+		<value><Wolf_Timber>0.112</Wolf_Timber></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BiomeDef[defName="BorealForest"]/wildAnimals/Wolf_Arctic</xpath>
+		<value><Wolf_Arctic>0.024</Wolf_Arctic></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BiomeDef[defName="BorealForest"]/wildAnimals/Bear_Grizzly</xpath>
+		<value><Bear_Grizzly>0.024</Bear_Grizzly></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BiomeDef[defName="BorealForest"]/wildAnimals/Megasloth</xpath>
+		<value><Megasloth>0.024</Megasloth></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BiomeDef[defName="BorealForest"]/wildAnimals/Cougar</xpath>
+		<value><Cougar>0.016</Cougar></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BiomeDef[defName="BorealForest"]/wildAnimals/Lynx</xpath>
+		<value><Lynx>0.016</Lynx></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BiomeDef[defName="BorealForest"]/wildAnimals/Warg</xpath>
+		<value><Warg>0.016</Warg></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BiomeDef[defName="BorealForest"]/wildAnimals/Fox_Red</xpath>
+		<value><Fox_Red>0.032</Fox_Red></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/BiomeDef[defName="BorealForest"]/wildAnimals/Fox_Arctic</xpath>
+		<value><Fox_Arctic>0.032</Fox_Arctic></value>
+	</Operation>
+
+</Patch>

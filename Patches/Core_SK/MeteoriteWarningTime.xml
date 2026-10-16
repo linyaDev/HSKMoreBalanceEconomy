@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!--
+		Метеориты падают через 120-200 тиков (2-3.3 секунды на обычной скорости) —
+		это значение по умолчанию SkyfallerProperties.ticksToImpactRange, в дефах
+		его никто не задаёт. Письмо приходит в момент появления скайфоллера, так
+		что спрятаться физически не успеть.
+
+		Даём 900-1500 тиков (15-25 секунд на 1x, 5-8 на 3x): письмо приходит
+		сразу, тень с самим камнем появляются за последние ~3 секунды.
+
+		Дефы метеоритов:
+		    FixedMeteoriteIncoming, FixedMeteoriteIncomingFlame  — Core_SK
+		        (события SkyFall, MoonFall, EclipseMeteorImpact, воркеры SK.Events,
+		         скайфоллер спавнится через SkyfallerUtil.SpawnSkyfaller и берёт
+		         время падения из дефа)
+		    MeteoriteIncoming, MeteoriteCraterIncoming            — ваниль
+		        (событие MeteoriteImpact)
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="FixedMeteoriteIncoming" or defName="FixedMeteoriteIncomingFlame" or defName="MeteoriteIncoming" or defName="MeteoriteCraterIncoming"]/skyfaller</xpath>
+		<value>
+			<ticksToImpactRange>900~1500</ticksToImpactRange>
+		</value>
+	</Operation>
+</Patch>

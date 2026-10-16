@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<MakeAmmo_Dart_Stone.label>сделать каменные дротики x50</MakeAmmo_Dart_Stone.label>
+	<MakeAmmo_Dart_Stone.description>Изготовить 50 каменных дротиков.</MakeAmmo_Dart_Stone.description>
+	<MakeAmmo_Dart_Stone.jobString>Делает каменные дротики.</MakeAmmo_Dart_Stone.jobString>
+	<MakeAmmo_Dart_Metal.label>сделать металлические дротики x50</MakeAmmo_Dart_Metal.label>
+	<MakeAmmo_Dart_Metal.description>Изготовить 50 металлических дротиков.</MakeAmmo_Dart_Metal.description>
+	<MakeAmmo_Dart_Metal.jobString>Делает металлические дротики.</MakeAmmo_Dart_Metal.jobString>
+</LanguageData>

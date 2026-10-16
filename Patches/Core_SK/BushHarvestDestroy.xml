@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Plant_Bush: destroy on harvest -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="Plant_Bush"]/plant</xpath>
+		<value><harvestAfterGrowth>0</harvestAfterGrowth></value>
+	</Operation>
+
+	<!-- Plant_Rhododendron: destroy on harvest -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="Plant_Rhododendron"]/plant</xpath>
+		<value><harvestAfterGrowth>0</harvestAfterGrowth></value>
+	</Operation>
+</Patch>

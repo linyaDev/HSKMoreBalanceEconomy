@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!--
+		Огнестрельные патроны требуют гильзу своего класса (1 на партию).
+		Гильзы — 1.6/Defs/Ammo/CartridgeCases.xml; раньше здесь были оружейные детали
+		Core_SK (AmmoWeaponParts.xml). Гейт прежний: рецепт гильзы открывается тем же
+		исследованием, что и деталь (Gunsmithing, GasOperation, Rifles_C1,
+		Sniper_rifles_C1, HeavyTurrets).
+
+		Классы:
+		  9x19mm, .45 ACP          — пистолетные гильзы;
+		  12 Gauge                 — дробовые;
+		  5.56, 7.62x39, .303      — винтовочные;
+		  7.62x51                  — снайперские (раньше «винтовочная или снайперская»);
+		  .50 BMG, 14.5x114mm      — крупнокалиберные.
+
+		Стрелы, гвозди, огнемётные смеси и факелы не трогаем.
+
+		Каждой группе нужны две операции: добавить ингредиент и расширить
+		fixedIngredientFilter, иначе гильза не пройдёт отбор сырья.
+
+		Гильзы вынесены в ammoCraftExcludedMaterials (Defs/Misc/HardcoreSettings.xml),
+		чтобы AmmoCraftNerf не умножал их на ammoCraftCostMultiplier.
+	-->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Combat Extended</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+
+				<!-- 9x19mm и .45 ACP -->
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/RecipeDef[defName="MakeAmmo_9x19mmPara_FMJ" or defName="MakeAmmo_9x19mmPara_AP" or defName="MakeAmmo_9x19mmPara_HP" or defName="MakeAmmo_45ACP_FMJ" or defName="MakeAmmo_45ACP_AP" or defName="MakeAmmo_45ACP_HP"]/ingredients</xpath>
+					<value>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>CartridgeCase_Pistol</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/RecipeDef[defName="MakeAmmo_9x19mmPara_FMJ" or defName="MakeAmmo_9x19mmPara_AP" or defName="MakeAmmo_9x19mmPara_HP" or defName="MakeAmmo_45ACP_FMJ" or defName="MakeAmmo_45ACP_AP" or defName="MakeAmmo_45ACP_HP"]/fixedIngredientFilter/thingDefs</xpath>
+					<value>
+						<li>CartridgeCase_Pistol</li>
+					</value>
+				</li>
+
+				<!-- 12 Gauge -->
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/RecipeDef[defName="MakeAmmo_12Gauge_Buck" or defName="MakeAmmo_12Gauge_Slug" or defName="MakeAmmo_12Gauge_Beanbag" or defName="MakeAmmo_12Gauge_Bird" or defName="MakeAmmo_12Gauge_ElectroSlug"]/ingredients</xpath>
+					<value>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>CartridgeCase_Shotgun</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/RecipeDef[defName="MakeAmmo_12Gauge_Buck" or defName="MakeAmmo_12Gauge_Slug" or defName="MakeAmmo_12Gauge_Beanbag" or defName="MakeAmmo_12Gauge_Bird" or defName="MakeAmmo_12Gauge_ElectroSlug"]/fixedIngredientFilter/thingDefs</xpath>
+					<value>
+						<li>CartridgeCase_Shotgun</li>
+					</value>
+				</li>
+
+				<!-- 5.56, 7.62x39, .303 -->
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/RecipeDef[defName="MakeAmmo_556x45mmNATO_FMJ" or defName="MakeAmmo_556x45mmNATO_AP" or defName="MakeAmmo_556x45mmNATO_HP" or defName="MakeAmmo_762x39mmSoviet_FMJ" or defName="MakeAmmo_762x39mmSoviet_AP" or defName="MakeAmmo_762x39mmSoviet_HP" or defName="MakeAmmo_303British_FMJ" or defName="MakeAmmo_303British_AP" or defName="MakeAmmo_303British_HP"]/ingredients</xpath>
+					<value>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>CartridgeCase_Rifle</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/RecipeDef[defName="MakeAmmo_556x45mmNATO_FMJ" or defName="MakeAmmo_556x45mmNATO_AP" or defName="MakeAmmo_556x45mmNATO_HP" or defName="MakeAmmo_762x39mmSoviet_FMJ" or defName="MakeAmmo_762x39mmSoviet_AP" or defName="MakeAmmo_762x39mmSoviet_HP" or defName="MakeAmmo_303British_FMJ" or defName="MakeAmmo_303British_AP" or defName="MakeAmmo_303British_HP"]/fixedIngredientFilter/thingDefs</xpath>
+					<value>
+						<li>CartridgeCase_Rifle</li>
+					</value>
+				</li>
+
+				<!-- 7.62x51 -->
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/RecipeDef[defName="MakeAmmo_762x51mmNATO_FMJ" or defName="MakeAmmo_762x51mmNATO_AP" or defName="MakeAmmo_762x51mmNATO_HP"]/ingredients</xpath>
+					<value>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>CartridgeCase_Sniper</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/RecipeDef[defName="MakeAmmo_762x51mmNATO_FMJ" or defName="MakeAmmo_762x51mmNATO_AP" or defName="MakeAmmo_762x51mmNATO_HP"]/fixedIngredientFilter/thingDefs</xpath>
+					<value>
+						<li>CartridgeCase_Sniper</li>
+					</value>
+				</li>
+
+				<!-- .50 BMG и 14.5x114mm -->
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/RecipeDef[defName="MakeAmmo_50BMG_FMJ" or defName="MakeAmmo_50BMG_AP" or defName="MakeAmmo_145x114mm_FMJ" or defName="MakeAmmo_145x114mm_AP"]/ingredients</xpath>
+					<value>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>CartridgeCase_Heavy</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/RecipeDef[defName="MakeAmmo_50BMG_FMJ" or defName="MakeAmmo_50BMG_AP" or defName="MakeAmmo_145x114mm_FMJ" or defName="MakeAmmo_145x114mm_AP"]/fixedIngredientFilter/thingDefs</xpath>
+					<value>
+						<li>CartridgeCase_Heavy</li>
+					</value>
+				</li>
+
+			</operations>
+		</match>
+	</Operation>
+</Patch>

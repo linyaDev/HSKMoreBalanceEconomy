@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Порох (MakePowder: селитра + уголь + сера -> 20 пороха):
+	     селитры 40 вместо паковых 75. -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="MakePowder"]/ingredients/li[filter/thingDefs/li="Nitre"]/count</xpath>
+		<value><count>40</count></value>
+	</Operation>
+</Patch>

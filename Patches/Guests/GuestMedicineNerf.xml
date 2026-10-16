@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Hospitality (Continued)</li>
+			<li>Hospitality</li>
+		</mods>
+		<match Class="PatchOperationRemove">
+			<xpath>Defs/TraderKindDef[defName="Guest"]/stockGenerators/li[@Class="StockGenerator_MultiDef"][thingDefs/li="MedicineHerbal"]</xpath>
+		</match>
+	</Operation>
+</Patch>

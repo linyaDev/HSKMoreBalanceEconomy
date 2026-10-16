@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- SoilF-RockyDirt: remove Compost and Fertilizer from products -->
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/ThingDef[defName="SoilF-RockyDirt"]/modExtensions/li[@Class="FertileFields.Terrain"]/products/Compost</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/ThingDef[defName="SoilF-RockyDirt"]/modExtensions/li[@Class="FertileFields.Terrain"]/products/Fertilizer</xpath>
+	</Operation>
+
+	<!-- SoilF-Sand: remove Compost and Fertilizer from products -->
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/ThingDef[defName="SoilF-Sand"]/modExtensions/li[@Class="FertileFields.Terrain"]/products/Compost</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/ThingDef[defName="SoilF-Sand"]/modExtensions/li[@Class="FertileFields.Terrain"]/products/Fertilizer</xpath>
+	</Operation>
+
+	<!-- SoilF-Marsh: remove Compost and Fertilizer from products -->
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/ThingDef[defName="SoilF-Marsh"]/modExtensions/li[@Class="FertileFields.Terrain"]/products/Compost</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/ThingDef[defName="SoilF-Marsh"]/modExtensions/li[@Class="FertileFields.Terrain"]/products/Fertilizer</xpath>
+	</Operation>
+
+	<!-- SoilMarshy-RockyDirt: remove Compost from products -->
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/ThingDef[defName="SoilMarshy-RockyDirt"]/modExtensions/li[@Class="FertileFields.Terrain"]/products/Compost</xpath>
+	</Operation>
+
+	<!-- SoilMarshy-Marsh: remove Compost and Fertilizer from products -->
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/ThingDef[defName="SoilMarshy-Marsh"]/modExtensions/li[@Class="FertileFields.Terrain"]/products/Compost</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/ThingDef[defName="SoilMarshy-Marsh"]/modExtensions/li[@Class="FertileFields.Terrain"]/products/Fertilizer</xpath>
+	</Operation>
+
+	<!-- Marsh-WaterShallow: remove Compost and Fertilizer from products -->
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/ThingDef[defName="Marsh-WaterShallow"]/modExtensions/li[@Class="FertileFields.Terrain"]/products/Compost</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/ThingDef[defName="Marsh-WaterShallow"]/modExtensions/li[@Class="FertileFields.Terrain"]/products/Fertilizer</xpath>
+	</Operation>
+</Patch>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Кольцо радиуса буровой установки (DeepDrill) в пару к транспайлеру
+	     DeepDrillRadius.cs: бур сканирует 37 ближайших клеток вместо 21
+	     (дистанция ~3.2 против ~2.2), кольцо растёт с 2.6 до 3.6. -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="DeepDrill"]/specialDisplayRadius</xpath>
+		<value><specialDisplayRadius>3.6</specialDisplayRadius></value>
+	</Operation>
+</Patch>

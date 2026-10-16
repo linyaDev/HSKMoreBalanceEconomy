@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Железная руда у оптовиков и поселения племени: x3 к паковому стоку
+	     (у орбитального оптовика железа в стоке нет).
+	     Сток: Core_SK_CoreModule/TraderKindDefs.xml -->
+
+	<!-- Оптовик поселенцев: сток 120-350 -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/TraderKindDef[defName="Caravan_Outlander_BulkGoods"]/stockGenerators/li[thingDef="Iron"]/countRange</xpath>
+		<value><countRange>360~1050</countRange></value>
+	</Operation>
+
+	<!-- Оптовик племени: сток 120-250 -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/TraderKindDef[defName="Caravan_Neolithic_BulkGoods"]/stockGenerators/li[thingDef="Iron"]/countRange</xpath>
+		<value><countRange>360~750</countRange></value>
+	</Operation>
+	<!-- Поселение племени: сток 300-600 -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/TraderKindDef[defName="Base_Neolithic_Standard"]/stockGenerators/li[thingDef="Iron"]/countRange</xpath>
+		<value><countRange>900~1800</countRange></value>
+	</Operation>
+</Patch>

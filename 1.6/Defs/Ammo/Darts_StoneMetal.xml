@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Каменные и металлические дротики для духовой трубки. Без яда: камень —
+	     дешёвый расходник, металл — пробивной. Подключаются к AmmoSet_Darts
+	     патчем WeaponChanges.xml. Родители: SmallAmmoBase (CE) для предметов,
+	     BasePoisonDart (Core_SK) для снарядов — у снарядов переопределяем
+	     damageDef с ядовитого ArrowVenom на обычный Arrow. -->
+
+	<!-- ==================== Ammo classes ========================== -->
+	<!-- Собственные классы, чтобы не пересекаться со StoneArrow/SteelArrow
+	     стрел и болтов. -->
+
+	<CombatExtended.AmmoCategoryDef>
+		<defName>DartStone</defName>
+		<label>stone dart</label>
+		<labelShort>stone</labelShort>
+	</CombatExtended.AmmoCategoryDef>
+
+	<CombatExtended.AmmoCategoryDef>
+		<defName>DartMetal</defName>
+		<label>metal dart</label>
+		<labelShort>metal</labelShort>
+	</CombatExtended.AmmoCategoryDef>
+
+	<!-- ==================== Ammo ========================== -->
+
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="SmallAmmoBase">
+		<defName>Ammo_Dart_Stone</defName>
+		<label>stone dart</label>
+		<description>A simple dart with a knapped stone tip. Cheap, but weak.</description>
+		<tradeTags>
+			<li>CE_AutoEnableTrade</li>
+			<li>CE_AutoEnableCrafting_FueledSmithy</li>
+			<li>CE_AutoEnableCrafting_ElectricSmithy</li>
+		</tradeTags>
+		<thingCategories>
+			<li>AmmoDarts</li>
+		</thingCategories>
+		<graphicData>
+			<texPath>Things/Projectile/Dart</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>0.3</MarketValue>
+			<Mass>0.012</Mass>
+			<Bulk>0.01</Bulk>
+		</statBases>
+		<ammoClass>DartStone</ammoClass>
+		<comps>
+			<li Class="CompProperties_Forbiddable"/>
+		</comps>
+	</ThingDef>
+
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="SmallAmmoBase">
+		<defName>Ammo_Dart_Metal</defName>
+		<label>metal dart</label>
+		<description>A dart with a forged metal tip. Better penetration and damage than stone.</description>
+		<tradeTags>
+			<li>CE_AutoEnableTrade</li>
+			<li>CE_AutoEnableCrafting_FueledSmithy</li>
+			<li>CE_AutoEnableCrafting_ElectricSmithy</li>
+		</tradeTags>
+		<thingCategories>
+			<li>AmmoDarts</li>
+		</thingCategories>
+		<graphicData>
+			<texPath>Things/Projectile/Dart</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>0.7</MarketValue>
+			<Mass>0.015</Mass>
+			<Bulk>0.01</Bulk>
+		</statBases>
+		<ammoClass>DartMetal</ammoClass>
+		<comps>
+			<li Class="CompProperties_Forbiddable"/>
+		</comps>
+	</ThingDef>
+
+	<!-- ================== Projectiles ================== -->
+
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="BasePoisonDart">
+		<defName>StoneDart</defName>
+		<label>stone dart</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<!-- Слабее каменной стрелы HSK (10 урона, 2.4/3.84) -->
+			<damageDef>Arrow</damageDef>
+			<damageAmountBase>5</damageAmountBase>
+			<armorPenetrationSharp>1.2</armorPenetrationSharp>
+			<armorPenetrationBlunt>2.0</armorPenetrationBlunt>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="BasePoisonDart">
+		<defName>MetalDart</defName>
+		<label>metal dart</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<!-- Слабее стальной стрелы HSK (14 урона, 3/4.2) -->
+			<damageDef>Arrow</damageDef>
+			<damageAmountBase>7</damageAmountBase>
+			<armorPenetrationSharp>2.0</armorPenetrationSharp>
+			<armorPenetrationBlunt>2.8</armorPenetrationBlunt>
+		</projectile>
+	</ThingDef>
+
+	<!-- ==================== Recipes ========================== -->
+
+	<RecipeDef ParentName="AmmoRecipeNeolithicBase">
+		<defName>MakeAmmo_Dart_Stone</defName>
+		<label>make stone darts x50</label>
+		<description>Craft 50 stone darts.</description>
+		<jobString>Making stone darts.</jobString>
+		<workAmount>400</workAmount>
+		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_Machining</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<workSkill>Crafting</workSkill>
+		<targetCountAdjustment>50</targetCountAdjustment>
+		<recipeUsers>
+			<li>CraftingSpot</li>
+		</recipeUsers>
+		<skillRequirements>
+			<Crafting>3</Crafting>
+		</skillRequirements>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Wooden</li>
+					</categories>
+				</filter>
+				<count>5</count>
+			</li>
+			<li>
+				<filter>
+					<categories>
+						<li>StoneBlocks</li>
+					</categories>
+				</filter>
+				<count>3</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Wooden</li>
+				<li>StoneBlocks</li>
+			</categories>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_Dart_Stone>50</Ammo_Dart_Stone>
+		</products>
+		<researchPrerequisite>Bow_A1</researchPrerequisite>
+	</RecipeDef>
+
+	<RecipeDef ParentName="AmmoRecipeNeolithicBase">
+		<defName>MakeAmmo_Dart_Metal</defName>
+		<label>make metal darts x50</label>
+		<description>Craft 50 metal darts.</description>
+		<jobString>Making metal darts.</jobString>
+		<workAmount>600</workAmount>
+		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<effectWorking>Smelt</effectWorking>
+		<soundWorking>Recipe_Machining</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<workSkill>Crafting</workSkill>
+		<targetCountAdjustment>50</targetCountAdjustment>
+		<recipeUsers>
+			<li>CraftingSpot</li>
+			<li>FueledSmithy</li>
+			<li>ElectricSmithy</li>
+		</recipeUsers>
+		<skillRequirements>
+			<Crafting>4</Crafting>
+		</skillRequirements>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Wooden</li>
+					</categories>
+				</filter>
+				<count>5</count>
+			</li>
+			<li>
+				<filter>
+					<categories>
+						<li>Metallic</li>
+					</categories>
+				</filter>
+				<count>3</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Wooden</li>
+				<li>Metallic</li>
+			</categories>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_Dart_Metal>50</Ammo_Dart_Metal>
+		</products>
+		<researchPrerequisite>Bow_A1</researchPrerequisite>
+	</RecipeDef>
+
+</Defs>

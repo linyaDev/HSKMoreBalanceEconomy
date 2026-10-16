@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- War Mask: MentalBreakThreshold 0.1 -> 0.02 -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Apparel_WarMask"]/equippedStatOffsets/MentalBreakThreshold</xpath>
+		<value><MentalBreakThreshold>0.02</MentalBreakThreshold></value>
+	</Operation>
+</Patch>

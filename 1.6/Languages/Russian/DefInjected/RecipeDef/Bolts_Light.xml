@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<MakeAmmo_Bolt_Light.label>сделать лёгкие болты x50</MakeAmmo_Bolt_Light.label>
+	<MakeAmmo_Bolt_Light.description>Изготовить 50 лёгких болтов.</MakeAmmo_Bolt_Light.description>
+	<MakeAmmo_Bolt_Light.jobString>Делает лёгкие болты.</MakeAmmo_Bolt_Light.jobString>
+</LanguageData>

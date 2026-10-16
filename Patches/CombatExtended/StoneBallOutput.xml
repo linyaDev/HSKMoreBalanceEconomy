@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Каменные ядра для катапульты: выход 5 -> 3 за рецепт.
+	     Работа 1500 -> 900 под уменьшенный выход. Расход (1 каменные обломки)
+	     прежний.
+	     Рецепт в ammoCraftExcludedRecipes (HardcoreSettings.xml), множитель
+	     стоимости патронов его не трогает. Русские подписи — DefInjected. -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="MakeAmmo_StoneBall"]/products/Ammo_StoneBall</xpath>
+		<value>
+			<Ammo_StoneBall>3</Ammo_StoneBall>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="MakeAmmo_StoneBall"]/label</xpath>
+		<value>
+			<label>make stone balls x3</label>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="MakeAmmo_StoneBall"]/description</xpath>
+		<value>
+			<description>Craft 3 stone balls.</description>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="MakeAmmo_StoneBall"]/workAmount</xpath>
+		<value>
+			<workAmount>900</workAmount>
+		</value>
+	</Operation>
+
+</Patch>
