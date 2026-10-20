@@ -19,7 +19,7 @@ namespace HSKMoreHardcore
             var harmony = new Harmony("linya.hskmorehardcore.recyclenerf");
             harmony.Patch(reclaimMethod,
                 postfix: new HarmonyMethod(typeof(RecycleNerf), nameof(Postfix)));
-            Log.Message("[HSKMoreHardcore] RecycleNerf applied.");
+            HMHLog.Message("[HSKMoreHardcore] RecycleNerf applied.");
         }
 
         public static void Postfix(ref List<Thing> __result, Thing thing, float efficiency)

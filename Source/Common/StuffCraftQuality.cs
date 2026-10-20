@@ -26,7 +26,7 @@ namespace HSKMoreHardcore
 
             var harmony = new Harmony("linya.hskmorehardcore.stuffcraftquality");
             harmony.Patch(method, postfix: new HarmonyMethod(typeof(StuffCraftQuality), nameof(Postfix)));
-            Log.Message("[HSKMoreHardcore] StuffCraftQuality applied.");
+            HMHLog.Message("[HSKMoreHardcore] StuffCraftQuality applied.");
         }
 
         public static void Postfix(Thing __result, Pawn worker)

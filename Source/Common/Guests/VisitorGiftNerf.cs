@@ -22,7 +22,7 @@ namespace HSKMoreHardcore
             {
                 harmony.Patch(target,
                     postfix: new HarmonyMethod(typeof(VisitorGiftNerf), nameof(Postfix)));
-                Log.Message("[HSKMoreHardcore] VisitorGiftNerf applied.");
+                HMHLog.Message("[HSKMoreHardcore] VisitorGiftNerf applied.");
             }
         }
 

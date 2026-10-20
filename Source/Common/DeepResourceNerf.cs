@@ -24,7 +24,7 @@ namespace HSKMoreHardcore
             {
                 harmony.Patch(setAt,
                     prefix: new HarmonyMethod(typeof(DeepResourceNerf), nameof(SetAtPrefix)));
-                Log.Message($"[HSKMoreHardcore] DeepResourceNerf: x{mult} patch on SetAt applied.");
+                HMHLog.Message($"[HSKMoreHardcore] DeepResourceNerf: x{mult} patch on SetAt applied.");
             }
         }
 

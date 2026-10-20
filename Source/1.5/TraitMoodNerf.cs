@@ -27,7 +27,7 @@ namespace HSKMoreHardcore
             {
                 harmony.Patch(target,
                     transpiler: new HarmonyMethod(typeof(TraitMoodNerf), nameof(Transpiler)));
-                Log.Message("[HSKMoreHardcore] TraitMoodNerf applied.");
+                HMHLog.Message("[HSKMoreHardcore] TraitMoodNerf applied.");
             }
         }
 
@@ -46,7 +46,7 @@ namespace HSKMoreHardcore
                 }
             }
 
-            Log.Message($"[HSKMoreHardcore] TraitMoodNerf transpiler: patched {patched} constants.");
+            HMHLog.Message($"[HSKMoreHardcore] TraitMoodNerf transpiler: patched {patched} constants.");
             return codes;
         }
     }

@@ -20,7 +20,7 @@ namespace HSKMoreHardcore
             var harmony = new Harmony("linya.hskmorehardcore.coloniststash");
             harmony.Patch(method,
                 prefix: new HarmonyMethod(typeof(ColonistStashSilverOnly), nameof(Prefix)));
-            Log.Message("[HSKMoreHardcore] ColonistStashSilverOnly applied.");
+            HMHLog.Message("[HSKMoreHardcore] ColonistStashSilverOnly applied.");
         }
 
         // Полная замена награды на серебро (как в серебряной ветке оригинала)

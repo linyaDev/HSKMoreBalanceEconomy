@@ -16,7 +16,7 @@ namespace HSKMoreHardcore
     [StaticConstructorOnStartup]
     public static class TechCountDebug
     {
-        private const bool DebugLog = true;
+        private static readonly bool DebugLog = false;
 
         // Для какого тира печатать поимённый список
         private const TechLevel TraceLevel = TechLevel.Industrial;

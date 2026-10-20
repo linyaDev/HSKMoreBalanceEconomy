@@ -22,11 +22,11 @@ namespace HSKMoreHardcore
     [StaticConstructorOnStartup]
     public static class ManhunterDoorBreak
     {
-        private const bool Enabled = true;
+        private static readonly bool Enabled = true;
 
         // Диагностика: урон/убийства/решения по каждому людоеду в лог.
         // Причина пропуска пишется только при смене её категории для животного.
-        private const bool DebugLog = true;
+        private static readonly bool DebugLog = false;
 
         // Длительность жажды мести: 3 часа (7500 тиков) после урона
         private const int AggroWindowTicks = 7500;

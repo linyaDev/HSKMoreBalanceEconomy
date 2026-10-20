@@ -88,7 +88,7 @@ namespace HSKMoreHardcore
             deaths++;
             deathsPerLord[lord.loadID] = deaths;
 
-            Log.Message($"[HSKMoreHardcore] CaravanAnimalDeathBan: у каравана {faction.Name} (lord {lord.loadID}) погибло вьючных: {deaths}/{CaravanAnimalDeathBan.DeathsToBan}");
+            HMHLog.Message($"[HSKMoreHardcore] CaravanAnimalDeathBan: у каравана {faction.Name} (lord {lord.loadID}) погибло вьючных: {deaths}/{CaravanAnimalDeathBan.DeathsToBan}");
 
             // Срабатываем один раз — при пересечении порога
             if (deaths != CaravanAnimalDeathBan.DeathsToBan)

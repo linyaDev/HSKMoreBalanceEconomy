@@ -30,7 +30,7 @@ namespace HSKMoreHardcore
             {
                 harmony.Patch(generatePublic,
                     postfix: new HarmonyMethod(typeof(TraderAmmoNerf), nameof(StockPostfix)));
-                Log.Message("[HSKMoreHardcore] TraderAmmoNerf (stock) applied.");
+                HMHLog.Message("[HSKMoreHardcore] TraderAmmoNerf (stock) applied.");
             }
 
             // Патч на цену покупки у торговца
@@ -39,7 +39,7 @@ namespace HSKMoreHardcore
             {
                 harmony.Patch(getPriceFor,
                     postfix: new HarmonyMethod(typeof(TraderAmmoNerf), nameof(PricePostfix)));
-                Log.Message("[HSKMoreHardcore] TraderAmmoNerf (price) applied.");
+                HMHLog.Message("[HSKMoreHardcore] TraderAmmoNerf (price) applied.");
             }
         }
 
@@ -55,11 +55,6 @@ namespace HSKMoreHardcore
 
             bool isTrader = traderStockType != null && traderStockType.IsInstanceOfType(__instance);
             bool isReward = rewardMarketValueType != null && rewardMarketValueType.IsInstanceOfType(__instance);
-
-            // Диагностика: ассортимент торговца пришёл НЕ через TraderStock —
-            // минимум серебра к нему не применится, надо знать про такой канал
-            if (!isTrader && parms.traderDef != null)
-                Log.Message($"[HSKMoreHardcore] TraderSilverMin: ассортимент {parms.traderDef.defName} генерит {__instance.GetType().FullName} (не TraderStock) — минимум серебра не применён.");
 
             if (!isTrader && !isReward)
                 return;
@@ -94,14 +89,8 @@ namespace HSKMoreHardcore
                     }
                 }
 
-                bool topped = firstSilver != null && totalSilver < silverMin;
-                if (topped)
+                if (firstSilver != null && totalSilver < silverMin)
                     firstSilver.stackCount += silverMin - totalSilver;
-
-                Log.Message($"[HSKMoreHardcore] TraderSilverMin: {parms.traderDef?.defName ?? __instance.GetType().Name} — " +
-                    $"серебро {totalSilver}" +
-                    (topped ? $" -> {silverMin} (добито)" : firstSilver == null ? " (серебра нет — не добиваем)" : " (минимум соблюдён)") +
-                    $", порог {silverMin}, вещей в ассортименте {__result.Count}");
             }
         }
 

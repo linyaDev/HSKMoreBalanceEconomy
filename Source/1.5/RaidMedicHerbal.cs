@@ -33,7 +33,7 @@ namespace HSKMoreHardcore
             var harmony = new Harmony("linya.hskmorehardcore.raidmedic");
             harmony.Patch(medicineDef,
                 postfix: new HarmonyMethod(typeof(RaidMedicHerbal), nameof(Postfix)));
-            Log.Message("[HSKMoreHardcore] RaidMedicHerbal applied.");
+            HMHLog.Message("[HSKMoreHardcore] RaidMedicHerbal applied.");
         }
 
         public static void Postfix(ref ThingDef __result)

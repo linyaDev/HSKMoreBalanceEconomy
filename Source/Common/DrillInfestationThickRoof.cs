@@ -27,7 +27,7 @@ namespace HSKMoreHardcore
 
             new Harmony("linya.hskmorehardcore.drillinfestationroof").Patch(getter,
                 postfix: new HarmonyMethod(typeof(DrillInfestationThickRoof), nameof(Postfix)));
-            Log.Message("[HSKMoreHardcore] DrillInfestationThickRoof applied: заражение от бурения только под твёрдой крышей.");
+            HMHLog.Message("[HSKMoreHardcore] DrillInfestationThickRoof applied: заражение от бурения только под твёрдой крышей.");
         }
 
         public static void Postfix(CompCreatesInfestations __instance, ref bool __result)

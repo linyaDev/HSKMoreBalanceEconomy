@@ -51,7 +51,7 @@ namespace HSKMoreHardcore
             }
 
             if (patched)
-                Log.Message($"[HSKMoreHardcore] DeepDrillRadius: буровая сканирует {NewCells} клеток вместо {VanillaCells}.");
+                HMHLog.Message($"[HSKMoreHardcore] DeepDrillRadius: буровая сканирует {NewCells} клеток вместо {VanillaCells}.");
             else
                 Log.Warning("[HSKMoreHardcore] DeepDrillRadius: константа 21 не найдена — радиус не изменён.");
         }

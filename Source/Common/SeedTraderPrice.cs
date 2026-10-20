@@ -25,7 +25,7 @@ namespace HSKMoreHardcore
             var harmony = new Harmony("linya.hskmorehardcore.seedtraderprice");
             harmony.Patch(getPriceFor,
                 postfix: new HarmonyMethod(typeof(SeedTraderPrice), nameof(PricePostfix)));
-            Log.Message("[HSKMoreHardcore] SeedTraderPrice applied.");
+            HMHLog.Message("[HSKMoreHardcore] SeedTraderPrice applied.");
         }
 
         public static void PricePostfix(Tradeable __instance, TradeAction action, ref float __result)

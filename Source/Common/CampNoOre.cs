@@ -37,14 +37,14 @@ namespace HSKMoreHardcore
 
             new Harmony("linya.hskmorehardcore.campnoore").Patch(target,
                 prefix: new HarmonyMethod(typeof(CampNoOre), nameof(GeneratePrefix)));
-            Log.Message("[HSKMoreHardcore] CampNoOre applied: лагеря без рудных жил.");
+            HMHLog.Message("[HSKMoreHardcore] CampNoOre applied: лагеря без рудных жил.");
         }
 
         public static bool GeneratePrefix(GenStep_ScatterLumpsMineable __instance, Map map)
         {
             if (map?.Parent is Camp)
             {
-                Log.Message($"[HSKMoreHardcore] CampNoOre: карта лагеря (тайл {map.Tile}) — жилы руды пропущены (maxValue был {__instance.maxValue}).");
+                HMHLog.Message($"[HSKMoreHardcore] CampNoOre: карта лагеря (тайл {map.Tile}) — жилы руды пропущены (maxValue был {__instance.maxValue}).");
                 return false;
             }
             return true;

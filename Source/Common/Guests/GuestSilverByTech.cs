@@ -113,7 +113,7 @@ namespace HSKMoreHardcore
             }
 
             if (Prefs.DevMode)
-                Log.Message($"[HSKMoreHardcore] GuestSilverByTech: {pawn.LabelShort} ({pawn.Faction.Name}, тех {pawn.Faction.def.techLevel}) +{added} серебра.");
+                HMHLog.Message($"[HSKMoreHardcore] GuestSilverByTech: {pawn.LabelShort} ({pawn.Faction.Name}, тех {pawn.Faction.def.techLevel}) +{added} серебра.");
         }
     }
 }

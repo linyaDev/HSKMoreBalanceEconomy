@@ -25,7 +25,7 @@ namespace HSKMoreHardcore
             {
                 harmony.Patch(tryDropSpawn,
                     prefix: new HarmonyMethod(typeof(EnemyLootNerf), nameof(TryDropSpawnPrefix)));
-                Log.Message("[HSKMoreHardcore] EnemyLootNerf applied.");
+                HMHLog.Message("[HSKMoreHardcore] EnemyLootNerf applied.");
             }
 
             // Помечаем одежду при раздевании вражеской пешки
@@ -35,7 +35,7 @@ namespace HSKMoreHardcore
             {
                 harmony.Patch(apparelTryDrop,
                     postfix: new HarmonyMethod(typeof(EnemyLootNerf), nameof(ApparelDropPostfix)));
-                Log.Message("[HSKMoreHardcore] EnemyLootNerf (apparel worn mark) applied.");
+                HMHLog.Message("[HSKMoreHardcore] EnemyLootNerf (apparel worn mark) applied.");
             }
 
             // Помечаем оружие, которое выпало из рук вражеской пешки (смерть, опрокидывание,
@@ -47,7 +47,7 @@ namespace HSKMoreHardcore
             {
                 harmony.Patch(equipmentTryDrop,
                     postfix: new HarmonyMethod(typeof(EnemyLootNerf), nameof(EquipmentDropPostfix)));
-                Log.Message("[HSKMoreHardcore] EnemyLootNerf (weapon battle-worn mark) applied.");
+                HMHLog.Message("[HSKMoreHardcore] EnemyLootNerf (weapon battle-worn mark) applied.");
             }
 
             var genInv = AccessTools.Method(typeof(RimWorld.PawnInventoryGenerator), "GenerateInventoryFor");
@@ -55,7 +55,7 @@ namespace HSKMoreHardcore
             {
                 harmony.Patch(genInv,
                     postfix: new HarmonyMethod(typeof(EnemyLootNerf), nameof(InventoryGenPostfix)));
-                Log.Message("[HSKMoreHardcore] EnemyLootNerf (inventory gen) applied.");
+                HMHLog.Message("[HSKMoreHardcore] EnemyLootNerf (inventory gen) applied.");
             }
         }
 

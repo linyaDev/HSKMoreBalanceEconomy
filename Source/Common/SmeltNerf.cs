@@ -48,7 +48,7 @@ namespace HSKMoreHardcore
             {
                 harmony.Patch(smeltProducts,
                     postfix: new HarmonyMethod(typeof(SmeltNerf), nameof(Postfix)));
-                Log.Message("[HSKMoreHardcore] SmeltNerf applied.");
+                HMHLog.Message("[HSKMoreHardcore] SmeltNerf applied.");
             }
         }
 

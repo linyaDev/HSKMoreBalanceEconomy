@@ -98,7 +98,7 @@ namespace HSKMoreHardcore
                     ing.SetBaseCount(before * mult);
                 }
             }
-            Log.Message($"[HSKMoreHardcore] AmmoCraftNerf: ammo x{ammoMult} ({patchedAmmo}), arrows x{arrowMult} ({patchedArrow}), bolts x{boltMult} ({patchedBolt}).");
+            HMHLog.Message($"[HSKMoreHardcore] AmmoCraftNerf: ammo x{ammoMult} ({patchedAmmo}), arrows x{arrowMult} ({patchedArrow}), bolts x{boltMult} ({patchedBolt}).");
         }
     }
 }

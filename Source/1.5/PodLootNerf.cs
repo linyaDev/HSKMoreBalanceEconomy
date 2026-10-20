@@ -25,7 +25,7 @@ namespace HSKMoreHardcore
             harmony.Patch(spawnLoot,
                 prefix: new HarmonyMethod(typeof(PodLootNerf), nameof(Prefix)),
                 postfix: new HarmonyMethod(typeof(PodLootNerf), nameof(Postfix)));
-            Log.Message("[HSKMoreHardcore] PodLootNerf applied.");
+            HMHLog.Message("[HSKMoreHardcore] PodLootNerf applied.");
         }
 
         public static void Prefix(object __instance, Map map)

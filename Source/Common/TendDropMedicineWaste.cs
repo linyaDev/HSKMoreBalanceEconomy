@@ -29,7 +29,7 @@ namespace HSKMoreHardcore
             var harmony = new Harmony("linya.hskmorehardcore.tenddropmedicine");
             harmony.Patch(endCurrentJob,
                 prefix: new HarmonyMethod(typeof(TendDropMedicineWaste), nameof(Prefix)));
-            Log.Message("[HSKMoreHardcore] TendDropMedicineWaste applied.");
+            HMHLog.Message("[HSKMoreHardcore] TendDropMedicineWaste applied.");
         }
 
         public static void Prefix(Pawn_JobTracker __instance, JobCondition condition)

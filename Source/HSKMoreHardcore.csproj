@@ -24,7 +24,7 @@
 
   <!-- Game paths. Override from the command line with -p:RimWorldPath=... if your install differs. -->
   <PropertyGroup Condition="'$(OS)' == 'Windows_NT'">
-    <RimWorldPath Condition="'$(RimWorldPath)' == ''">D:\RimWorld_HSK</RimWorldPath>
+    <RimWorldPath Condition="'$(RimWorldPath)' == ''">D:\SteamLibrary\steamapps\common\RimWorld</RimWorldPath>
     <RimWorldManaged Condition="'$(RimWorldManaged)' == ''">$(RimWorldPath)/RimWorldWin64_Data/Managed</RimWorldManaged>
     <HarmonyAssembly Condition="'$(HarmonyAssembly)' == ''">$(RimWorldPath)/Mods/Harmony/Current/Assemblies/0Harmony.dll</HarmonyAssembly>
   </PropertyGroup>

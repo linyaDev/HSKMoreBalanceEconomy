@@ -21,7 +21,7 @@ namespace HSKMoreHardcore
             {
                 harmony.Patch(target,
                     postfix: new HarmonyMethod(typeof(ShuttleCrashNerf), nameof(Postfix)));
-                Log.Message("[HSKMoreHardcore] ShuttleCrashNerf applied.");
+                HMHLog.Message("[HSKMoreHardcore] ShuttleCrashNerf applied.");
             }
         }
 

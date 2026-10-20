@@ -20,7 +20,7 @@ namespace HSKMoreHardcore
 
             var harmony = new Harmony("linya.hskmorehardcore.apparelqualitydesc");
             harmony.Patch(getter, postfix: new HarmonyMethod(typeof(ApparelQualityDescription), nameof(Postfix)));
-            Log.Message("[HSKMoreHardcore] ApparelQualityDescription applied.");
+            HMHLog.Message("[HSKMoreHardcore] ApparelQualityDescription applied.");
         }
 
         // Цвета строк статов (rich-text hex)

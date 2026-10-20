@@ -36,7 +36,7 @@ namespace HSKMoreHardcore
                     injected++;
                 }
             }
-            Log.Message($"[HSKMoreHardcore] WornByEnemy comp injected into {injected} apparel/weapon defs.");
+            HMHLog.Message($"[HSKMoreHardcore] WornByEnemy comp injected into {injected} apparel/weapon defs.");
         }
     }
 

@@ -27,7 +27,7 @@ namespace HSKMoreHardcore
             {
                 harmony.Patch(enoughSkill,
                     postfix: new HarmonyMethod(typeof(MendNerf), nameof(EnoughSkillPostfix)));
-                Log.Message("[HSKMoreHardcore] MendNerf (repair block) applied.");
+                HMHLog.Message("[HSKMoreHardcore] MendNerf (repair block) applied.");
             }
             else
             {
@@ -42,7 +42,7 @@ namespace HSKMoreHardcore
             {
                 harmony.Patch(notify,
                     postfix: new HarmonyMethod(typeof(MendNerf), nameof(NotifyIterationCompletedPostfix)));
-                Log.Message("[HSKMoreHardcore] MendNerf (repair counter) applied.");
+                HMHLog.Message("[HSKMoreHardcore] MendNerf (repair counter) applied.");
             }
         }
 

@@ -66,7 +66,7 @@ namespace HSKMoreHardcore
             var harmony = new Harmony("linya.hskmorehardcore.mendflatrepair");
             harmony.Patch(doBill, prefix: new HarmonyMethod(typeof(MendFlatRepair), nameof(DoBillPrefix)));
             harmony.Patch(enoughSkill, prefix: new HarmonyMethod(typeof(MendFlatRepair), nameof(EnoughSkillPrefix)));
-            Log.Message("[HSKMoreHardcore] MendFlatRepair applied: починка +50% прочности за раз, без потолка по навыку.");
+            HMHLog.Message("[HSKMoreHardcore] MendFlatRepair applied: починка +50% прочности за раз, без потолка по навыку.");
         }
 
         // Навык больше не ограничивает, кого пускать чинить. Постфикс MendNerf

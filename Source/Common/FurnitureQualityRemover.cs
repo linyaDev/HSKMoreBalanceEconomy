@@ -32,7 +32,7 @@ namespace HSKMoreHardcore
                 }
                 removed += def.comps.RemoveAll(c => c?.compClass == typeof(CompQuality));
             }
-            Log.Message($"[HSKMoreHardcore] FurnitureQualityRemover: quality removed from {removed} building defs, kept on {artKept} sculpture defs.");
+            HMHLog.Message($"[HSKMoreHardcore] FurnitureQualityRemover: quality removed from {removed} building defs, kept on {artKept} sculpture defs.");
         }
     }
 }

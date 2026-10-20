@@ -35,7 +35,7 @@ namespace HSKMoreHardcore
                     injected++;
                 }
             }
-            Log.Message($"[HSKMoreHardcore] FreeAnimal comp injected into {injected} animal defs.");
+            HMHLog.Message($"[HSKMoreHardcore] FreeAnimal comp injected into {injected} animal defs.");
         }
     }
 

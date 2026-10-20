@@ -41,7 +41,7 @@ namespace HSKMoreHardcore
                 }
             }
 
-            Log.Message($"[HSKMoreHardcore] TreeLifespanExtender: срок жизни x{value} growDays у деревьев — {count} дефов.");
+            HMHLog.Message($"[HSKMoreHardcore] TreeLifespanExtender: срок жизни x{value} growDays у деревьев — {count} дефов.");
         }
     }
 }

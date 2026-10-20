@@ -42,7 +42,7 @@ namespace HSKMoreHardcore
             }
 
             if (patched == 1)
-                Log.Message($"[HSKMoreHardcore] GuestShoppingBoost: порог покупки гостей {VanillaThreshold} -> {NewThreshold}.");
+                HMHLog.Message($"[HSKMoreHardcore] GuestShoppingBoost: порог покупки гостей {VanillaThreshold} -> {NewThreshold}.");
             else
                 Log.Warning($"[HSKMoreHardcore] GuestShoppingBoost: констант {VanillaThreshold} в TryGiveJob найдено {patched} (ожидалась 1) — проверь после обновления Hospitality.");
         }

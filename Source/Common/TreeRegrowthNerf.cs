@@ -20,7 +20,7 @@ namespace HSKMoreHardcore
             {
                 harmony.Patch(target,
                     postfix: new HarmonyMethod(typeof(TreeRegrowthNerf), nameof(Postfix)));
-                Log.Message("[HSKMoreHardcore] TreeRegrowthNerf applied.");
+                HMHLog.Message("[HSKMoreHardcore] TreeRegrowthNerf applied.");
             }
         }
 

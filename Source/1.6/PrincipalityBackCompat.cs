@@ -70,7 +70,7 @@ namespace HSKMoreHardcore
             }
 
             Messages.Message($"Фракция «{faction.Name}» добавлена в мир ({spawned} поселения(й)).", MessageTypeDefOf.PositiveEvent, historical: false);
-            Log.Message($"[HSKMoreHardcore] PrincipalityBackCompat: добавлена фракция {faction.Name} и {spawned} поселения(й).");
+            HMHLog.Message($"[HSKMoreHardcore] PrincipalityBackCompat: добавлена фракция {faction.Name} и {spawned} поселения(й).");
         }
     }
 }

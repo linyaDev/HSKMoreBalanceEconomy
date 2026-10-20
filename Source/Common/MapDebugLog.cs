@@ -17,7 +17,7 @@ namespace HSKMoreHardcore
             {
                 harmony.Patch(finalizeInit,
                     postfix: new HarmonyMethod(typeof(MapDebugLog), nameof(Postfix)));
-                Log.Message("[HSKMoreHardcore] MapDebugLog applied.");
+                HMHLog.Message("[HSKMoreHardcore] MapDebugLog applied.");
             }
         }
 

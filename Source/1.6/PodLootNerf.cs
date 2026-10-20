@@ -31,7 +31,7 @@ namespace HSKMoreHardcore
             harmony.Patch(initializeLoot,
                 prefix: new HarmonyMethod(typeof(PodLootNerf), nameof(Prefix)),
                 postfix: new HarmonyMethod(typeof(PodLootNerf), nameof(Postfix)));
-            Log.Message("[HSKMoreHardcore] PodLootNerf applied.");
+            HMHLog.Message("[HSKMoreHardcore] PodLootNerf applied.");
         }
 
         // InitializeLoot генерирует лут только в пустой (без не-пешек) контейнер;
