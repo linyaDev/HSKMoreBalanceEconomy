@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!--
+		Снаряды автопушек и подствольные гранаты: партия вдвое больше при том же
+		расходе материалов.
+
+		Эти боеприпасы проходят порог нашего множителя крафта (AmmoCraftNerf
+		множит ингредиенты x3 у рецептов с партией от 20), но у них нет гильзы,
+		зато огромный расход слитков и пороха — и множится всё целиком. На
+		выходе переплата к рыночной цене x7.6-8.2 против x2.7-5.0 у обычных
+		патронов: одна лента 20x102 стоила дороже двух лент 7.62x51.
+
+		Удвоение выхода возвращает их в коридор стрелковки (x3.8-4.1), не трогая
+		ни рецепты, ни множитель: патрон просто делается партией побольше.
+		Работа за партию не меняется — это компенсация за объём.
+	-->
+
+	<!-- 20x102 мм: 40 -> 80 -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="MakeAmmo_20x102mm_FMJ"]/products/Ammo_20x102mm_FMJ</xpath>
+		<value><Ammo_20x102mm_FMJ>80</Ammo_20x102mm_FMJ></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="MakeAmmo_20x102mm_HE"]/products/Ammo_20x102mm_HE</xpath>
+		<value><Ammo_20x102mm_HE>80</Ammo_20x102mm_HE></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="MakeAmmo_20x102mm_Incendiary"]/products/Ammo_20x102mm_Incendiary</xpath>
+		<value><Ammo_20x102mm_Incendiary>80</Ammo_20x102mm_Incendiary></value>
+	</Operation>
+
+	<!-- 30x173 мм: 30 -> 60 -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="MakeAmmo_30x173mm_FMJ"]/products/Ammo_30x173mm_FMJ</xpath>
+		<value><Ammo_30x173mm_FMJ>60</Ammo_30x173mm_FMJ></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="MakeAmmo_30x173mm_HE"]/products/Ammo_30x173mm_HE</xpath>
+		<value><Ammo_30x173mm_HE>60</Ammo_30x173mm_HE></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="MakeAmmo_30x173mm_Incendiary"]/products/Ammo_30x173mm_Incendiary</xpath>
+		<value><Ammo_30x173mm_Incendiary>60</Ammo_30x173mm_Incendiary></value>
+	</Operation>
+
+	<!-- Подствольные 40x46 мм: 20 -> 40 -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="MakeAmmo_40x46mmGrenade_HE"]/products/Ammo_40x46mmGrenade_HE</xpath>
+		<value><Ammo_40x46mmGrenade_HE>40</Ammo_40x46mmGrenade_HE></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="MakeAmmo_40x46mmGrenade_HE_TFuzed"]/products/Ammo_40x46mmGrenade_HE_TFuzed</xpath>
+		<value><Ammo_40x46mmGrenade_HE_TFuzed>40</Ammo_40x46mmGrenade_HE_TFuzed></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="MakeAmmo_40x46mmGrenade_HEDP"]/products/Ammo_40x46mmGrenade_HEDP</xpath>
+		<value><Ammo_40x46mmGrenade_HEDP>40</Ammo_40x46mmGrenade_HEDP></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="MakeAmmo_40x46mmGrenade_EMP"]/products/Ammo_40x46mmGrenade_EMP</xpath>
+		<value><Ammo_40x46mmGrenade_EMP>40</Ammo_40x46mmGrenade_EMP></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="MakeAmmo_40x46mmGrenade_Smoke"]/products/Ammo_40x46mmGrenade_Smoke</xpath>
+		<value><Ammo_40x46mmGrenade_Smoke>40</Ammo_40x46mmGrenade_Smoke></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="MakeAmmo_40x46mmGrenade_Tox"]/products/Ammo_40x46mmGrenade_Tox</xpath>
+		<value><Ammo_40x46mmGrenade_Tox>40</Ammo_40x46mmGrenade_Tox></value>
+	</Operation>
+</Patch>
