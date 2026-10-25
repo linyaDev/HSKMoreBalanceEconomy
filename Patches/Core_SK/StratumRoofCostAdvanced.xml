@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!--
+		Цена продвинутых крыш Stratum.
+
+		HSK-совместимость (Core_SK_Stratum/Compat/skyarkhangel.hsk/1.6/Patches/
+		Roofs_*.xml) кладёт в них механизмы и электронные компоненты. Беда в
+		том, что крыша ложится на КАЖДУЮ клетку помещения, и любая деталь в
+		рецепте множится на площадь: солнечный световой люк на комнату 10x10
+		требовал 200 механизмов и 200 электроники — вдвадцатеро больше, чем
+		стоит целый станок снаряжения патронов. В серебре клетка выходила
+		745-2032 при 15-126 у соседних крыш.
+
+		Массовым крышам оставляем только сыпучее по 2-4 единицы плюс
+		индустриальный компонент; механизм с электроникой держим лишь у
+		тяжёлого раздвижного купола — его строят на 10-20 клеток, а не на
+		всю базу. Заодно ужимаем базовые материалы у тех крыш, где их было
+		8-10 на клетку (на комнату выходила тысяча единиц).
+
+		Серебро за клетку, было -> стало:
+		  солнечная черепица        745 -> 55
+		  лёгкий раздвижной         892 -> 46
+		  активная теплоотводящая   920 -> 59
+		  солнечная обшивка        1080 -> 104
+		  солнечный световой люк   1090 -> 100
+		  тяжёлый раздвижной       2032 -> 553
+		  термостат                 510 -> 55
+		  композитная панель          30 -> 12
+		  усиленная обшивка          126 -> 63
+		  стерильная плитка           49 -> 27
+	-->
+	<Operation Class="PatchOperationFindMod">
+		<mods><li>Stratum</li></mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+
+				<!-- Солнечная черепица: 5 стекла + 2 комп + 2 мех + 1 электр -> 3 стекла + 1 комп -->
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="SolarWeb-Stratum-RoofSolarShingles_Buildable"]/costStuffCount</xpath>
+					<value><costStuffCount>3</costStuffCount></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="SolarWeb-Stratum-RoofSolarShingles_Buildable"]/costList</xpath>
+					<value>
+						<costList>
+							<ComponentIndustrial>1</ComponentIndustrial>
+						</costList>
+					</value>
+				</li>
+
+				<!-- Лёгкий раздвижной: 4 стали + 2 мех + 2 электр -> 2 стали + 1 комп -->
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="SolarWeb-Stratum-RetractableRoofLight_Buildable"]/costStuffCount</xpath>
+					<value><costStuffCount>2</costStuffCount></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="SolarWeb-Stratum-RetractableRoofLight_Buildable"]/costList</xpath>
+					<value>
+						<costList>
+							<ComponentIndustrial>1</ComponentIndustrial>
+						</costList>
+					</value>
+				</li>
+
+				<!-- Активная теплоотводящая: 5 стали + 5 серебра + 2 мех + 2 электр
+				     -> 3 стали + 2 серебра + 1 комп -->
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="SolarWeb-Stratum-ThermalRadiatorRoof_Buildable"]/costStuffCount</xpath>
+					<value><costStuffCount>3</costStuffCount></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="SolarWeb-Stratum-ThermalRadiatorRoof_Buildable"]/costList</xpath>
+					<value>
+						<costList>
+							<SilverBar>2</SilverBar>
+							<ComponentIndustrial>1</ComponentIndustrial>
+						</costList>
+					</value>
+				</li>
+
+				<!-- Солнечная обшивка: 5 стали + 5 стекла + 4 комп + 2 мех + 2 электр
+				     -> 3 стали + 3 стекла + 2 комп -->
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="SolarWeb-Stratum-SolarHullPlate_Buildable"]/costStuffCount</xpath>
+					<value><costStuffCount>3</costStuffCount></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="SolarWeb-Stratum-SolarHullPlate_Buildable"]/costList</xpath>
+					<value>
+						<costList>
+							<Glass>3</Glass>
+							<ComponentIndustrial>2</ComponentIndustrial>
+						</costList>
+					</value>
+				</li>
+
+				<!-- Солнечный световой люк: 10 стекла + 4 комп + 2 мех + 2 электр
+				     -> 4 стекла + 2 комп -->
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="SolarWeb-Stratum-SolarSkylight_Buildable"]/costStuffCount</xpath>
+					<value><costStuffCount>4</costStuffCount></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="SolarWeb-Stratum-SolarSkylight_Buildable"]/costList</xpath>
+					<value>
+						<costList>
+							<ComponentIndustrial>2</ComponentIndustrial>
+						</costList>
+					</value>
+				</li>
+
+				<!-- Тяжёлый раздвижной купол: 4 стали + 10 пластила + 4 мех + 4 электр
+				     -> 3 стали + 4 пластила + 1 мех + 1 электр.
+				     Единственная крыша, где детали оставлены: её строят на
+				     десяток клеток, а не на всю базу. -->
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="SolarWeb-Stratum-RetractableRoof_Buildable"]/costStuffCount</xpath>
+					<value><costStuffCount>3</costStuffCount></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="SolarWeb-Stratum-RetractableRoof_Buildable"]/costList</xpath>
+					<value>
+						<costList>
+							<Plasteel>4</Plasteel>
+							<Mechanism>1</Mechanism>
+							<ElectronicComponents>1</ElectronicComponents>
+						</costList>
+					</value>
+				</li>
+
+				<!-- Термостат (один на комнату): 10 металла + 2 электр -> 5 металла + 1 комп -->
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="SolarWeb-Stratum-Thermostat"]/costStuffCount</xpath>
+					<value><costStuffCount>5</costStuffCount></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="SolarWeb-Stratum-Thermostat"]/costList</xpath>
+					<value>
+						<costList>
+							<ComponentIndustrial>1</ComponentIndustrial>
+						</costList>
+					</value>
+				</li>
+
+				<!-- Композитная панель: 10 ткани + 5 стали -> 4 ткани + 2 стали -->
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="SolarWeb-Stratum-CompositeInsulatedPanel_Buildable"]/costStuffCount</xpath>
+					<value><costStuffCount>4</costStuffCount></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="SolarWeb-Stratum-CompositeInsulatedPanel_Buildable"]/costList</xpath>
+					<value>
+						<costList>
+							<Steel>2</Steel>
+						</costList>
+					</value>
+				</li>
+
+				<!-- Усиленная обшивка: 10 стали + 6 железобетона -> 5 стали + 3 железобетона -->
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="SolarWeb-Stratum-ReinforcedHullPlating_Buildable"]/costStuffCount</xpath>
+					<value><costStuffCount>5</costStuffCount></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="SolarWeb-Stratum-ReinforcedHullPlating_Buildable"]/costList</xpath>
+					<value>
+						<costList>
+							<ReinforcedConcrete>3</ReinforcedConcrete>
+						</costList>
+					</value>
+				</li>
+
+				<!-- Стерильная плитка: 8 стали + 5 стекла -> 4 стали + 3 стекла -->
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="SolarWeb-Stratum-SterileTiledRoof_Buildable"]/costStuffCount</xpath>
+					<value><costStuffCount>4</costStuffCount></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="SolarWeb-Stratum-SterileTiledRoof_Buildable"]/costList</xpath>
+					<value>
+						<costList>
+							<Glass>3</Glass>
+						</costList>
+					</value>
+				</li>
+
+			</operations>
+		</match>
+	</Operation>
+</Patch>
