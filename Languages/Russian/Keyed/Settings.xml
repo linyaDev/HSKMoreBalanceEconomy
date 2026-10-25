@@ -7,6 +7,12 @@
 	<HMH_ShowGuestSilverTip>Показывать над гостями Hospitality иконку серебра и остаток денег на покупки. Отображается, только когда у гостя больше 40 серебра.</HMH_ShowGuestSilverTip>
 	<HMH_GuestSilverZoom>Порог зума для метки: {0} пикс/клетку</HMH_GuestSilverZoom>
 	<HMH_GuestSilverZoomTip>Метка серебра видна, только когда камера приближена сильнее порога. 0 — показывать при любом зуме; чем больше значение, тем ближе нужно приблизить камеру.</HMH_GuestSilverZoomTip>
+
+	<HMH_AmmoSection>Боеприпасы</HMH_AmmoSection>
+	<HMH_AmmoCraftOverride>Свой множитель стоимости крафта патронов (по умолчанию {0})</HMH_AmmoCraftOverride>
+	<HMH_AmmoCraftOverrideTip>Во сколько раз дороже обходится изготовление патронов: множитель применяется к материалам в рецептах. Пока выключено, действует значение из настроек мода (Defs/Misc/HardcoreSettings.xml).\n\nГильзы, стрелы, болты и поштучные тяжёлые снаряды под множитель не попадают.</HMH_AmmoCraftOverrideTip>
+	<HMH_AmmoCraftMultiplier>Множитель: x{0}</HMH_AmmoCraftMultiplier>
+	<HMH_AmmoCraftMultiplierTip>1 — ванильная стоимость, 3 — стандарт пака. Применяется сразу, перезапуск не нужен: уже выставленные заказы начнут требовать новое количество материалов.</HMH_AmmoCraftMultiplierTip>
 	<HMH_TechWidget_Label>{0}: {1}/{2}</HMH_TechWidget_Label>
 	<HMH_TechWidget_TipHeader>Текущий уровень по Ignorance Is Bliss: {0}\nПорог перехода: {1}% исследований уровня</HMH_TechWidget_TipHeader>
 	<HMH_TechWidget_TipCum>в зачёте {0}, нужно {1}</HMH_TechWidget_TipCum>

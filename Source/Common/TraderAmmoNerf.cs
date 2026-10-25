@@ -111,15 +111,17 @@ namespace HSKMoreHardcore
                         __result *= buyMult;
                 }
 
-                // Наценка на патроны/оружие только при торговле в поселениях
-                // (и с орбитой): караван, пришедший к нам на карту, торгует
-                // без наценки — TradeSession.trader тогда пешка.
+                // Наценка на оружие только при торговле в поселениях (и с
+                // орбитой): караван, пришедший к нам на карту, торгует без
+                // наценки — TradeSession.trader тогда пешка.
+                // Патроны идут по ванильной цене: ammoPriceMultiplier = 1.
                 if (TradeSession.trader is Pawn)
                     return;
 
                 if (ammoThingType != null && ammoThingType.IsInstanceOfType(thing))
                 {
-                    __result *= NerfSettings.ammoPriceMultiplier;
+                    if (NerfSettings.ammoPriceMultiplier != 1f)
+                        __result *= NerfSettings.ammoPriceMultiplier;
                 }
                 else if (thing.def.IsWeapon)
                 {

@@ -19,7 +19,10 @@ namespace HSKMoreHardcore
         public static float rewardAmmoMultiplier = 0.25f;
         public static float drugDropMultiplier = 0.33f;
         public static float podDrugMultiplier = 0.5f;
-        public static float ammoPriceMultiplier = 4f;
+        // Наценка при покупке в поселениях и с орбиты (караваны на карте торгуют
+        // без неё). Патроны не наценяем: ×4 делал покупку дороже своего крафта,
+        // а склады поселений — основной источник боеприпасов на раннем этапе.
+        public static float ammoPriceMultiplier = 1f;
         public static float weaponPriceMultiplier = 2f;
 
         // Banned materials in pods
