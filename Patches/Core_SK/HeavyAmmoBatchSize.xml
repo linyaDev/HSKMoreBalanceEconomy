@@ -1,46 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
 	<!--
-		Снаряды автопушек и подствольные гранаты: партия вдвое больше при том же
-		расходе материалов.
+		Крупный калибр: партия больше при том же расходе материалов.
 
-		Эти боеприпасы проходят порог нашего множителя крафта (AmmoCraftNerf
-		множит ингредиенты x3 у рецептов с партией от 20), но у них нет гильзы,
-		зато огромный расход слитков и пороха — и множится всё целиком. На
-		выходе переплата к рыночной цене x7.6-8.2 против x2.7-5.0 у обычных
-		патронов: одна лента 20x102 стоила дороже двух лент 7.62x51.
+		Эти боеприпасы проходят порог множителя крафта (AmmoCraftNerf множит
+		ингредиенты у рецептов с партией от 20 штук), но расход слитков, свинца
+		и пороха у них огромный, а у тяжёлых калибров ещё и гильза за 170. На
+		выходе выстрел стоил в 4-6 раз дороже рыночной цены против 2.7-4.2 у
+		стрелковки.
 
-		Удвоение выхода возвращает их в коридор стрелковки (x3.8-4.1), не трогая
-		ни рецепты, ни множитель: патрон просто делается партией побольше.
-		Работа за партию не меняется — это компенсация за объём.
+		Увеличение выхода возвращает их в коридор дешёвых патронов (x1.6-3.2),
+		не трогая ни рецепты, ни множитель. Работа за партию не меняется — это
+		компенсация за объём.
+
+		Было -> стало (на партию):
+		  7.62x51     60 -> 120    10.3 -> 5.2 серебра за патрон
+		  .50 BMG     60 -> 120    15.1 -> 7.5
+		  14.5x114    60 -> 180    25.3 -> 8.4
+		  20x102      40 -> 180    38.6 -> 8.6
+		  30x173      30 -> 150    53.6 -> 10.7
+		  40x46       20 -> 40     68.1 -> 34.1
 	-->
 
-	<!-- 20x102 мм: 40 -> 80 -->
+	<!-- 7.62x51 мм НАТО: 60 -> 120. Дорогая снайперская гильза (80) на партию
+	     всего в 60 штук делала его дороже 12 калибра. -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="MakeAmmo_762x51mmNATO_FMJ"]/products/Ammo_762x51mmNATO_FMJ</xpath>
+		<value><Ammo_762x51mmNATO_FMJ>120</Ammo_762x51mmNATO_FMJ></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="MakeAmmo_762x51mmNATO_AP"]/products/Ammo_762x51mmNATO_AP</xpath>
+		<value><Ammo_762x51mmNATO_AP>120</Ammo_762x51mmNATO_AP></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="MakeAmmo_762x51mmNATO_HP"]/products/Ammo_762x51mmNATO_HP</xpath>
+		<value><Ammo_762x51mmNATO_HP>120</Ammo_762x51mmNATO_HP></value>
+	</Operation>
+
+	<!-- .50 BMG: 60 -> 120 -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="MakeAmmo_50BMG_FMJ"]/products/Ammo_50BMG_FMJ</xpath>
+		<value><Ammo_50BMG_FMJ>120</Ammo_50BMG_FMJ></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="MakeAmmo_50BMG_Incendiary"]/products/Ammo_50BMG_Incendiary</xpath>
+		<value><Ammo_50BMG_Incendiary>120</Ammo_50BMG_Incendiary></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="MakeAmmo_50BMG_HE"]/products/Ammo_50BMG_HE</xpath>
+		<value><Ammo_50BMG_HE>120</Ammo_50BMG_HE></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="MakeAmmo_50BMG_Sabot"]/products/Ammo_50BMG_Sabot</xpath>
+		<value><Ammo_50BMG_Sabot>120</Ammo_50BMG_Sabot></value>
+	</Operation>
+
+	<!-- 14.5x114 мм: 60 -> 180 -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="MakeAmmo_145x114mm_FMJ"]/products/Ammo_145x114mm_FMJ</xpath>
+		<value><Ammo_145x114mm_FMJ>180</Ammo_145x114mm_FMJ></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="MakeAmmo_145x114mm_Incendiary"]/products/Ammo_145x114mm_Incendiary</xpath>
+		<value><Ammo_145x114mm_Incendiary>180</Ammo_145x114mm_Incendiary></value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/RecipeDef[defName="MakeAmmo_145x114mm_HE"]/products/Ammo_145x114mm_HE</xpath>
+		<value><Ammo_145x114mm_HE>180</Ammo_145x114mm_HE></value>
+	</Operation>
+
+	<!-- 20x102 мм: 40 -> 180 -->
 	<Operation Class="PatchOperationReplace">
 		<xpath>Defs/RecipeDef[defName="MakeAmmo_20x102mm_FMJ"]/products/Ammo_20x102mm_FMJ</xpath>
-		<value><Ammo_20x102mm_FMJ>80</Ammo_20x102mm_FMJ></value>
+		<value><Ammo_20x102mm_FMJ>180</Ammo_20x102mm_FMJ></value>
 	</Operation>
 	<Operation Class="PatchOperationReplace">
 		<xpath>Defs/RecipeDef[defName="MakeAmmo_20x102mm_HE"]/products/Ammo_20x102mm_HE</xpath>
-		<value><Ammo_20x102mm_HE>80</Ammo_20x102mm_HE></value>
+		<value><Ammo_20x102mm_HE>180</Ammo_20x102mm_HE></value>
 	</Operation>
 	<Operation Class="PatchOperationReplace">
 		<xpath>Defs/RecipeDef[defName="MakeAmmo_20x102mm_Incendiary"]/products/Ammo_20x102mm_Incendiary</xpath>
-		<value><Ammo_20x102mm_Incendiary>80</Ammo_20x102mm_Incendiary></value>
+		<value><Ammo_20x102mm_Incendiary>180</Ammo_20x102mm_Incendiary></value>
 	</Operation>
 
-	<!-- 30x173 мм: 30 -> 60 -->
+	<!-- 30x173 мм: 30 -> 150 -->
 	<Operation Class="PatchOperationReplace">
 		<xpath>Defs/RecipeDef[defName="MakeAmmo_30x173mm_FMJ"]/products/Ammo_30x173mm_FMJ</xpath>
-		<value><Ammo_30x173mm_FMJ>60</Ammo_30x173mm_FMJ></value>
+		<value><Ammo_30x173mm_FMJ>150</Ammo_30x173mm_FMJ></value>
 	</Operation>
 	<Operation Class="PatchOperationReplace">
 		<xpath>Defs/RecipeDef[defName="MakeAmmo_30x173mm_HE"]/products/Ammo_30x173mm_HE</xpath>
-		<value><Ammo_30x173mm_HE>60</Ammo_30x173mm_HE></value>
+		<value><Ammo_30x173mm_HE>150</Ammo_30x173mm_HE></value>
 	</Operation>
 	<Operation Class="PatchOperationReplace">
 		<xpath>Defs/RecipeDef[defName="MakeAmmo_30x173mm_Incendiary"]/products/Ammo_30x173mm_Incendiary</xpath>
-		<value><Ammo_30x173mm_Incendiary>60</Ammo_30x173mm_Incendiary></value>
+		<value><Ammo_30x173mm_Incendiary>150</Ammo_30x173mm_Incendiary></value>
 	</Operation>
 
 	<!-- Подствольные 40x46 мм: 20 -> 40 -->
