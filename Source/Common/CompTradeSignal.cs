@@ -167,25 +167,31 @@ namespace HSKMoreHardcore
 
         public override string CompInspectStringExtra()
         {
+            // Караван в пути: сначала время до прибытия, но заряды показываем
+            // всё равно — иначе непонятно, можно ли звать ещё один.
+            string arrival = null;
             if (isActive && arrivalTick > 0)
             {
                 int ticksLeft = arrivalTick - Find.TickManager.TicksGame;
                 if (ticksLeft > 0)
-                    return Props.activeKey.Translate(ticksLeft.ToStringTicksToPeriod());
+                    arrival = Props.activeKey.Translate(ticksLeft.ToStringTicksToPeriod());
             }
 
             if (IsDisabledByProgress())
-                return "TradeSignal_TooAdvancedStatus".Translate();
+            {
+                string progress = "TradeSignal_TooAdvancedStatus".Translate();
+                return arrival == null ? progress : arrival + "\n" + progress;
+            }
 
             int charges = GetCharges();
+            string status = "TradeSignal_Charges".Translate(charges, Props.maxCharges);
             if (charges < Props.maxCharges)
             {
                 int ticksToNext = GetTicksToNextCharge();
-                return "TradeSignal_Charges".Translate(charges, Props.maxCharges)
-                    + "\n" + "TradeSignal_OnCooldown".Translate(ticksToNext.ToStringTicksToPeriod());
+                status += "\n" + "TradeSignal_OnCooldown".Translate(ticksToNext.ToStringTicksToPeriod());
             }
 
-            return "TradeSignal_Charges".Translate(charges, Props.maxCharges);
+            return arrival == null ? status : arrival + "\n" + status;
         }
 
         private int GetCharges()
