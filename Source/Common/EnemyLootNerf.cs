@@ -162,9 +162,12 @@ namespace HSKMoreHardcore
             }
             else if (ammoThingType != null && ammoThingType.IsInstanceOfType(thing))
             {
-                float ammoMult = isAwayMap ? NerfSettings.ammoDropMultiplierAway : NerfSettings.ammoDropMultiplier;
-                int before = thing.stackCount;
-                thing.stackCount = Mathf.Max(1, Mathf.FloorToInt(thing.stackCount * ammoMult));
+                // Выключается галкой в настройках мода
+                if (HSKMoreHardcoreMod.Settings?.nerfEnemyAmmoDrop != false)
+                {
+                    float ammoMult = isAwayMap ? NerfSettings.ammoDropMultiplierAway : NerfSettings.ammoDropMultiplier;
+                    thing.stackCount = Mathf.Max(1, Mathf.FloorToInt(thing.stackCount * ammoMult));
+                }
             }
             else if (thing.def.IsDrug && thing.stackCount > 1)
             {

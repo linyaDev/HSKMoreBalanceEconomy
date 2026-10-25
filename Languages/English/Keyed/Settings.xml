@@ -13,6 +13,8 @@
 	<HMH_AmmoCraftOverrideTip>How much more expensive ammo crafting is: the multiplier applies to recipe ingredients. While off, the value from the mod's defs is used (Defs/Misc/HardcoreSettings.xml).\n\nCartridge cases, arrows, bolts and single-shot heavy shells are not affected.</HMH_AmmoCraftOverrideTip>
 	<HMH_AmmoCraftMultiplier>Multiplier: x{0}</HMH_AmmoCraftMultiplier>
 	<HMH_AmmoCraftMultiplierTip>1 — vanilla cost, 3 — pack standard. Applies immediately, no restart needed: existing bills will start requiring the new amounts.</HMH_AmmoCraftMultiplierTip>
+	<HMH_NerfEnemyAmmoDrop>Cut ammo dropped by enemies</HMH_NerfEnemyAmmoDrop>
+	<HMH_NerfEnemyAmmoDropTip>Killed enemies only drop a fraction of the ammo in their inventory: a quarter on your own map and 4% away from home (raids on other settlements, quest sites). Turn off to get the full loot.\n\nDoes not affect weapons, armor or medicine — those have their own rules.</HMH_NerfEnemyAmmoDropTip>
 	<HMH_TechWidget_Label>{0}: {1}/{2}</HMH_TechWidget_Label>
 	<HMH_TechWidget_TipHeader>Current level per Ignorance Is Bliss: {0}\nTransition threshold: {1}% of the level's projects</HMH_TechWidget_TipHeader>
 	<HMH_TechWidget_TipCum>counted {0}, need {1}</HMH_TechWidget_TipCum>

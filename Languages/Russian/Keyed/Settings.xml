@@ -13,6 +13,8 @@
 	<HMH_AmmoCraftOverrideTip>Во сколько раз дороже обходится изготовление патронов: множитель применяется к материалам в рецептах. Пока выключено, действует значение из настроек мода (Defs/Misc/HardcoreSettings.xml).\n\nГильзы, стрелы, болты и поштучные тяжёлые снаряды под множитель не попадают.</HMH_AmmoCraftOverrideTip>
 	<HMH_AmmoCraftMultiplier>Множитель: x{0}</HMH_AmmoCraftMultiplier>
 	<HMH_AmmoCraftMultiplierTip>1 — ванильная стоимость, 3 — стандарт пака. Применяется сразу, перезапуск не нужен: уже выставленные заказы начнут требовать новое количество материалов.</HMH_AmmoCraftMultiplierTip>
+	<HMH_NerfEnemyAmmoDrop>Резать патроны, выпадающие с врагов</HMH_NerfEnemyAmmoDrop>
+	<HMH_NerfEnemyAmmoDropTip>С убитых врагов падает лишь часть патронов из их инвентаря: четверть на своей карте и 4% на чужой (вылазки, квестовые точки). Выключите, чтобы трофеи доставались полностью.\n\nНа оружие, броню и медикаменты не влияет — у них свои правила.</HMH_NerfEnemyAmmoDropTip>
 	<HMH_TechWidget_Label>{0}: {1}/{2}</HMH_TechWidget_Label>
 	<HMH_TechWidget_TipHeader>Текущий уровень по Ignorance Is Bliss: {0}\nПорог перехода: {1}% исследований уровня</HMH_TechWidget_TipHeader>
 	<HMH_TechWidget_TipCum>в зачёте {0}, нужно {1}</HMH_TechWidget_TipCum>

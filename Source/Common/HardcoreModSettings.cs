@@ -27,6 +27,10 @@ namespace HSKMoreHardcore
         public bool ammoCraftOverride = false;
         public float ammoCraftMultiplier = 3f;
 
+        // Резать ли патроны, выпадающие из инвентаря врагов
+        // (EnemyLootNerf: четверть на своей карте, 4% на чужой).
+        public bool nerfEnemyAmmoDrop = true;
+
         public override void ExposeData()
         {
             base.ExposeData();
@@ -37,6 +41,7 @@ namespace HSKMoreHardcore
             Scribe_Values.Look(ref guestSilverZoom, "guestSilverZoom", 24f);
             Scribe_Values.Look(ref ammoCraftOverride, "ammoCraftOverride", false);
             Scribe_Values.Look(ref ammoCraftMultiplier, "ammoCraftMultiplier", 3f);
+            Scribe_Values.Look(ref nerfEnemyAmmoDrop, "nerfEnemyAmmoDrop", true);
         }
     }
 
@@ -108,6 +113,10 @@ namespace HSKMoreHardcore
             {
                 AmmoCraftNerf.Apply();
             }
+
+            list.CheckboxLabeled("HMH_NerfEnemyAmmoDrop".Translate(),
+                ref Settings.nerfEnemyAmmoDrop,
+                "HMH_NerfEnemyAmmoDropTip".Translate());
 
             list.End();
         }
