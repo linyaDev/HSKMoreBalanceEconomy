@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Больничные кровати по иммунитету отставали от обычных: бонус кровати
+	     умножается на множитель материала, а у стали он 0.95, тогда как у
+	     конопли 1.25 и у кожи ящера 1.31. Больничная из стали давала 1.14,
+	     обычная кровать из конопли 1.29.
+	     Больничная 1.2 -> 1.3, улучшенная больничная 1.25 -> 1.45 (так она
+	     остаётся лучше обычной больничной из любого материала). -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="HospitalBed"]/statBases/ImmunityGainSpeedFactor</xpath>
+		<value>
+			<ImmunityGainSpeedFactor>1.3</ImmunityGainSpeedFactor>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="AdvHospitalBed"]/statBases/ImmunityGainSpeedFactor</xpath>
+		<value>
+			<ImmunityGainSpeedFactor>1.45</ImmunityGainSpeedFactor>
+		</value>
+	</Operation>
+
+	<!-- Медь 1.25 -> 1.15 (на уровне пластика и альнико): ранний дешёвый
+	     металл не должен быть лучшим материалом для больничной кровати.
+	     Задевает и медные крио- и космические кровати. -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="CopperBar"]/stuffProps/statFactors/ImmunityGainSpeedFactor</xpath>
+		<value>
+			<ImmunityGainSpeedFactor>1.15</ImmunityGainSpeedFactor>
+		</value>
+	</Operation>
+</Patch>

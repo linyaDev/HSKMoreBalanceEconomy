@@ -31,6 +31,7 @@
 
 - Медицина подорожала, и чем выше тир, тем сильнее: индустриальная и ультратехнологичная у торговцев обходятся в разы дороже прежнего. Бинты вдобавок слабее — ниже и потенциал, и потолок качества лечения.
 - Индустриальная и ультратехнологичная медицина заменена на базовую в наградах и капсулах.
+- Больничные кровати снова лучше обычных по скорости иммунитета: больничная 1.2 → 1.3, улучшенная 1.25 → 1.45. Раньше больничная из стали проигрывала обычной кровати из конопли. Медь как материал кровати ослаблена (1.25 → 1.15), чтобы дешёвый металл не был лучшим выбором.
 
 ## Крафт и ресурсы
 
@@ -116,6 +117,7 @@ Balance overhaul for the Hardcore SK modlist: economy, loot, crafting, trading a
 ### Medicine
 - Medicine costs more, and the higher the tier the steeper the jump: industrial and ultratech kits are several times pricier at traders. Bandages are weaker too — lower potency and a lower tend quality cap.
 - Industrial and ultratech medicine is replaced with the basic kind in rewards and pods.
+- Hospital beds are better than regular beds at immunity gain again: hospital bed 1.2 → 1.3, advanced hospital bed 1.25 → 1.45. A steel hospital bed used to lose to a regular bed made of hemp cloth. Copper as a bed material is weaker (1.25 → 1.15), so the cheap metal is no longer the best pick.
 
 ### Crafting and resources
 - Cartridge cases: every firearm round needs a case of its own class — five classes, unlocked by the same research as the weapon part it replaces.
