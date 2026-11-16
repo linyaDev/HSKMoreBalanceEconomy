@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- ============================================================
+	     Балестра (Arbalest) — одноручный лёгкий арбалет:
+	       - одноручная
+	       - исследование Bow_B2 (Метательное IV) -> Greatbow (Метательное III)
+	       - свои лёгкие болты вместо общих (дефы: NoVile/Defs/Ammo/Bolts_Light.xml)
+
+	     Вся папка NoVile грузится только без Vile's Pre-Industrial
+	     (loadFolders.xml, IfModNotActive="ViTech.MedievalOverhaul"). У Vile's
+	     Arbalest — тяжёлый «осадный арбалет», а одноручная роль уже занята его
+	     лёгким арбалетом (Crossbow); к тому же у Vile's свой AmmoSet_LightBolt
+	     с тем же defName, что и наш.
+	     ============================================================ -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="Arbalest"]/weaponTags</xpath>
+		<value>
+			<li>CE_OneHandedWeapon</li>
+		</value>
+	</Operation>
+
+	<!-- Описание под новую роль: одноручный лёгкий арбалет (рус. — в Languages) -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Arbalest"]/description</xpath>
+		<value><description>A light one-handed crossbow. A special drawing mechanism lets it be cocked with one hand, and its low weight allows carrying it alongside a shield. Fires light bolts — weaker than a full-sized crossbow, but leaves the other hand free.</description></value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Arbalest"]/recipeMaker/researchPrerequisite</xpath>
+		<value><researchPrerequisite>Greatbow</researchPrerequisite></value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Arbalest"]/comps/li[@Class="CombatExtended.CompProperties_AmmoUser"]/ammoSet</xpath>
+		<value><ammoSet>AmmoSet_LightBolt</ammoSet></value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Arbalest"]/verbs/li/defaultProjectile</xpath>
+		<value><defaultProjectile>Projectile_LightBolt</defaultProjectile></value>
+	</Operation>
+
+</Patch>
